@@ -19,17 +19,17 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/get_videos")
-
-
 def get_videos():
     videos = mongo.db.videos.find()
     return render_template("videos.html", videos=videos)
-  
+
 # to tell app where and how to run the application
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
 
-            
+
 # needs to be updated to debug = False prior to submission
