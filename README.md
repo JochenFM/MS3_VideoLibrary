@@ -1,6 +1,6 @@
 
 
-
+THis is the env.py file, just in case it gets lost again:
 import os
 
 os.environ.setdefault("IP", "0.0.0.0")
@@ -9,6 +9,10 @@ os.environ.setdefault("SECRET_KEY", "T&eYic9UGY95F9|~AMyKlJ(5DliADY")
 os.environ.setdefault("MONGO_URI", "mongodb+srv://JochenUser:J0chenUser666@myfirstcluster.ex33f.mongodb.net/videolibrary?retryWrites=true&w=majority")
 os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
+
+Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min)
+const sideNav = document.querySelector('.sidenav');
+M.Sidenav.init(sideNav, {});
 
 
 

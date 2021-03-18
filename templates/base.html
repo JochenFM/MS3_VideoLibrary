@@ -20,12 +20,12 @@
 
     <header>
         <!--main top navbar-->
-        <nav class ="nav-extended text-shadow red darken-4">
+        <nav class="nav-extended text-shadow red darken-4">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Video Library</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('get_videos')}}" class="brand-logo">Video Library</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url_for('get_videos')}}">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">New Video</a></li>
                     <li><a href="#">All Videos</a></li>
@@ -37,7 +37,10 @@
         </nav>
         <!--mobile side navbar-->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
+            <li>
+                <h4 class="center-align red-text text-darken-4">Video Library</h4>
+            </li>
+            <li><a href="{{ url_for('get_videos')}}">Home</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">New Video</a></li>
             <li><a href="#">All Videos</a></li>
@@ -46,12 +49,37 @@
             <li><a href="#">Register</a></li>
         </ul>
     </header>
-    
+    <!--slider-->
+
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src="../static/images/march-of-intellect-1828.jpg">
+                <div class="caption center-align">
+                    <h3>Talks, Symposia, and Workshops</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Ordering recordings in the History of
+                        Science & Technology</h5>
+                </div>
+            </li>
+            <li>
+                <img src="../static/images/national-cancer-institute.jpg">
+                <div class="caption left-align">
+                    <h3>Upload and search your favourite presentations</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="../static/images/national-cancer-institute-2.jpg">
+                <div class="caption right-align">
+                    <h3>Right Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5>
+                </div>
+            </li>
+        </ul>
+    </section>
 
     {% block content %}
     {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static',  filename='js/script.js') }}"></script>
     {% block scripts %}
