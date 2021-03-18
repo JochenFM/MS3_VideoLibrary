@@ -20,7 +20,7 @@
 
     <header>
         <!--main top navbar-->
-        <nav class="nav-extended text-shadow red darken-4">
+        <nav class="nav-extended text-shadow deep-orange darken-3">
             <div class="nav-wrapper">
                 <a href="{{ url_for('get_videos')}}" class="brand-logo">Video Library</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -31,7 +31,7 @@
                     <li><a href="#">All Videos</a></li>
                     <li><a href="#">Log Out</a></li>
                     <li><a href="#">Login In</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="{{ url_for('register')}}">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -46,7 +46,7 @@
             <li><a href="#">All Videos</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="#">Login In</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register')}}">Register</a></li>
         </ul>
     </header>
     <!--slider-->

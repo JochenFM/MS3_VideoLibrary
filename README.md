@@ -10,9 +10,13 @@ os.environ.setdefault("MONGO_URI", "mongodb+srv://JochenUser:J0chenUser666@myfir
 os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
-Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min)
+Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
 const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, {});
+
+
+Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
+
 
 
 
