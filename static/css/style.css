@@ -9,17 +9,18 @@
 
 .card-panel {
 
-    background-color: #750075;
+    background-color: #7EBC89;
 }
 
 
-/* flash messages on register.html */
+/* flash messages on register.html does not work as overwritten*/
 
 .flashes h4 {
     line-height: 1.5;
+    background-color: #C1DBB3;
 }
 
-/* input field in registration form register.html*/
+/* input field in registration form register.html */
 
 .input-field label {
      color: white;

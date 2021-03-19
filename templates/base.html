@@ -21,8 +21,8 @@
     <header>
         <!--main top navbar-->
         <nav class="nav-extended text-shadow deep-orange darken-3">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('get_videos')}}" class="brand-logo">Video Library</a>
+            <div class="container nav-wrapper">
+                <a href="{{ url_for('get_videos')}}" class="brand-logo">History of Science Videos</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_videos')}}">Home</a></li>
@@ -30,7 +30,7 @@
                     <li><a href="#">New Video</a></li>
                     <li><a href="#">All Videos</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="#">Login In</a></li>
+                    <li><a href="{{ url_for('login')}}">Login In</a></li>
                     <li><a href="{{ url_for('register')}}">Register</a></li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
             <li><a href="#">New Video</a></li>
             <li><a href="#">All Videos</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Login In</a></li>
+            <li><a href="{{ url_for('login')}}">Login In</a></li>
             <li><a href="{{ url_for('register')}}">Register</a></li>
         </ul>
     </header>
@@ -57,15 +57,15 @@
                 <img src="../static/images/march-of-intellect-1828.jpg">
                 <div class="caption center-align">
                     <h3>Talks, Symposia, and Workshops</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Ordering recordings in the History of
-                        Science & Technology</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Recordings in the History of
+                        Science & Technology in one place</h5>
                 </div>
             </li>
             <li>
                 <img src="../static/images/national-cancer-institute.jpg">
                 <div class="caption left-align">
                     <h3>Upload and search your favourite presentations</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">.</h5>
                 </div>
             </li>
             <li>
@@ -85,7 +85,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class ="row flashes">
-                        <h4 class =" deep-orange lighten-1 center-align">{{ message }}</h4>
+                        <h4 class ="center-align">{{ message }}</h4>
                     </div>    
                 {% endfor %}
             {% endif %} 
@@ -102,7 +102,7 @@
 
 <!--footer-->
 
-<footer class="section deep-orange darken-3 white-text-shadow center">
+<footer class="section deep-orange darken-3 text-shadow center">
     <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
 </footer>
 
