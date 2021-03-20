@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -13,40 +17,40 @@
     <!--for any custom CSS applied from a child template-->
     {% block styles %}
     {% endblock %}
-    <title>Video Library</title>
+    <title>Video Wunderkammer</title>
 </head>
 
 <body>
 
     <header>
         <!--main top navbar-->
-        <nav class="nav-extended text-shadow deep-orange darken-3">
-            <div class="container nav-wrapper">
-                <a href="{{ url_for('get_videos')}}" class="brand-logo">History of Science Videos</a>
+        <nav class="nav-extended grey-text deep-orange darken-3">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_videos') }}" class="brand-logo">History of Science Videos</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_videos')}}">Home</a></li>
+                    <li><a href="{{ url_for('get_videos') }}">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">New Video</a></li>
                     <li><a href="#">All Videos</a></li>
                     <li><a href="#">Log Out</a></li>
-                    <li><a href="{{ url_for('login')}}">Login In</a></li>
-                    <li><a href="{{ url_for('register')}}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Login In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
             </div>
         </nav>
         <!--mobile side navbar-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <h4 class="center-align red-text text-darken-4">Video Library</h4>
+                <h4 class="center-align red-text text-darken-4">Video Wunderkammer</h4>
             </li>
-            <li><a href="{{ url_for('get_videos')}}">Home</a></li>
+            <li><a href="{{ url_for('get_videos') }}">Home</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">New Video</a></li>
             <li><a href="#">All Videos</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="{{ url_for('login')}}">Login In</a></li>
-            <li><a href="{{ url_for('register')}}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
     </header>
     <!--slider-->
@@ -54,7 +58,7 @@
     <section class="slider">
         <ul class="slides">
             <li>
-                <img src="../static/images/march-of-intellect-1828.jpg">
+                <img src="static/images/march-of-intellect-1828.jpg" alt="">
                 <div class="caption center-align">
                     <h3>Talks, Symposia, and Workshops</h3>
                     <h5 class="light grey-text text-lighten-3 hide-on-small-only">Recordings in the History of
@@ -62,24 +66,24 @@
                 </div>
             </li>
             <li>
-                <img src="../static/images/national-cancer-institute.jpg">
+                <img src="static/images/national-cancer-institute.jpg" alt="">
                 <div class="caption left-align">
                     <h3>Upload and search your favourite presentations</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">.</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
                 </div>
             </li>
             <li>
-                <img src="../static/images/national-cancer-institute-2.jpg">
+                <img src="static/images/national-cancer-institute-2.jpg" alt="">
                 <div class="caption right-align">
                     <h3>Right Aligned Caption</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Here's our small slogan.</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
                 </div>
             </li>
         </ul>
     </section>
 
 
-      <section>
+    <section>
         <!--flash messages-->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -101,6 +105,30 @@
 
 
 <!--footer-->
+
+<!--<   footer class="page-footer deep-orange darken-3">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Copyright</h5>
+                <p class="grey-text text-lighten-4">Jochen F. Mayer &copy; 2021</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Social</h5>
+                <ul class= "social-links">
+                <li>
+                    <a target ="_blank" href="https://www.twitter.com">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+         
+        </footer> -->
 
 <footer class="section deep-orange darken-3 text-shadow center">
     <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
