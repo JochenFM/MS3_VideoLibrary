@@ -29,28 +29,34 @@
                 <a href="{{ url_for('get_videos') }}" class="brand-logo">History of Science Videos</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_videos') }}">Home</a></li>
-                    <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
-                    <li><a href="#">New Video</a></li>
-                    <li><a href="#">All Videos</a></li>
-                    <li><a href="#">Log Out</a></li>
-                    <li><a href="{{ url_for('login') }}">Login In</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                        <li><a href="{{ url_for('get_videos') }}">Home</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
+                        <li><a href="#">New Video</a></li>
+                        <li><a href="#">All Videos</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Login In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
         <!--mobile side navbar-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <h4 class="center-align red-text text-darken-4">Video Wunderkammer</h4>
+                <h4 class="center-align text-darken-4">Video Wunderkammer</h4>
             </li>
             <li><a href="{{ url_for('get_videos') }}">Home</a></li>
-            <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
-            <li><a href="#">New Video</a></li>
-            <li><a href="#">All Videos</a></li>
-            <li><a href="#">Log Out</a></li>
-            <li><a href="{{ url_for('login') }}">Login In</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% if session.user %}
+                    <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
+                    <li><a href="#">New Video</a></li>
+                    <li><a href="#">All Videos</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
         </ul>
     </header>
     <!--slider-->
@@ -69,14 +75,16 @@
                 <img src="static/images/national-cancer-institute.jpg" alt="">
                 <div class="caption left-align">
                     <h3>Upload and search your favourite presentations</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.</h5>
                 </div>
             </li>
             <li>
                 <img src="static/images/national-cancer-institute-2.jpg" alt="">
                 <div class="caption right-align">
                     <h3>Right Aligned Caption</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.</h5>
                 </div>
             </li>
         </ul>
@@ -86,27 +94,27 @@
     <section>
         <!--flash messages-->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class ="row flashes">
-                        <h4 class ="center-align">{{ message }}</h4>
-                    </div>    
-                {% endfor %}
-            {% endif %} 
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
     <main class="container">
-        
-    {% block content %}
-    {% endblock %}
+
+        {% block content %}
+        {% endblock %}
     </main>
 
 
 
 
-<!--footer-->
+    <!--footer-->
 
-<!--<   footer class="page-footer deep-orange darken-3">
+    <!--<   footer class="page-footer deep-orange darken-3">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -130,12 +138,12 @@
          
         </footer> -->
 
-<footer class="section deep-orange darken-3 text-shadow center">
-    <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
-</footer>
+    <footer class="section deep-orange darken-3 text-shadow center">
+        <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
+    </footer>
 
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static',  filename='js/script.js') }}"></script>
     {% block scripts %}
