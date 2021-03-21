@@ -24,7 +24,7 @@
 
     <header>
         <!--main top navbar-->
-        <nav class="nav-extended grey-text deep-orange darken-3">
+        <nav class="nav-extended grey-text deep-orange lighten-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('get_videos') }}" class="brand-logo">History of Science Videos</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -59,36 +59,7 @@
                 {% endif %}
         </ul>
     </header>
-    <!--slider-->
-
-    <section class="slider">
-        <ul class="slides">
-            <li>
-                <img src="../images/march-of-intellect-1828.jpg" alt="">
-                <div class="caption center-align">
-                    <h3>Talks, Symposia, and Workshops</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Recordings in the History of
-                        Science & Technology in one place</h5>
-                </div>
-            </li>
-            <li>
-                <img src="../images/national-cancer-institute.jpg" alt="">
-                <div class="caption left-align">
-                    <h3>Upload and search your favourite presentations</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit.</h5>
-                </div>
-            </li>
-            <li>
-                <img src="../images/national-cancer-institute-2.jpg" alt="">
-                <div class="caption right-align">
-                    <h3>Right Aligned Caption</h3>
-                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit.</h5>
-                </div>
-            </li>
-        </ul>
-    </section>
+    
 
 
     <section>
@@ -103,7 +74,7 @@
         {% endif %}
         {% endwith %}
     </section>
-    <main class="container">
+    <main>
 
         {% block content %}
         {% endblock %}
@@ -136,9 +107,9 @@
             </div>
           </div>
          
-        </footer> -->
+        </footer-->
 
-    <footer class="section deep-orange darken-3 text-shadow center">
+    <footer class="section deep-orange lighten-2 text-shadow center">
         <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
     </footer>
 

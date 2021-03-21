@@ -2,14 +2,78 @@
 
 {% block content %}
 
-    {% for video in videos %}
-        {{ video.video_title }}<br>
-        {{ video.category_name }}<br>
-        {{ video.video_description }}<br>
-        {{ video.video_venue }}<br>
-        {{ video.video_author }}<br>
-        {{ video.date }}<br>
-    {% endfor %}
+<!--slider-->
+
+
+<div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+        <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>
+    <div class="carousel-item white-text" href="#one!">
+        <img src="{{ url_for('static', filename='images/march-of-intellect-1828.jpg') }}">
+        <div class="caption center-align">
+            <h3>Talks, Symposia, and Workshops</h3>
+            <p class="white-text hide-on-small-only">Recordings in the History of
+                Science & Technology in one place</p>
+        </div>
+    </div>
+    <div class="carousel-item" href="#two!">
+        <img src="{{url_for('static', filename='images/curies.jpg')}}">
+        <div class="caption right-align">
+            <h3>Right Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit.</h5>
+        </div>
+    </div>
+    <div class="carousel-item" href="#three!">
+    <img src="{{url_for('static', filename='images/herschel.jpg')}}">
+    <div class="caption right-align">
+        <h3>Right Aligned Caption</h3>
+        <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.</h5>
+    </div>
+</div>
+</div>
+
+<!--<ul class="slides">
+        <li>
+            <img src="{{ url_for('static', filename='images/march-of-intellect-1828.jpg') }}">
+            <div class="caption center-align">
+                <h3>Talks, Symposia, and Workshops</h3>
+                <h5 class="light grey-text text-lighten-3 hide-on-small-only">Recordings in the History of
+                    Science & Technology in one place</h5>
+            </div>
+        </li>
+        <li>
+            <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
+            <div class="caption left-align">
+                <h3>Upload and search your favourite presentations</h3>
+                <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="{{url_for('static', filename='images/national-cancer-institute-2.jpg')}}">
+            <div class="caption right-align">
+                <h3>Right Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.</h5>
+            </div>
+        </li>
+    </ul>
+</section>-->
+
+{% for video in videos %}
+{{ video.video_title }}<br>
+{{ video.category_name }}<br>
+{{ video.video_description }}<br>
+{{ video.video_venue }}<br>
+{{ video.video_author }}<br>
+{{ video.date }}<br>
+{% endfor %}
+
+
+
 {% endblock %}
 
 
