@@ -21,6 +21,12 @@
 }
 
 
+.card-panel h3{
+
+    color: #7EBC89;
+}
+
+
 /* flash messages on register.html does not work as overwritten*/
 
 .flashes h4 {
