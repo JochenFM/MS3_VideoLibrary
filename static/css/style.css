@@ -34,8 +34,24 @@
      color: white;
    }
 
+
+/*header featured videos.html*/   
+
 .feature-text-center {
 
     text-align: center;
 }
+
+.carousel-item img {
+    height: auto; 
+    max-width: auto; 
+    max-height: 600px;
+}
  
+.carousel-item h3 {
+
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+}

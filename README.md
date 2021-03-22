@@ -21,7 +21,7 @@ Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
 Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
 it was due to the env.py file being deleted/had dispaared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
 
-Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows"
+Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 
 Fellow student Sean Young for...
 

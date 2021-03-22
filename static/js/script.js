@@ -13,6 +13,18 @@ M.Carousel.init(carousel,{
     indicators: true
   });
 
+  //datepicker
+
+  const elems = document.querySelector('.datepicker');
+  M.Datepicker.init(elems, {
+        format: "dd mmmm, yyyy",
+        yearRange: 15,
+        showClearBtn: true,
+        i18n: {
+            done: "Select"
+        }
+    });
+
 
 //slider
 //const slider = document.querySelector('.slider');
