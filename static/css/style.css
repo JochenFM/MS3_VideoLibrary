@@ -20,6 +20,7 @@
     background-color: #C1DBB3;
 }
 
+/*card panels across the app*/
 
 .card-panel h3{
 
@@ -48,12 +49,12 @@
     text-align: center;
 }
 
-.carousel-item img {
-    height: auto; 
-    max-width: auto; 
-    max-height: 600px;
+.responsive-img {
+    width: auto;
+    max-height: 900px;
+    object-fit: cover;
 }
- 
+
 .carousel-item h3 {
 
     text-align: center;

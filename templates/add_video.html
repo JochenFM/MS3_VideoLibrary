@@ -9,13 +9,13 @@
                 <form class="col s12" method="POST" action="">
                     <div class="row">
                         <div class="input-field col s12">
-                            <select id ="category_name" name ="category_name" class ="validate" required>
+                            <select id="category_name" name="category_name" class="validate" required>
                                 <option value="" disabled selected>Choose Category</option>
                                 {% for category in categories %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                                {% endfor %}    
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
                             </select>
-                            <label for ="category_name">Video Category</label>
+                            <label for="category_name">Video Category</label>
                         </div>
                     </div>
                     <div class="row">
@@ -65,6 +65,13 @@
                             <label for="video_link">Link to Video</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button class="btn waves-effect waves-light" type="submit" name ="">Add Video
+                                <i class="fas fa-plus-square right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -73,4 +80,3 @@
 
 
         DURATION <i class="fas fa-hourglass-start prefix"></i>
-       

@@ -6,11 +6,10 @@ M.Sidenav.init(sideNav, {edge: "right"});
 
 const carousel = document.querySelector('.carousel');
 M.Carousel.init(carousel,{
-    height: 500,
+    indicators: true,
+    height: 900,
     transition: 500,
     interval: 6000,
-    fullWidth: true,
-    indicators: true
   });
 
 
