@@ -33,7 +33,7 @@
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_video') }}">New Video</a></li>
-                        <li><a href="#">All Videos</a></li>
+                        <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Login In</a></li>
@@ -51,7 +51,7 @@
                 {% if session.user %}
                     <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_video') }}">New Video</a></li>
-                    <li><a href="#">All Videos</a></li>
+                    <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Login In</a></li>
