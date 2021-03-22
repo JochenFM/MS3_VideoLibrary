@@ -27,6 +27,11 @@ Fellow student Sean Young for...
 
 herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
 
+For image sizing in carousel:
+https://stackoverflow.com/questions/50652298/how-to-resize-an-image-inside-of-a-materialize-css-slider-to-make-it-fit
+
+check out responsive video container https://materializecss.com/media-css.html
+
 
 
 

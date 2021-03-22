@@ -17,7 +17,7 @@
 
 .card-panel {
 
-    background-color: #C1DBB3;
+    background-color: #FAEDCA;
 }
 
 /*card panels across the app*/
@@ -49,6 +49,9 @@
     text-align: center;
 }
 
+
+/*carousel*/
+
 .responsive-img {
     width: auto;
     max-height: 900px;
@@ -61,4 +64,9 @@
     font-size: 2rem;
     font-weight: 400;
     color: white;
+}
+
+.btn {
+
+    color: #7EBC89;
 }

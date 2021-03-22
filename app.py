@@ -98,10 +98,26 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_video")
+@app.route("/add_video", methods=["GET", "POST"])
 def add_video():
-    categories = mongo.db.categories.find().sort("category_name",1)
+    if request.method == "POST":
+        video = {
+            "category_name": request.form.get("category_name"),
+            "video_title": request.form.get("video_title"),
+            "video_author": request.form.get("video_author"),
+            "video_description": request.form.get("video_description"),
+            "video_venue": request.form.get("video_venue"),
+            "date": request.form.get("date"),
+            "video_link": request.form.get("video_link"),
+            "created by": session["user"]
+        }
+        mongo.db.videos.insert_one(video)
+        flash("Video sucessfully added")
+        return redirect(url_for("get_videos"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_video.html", categories=categories)
+
 
 # to tell app where and how to run the application
 if __name__ == "__main__":

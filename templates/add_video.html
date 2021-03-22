@@ -6,7 +6,8 @@
         <div class="col-12">
             <h3 class="feature-text-center">Add Video</h3>
             <div class="row card-panel">
-                <form class="col s12" method="POST" action="">
+                <form class="col s12" method="POST" action="{{ url_for('add_video') }}">
+                    <!--category selection-->
                     <div class="row">
                         <div class="input-field col s12">
                             <select id="category_name" name="category_name" class="validate" required>
@@ -18,6 +19,7 @@
                             <label for="category_name">Video Category</label>
                         </div>
                     </div>
+                    <!--video title-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-video prefix"></i>
@@ -26,6 +28,7 @@
                             <label for="video_title">Video Title</label>
                         </div>
                     </div>
+                    <!--presenter name-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-chalkboard-teacher prefix"></i>
@@ -34,14 +37,16 @@
                             <label for="video_author">Author/Presenter</label>
                         </div>
                     </div>
+                    <!--video description-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-align-left prefix"></i>
                             <textarea id="video_description" name="video_description" minlength="5" maxlength="350"
                                 class="materialize-textarea validate" required></textarea>
-                            <label for="video_description">Video Description</label>
+                            <label for="video_description">Video Abstract</label>
                         </div>
                     </div>
+                    <!--presentation venue-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-university prefix"></i>
@@ -50,6 +55,7 @@
                             <label for="video_venue">Venue</label>
                         </div>
                     </div>
+                    <!--Date picker-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-calendar-alt prefix"></i>
@@ -57,6 +63,7 @@
                             <label for="date">Date</label>
                         </div>
                     </div>
+                    <!--video link-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-link prefix"></i>
@@ -65,9 +72,10 @@
                             <label for="video_link">Link to Video</label>
                         </div>
                     </div>
+                    <!--submit button-->
                     <div class="row">
                         <div class="col s12 center-align">
-                            <button class="btn waves-effect waves-light" type="submit" name ="">Add Video
+                            <button class="btn-large deep-orange lighten-2 waves-effect" type="submit">Add Video
                                 <i class="fas fa-plus-square right"></i>
                             </button>
                         </div>
