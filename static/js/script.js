@@ -9,7 +9,7 @@ M.Carousel.init(carousel,{
     indicators: true,
     height: 900,
     transition: 500,
-    interval: 6000,
+    interval: 6000
   });
 
 
@@ -32,7 +32,11 @@ M.Datepicker.init(datepicker, {
         }
     });
 
-   
+
+const collapsible = document.querySelector('.collapsible');
+M.Collapsible.init(collapsible, {
+  });
+
 
 
 
