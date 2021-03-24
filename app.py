@@ -21,8 +21,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_videos")
 def get_videos():
-    videos = mongo.db.videos.find()
-    return render_template("videos.html", videos=videos)
+    videos = list(mongo.db.videos.find())
+    return render_template("library.html", videos=videos)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -113,7 +113,7 @@ def add_video():
         }
         mongo.db.videos.insert_one(video)
         flash("Video sucessfully added")
-        return redirect(url_for("get_videos"))
+        return redirect(url_for("all_videos"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_video.html", categories=categories)

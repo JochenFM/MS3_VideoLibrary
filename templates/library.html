@@ -4,7 +4,6 @@
 
 
 
-<!--Featured Videos-->
 
 <div class="row">
     <div class="col-12">
@@ -13,6 +12,7 @@
     </div>
 </div>
 <div class="row">
+     {% for video in videos %}
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="video-container">
@@ -23,35 +23,41 @@
             <ul class="collapsible">
                 <li class="active">
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Title</div>
-                    <div class="collapsible-body"><span>Microhistory and Global History. Carlo Ginzburg in Conversation
-                            with Fransesca Trivellato
-                        </span></div>
+                    <div class="collapsible-body"> {{ video.video_title }}
+                        <p><em>by: {{ video.created_by }}</em></p>
+                    </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Author</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body"> {{ video.video_author }}
+
+                    </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Abstract</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">
+                        <p>{{ video.video_description }}</p>
+
+                    </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Venue</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">{{ video.video_venue }}</div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Date</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">{{ video.date }}</div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Link</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">{{ video.video_link}}</div>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<div class="row">
+{% endfor %}
+<!--div class="row">
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
@@ -101,24 +107,10 @@
             </div>
         </div>
     </div>
-</div>
+</div-->
 
-    {% for video in videos %}
-    {{ video.video_title }}<br>
-    {{ video.category_name }}<br>
-    {{ video.video_description }}<br>
-    {{ video.video_venue }}<br>
-    {{ video.video_author }}<br>
-    {{ video.date }}<br>
-    {% endfor %}
+ 
 
 
 
     {% endblock %}
-
-
-    <!--footer-->
-
-    <footer class="section deep-orange darken-3 text-shadow center">
-        <p class="flow-text">Jochen F. Mayer &copy; 2021</p>
-    </footer>

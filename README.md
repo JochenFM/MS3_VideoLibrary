@@ -138,3 +138,20 @@ As Flask is a framework, you will need to validate the HTML code using the URL t
 
 
 
+My attempt at binding data from MongoDB to the video library failed in that data got injected into videos.html rather than library.html, but the html for the video.html changes to 
+that of the video library, and in the latter, a new card with image is created as it should but not in the right format.
+
+
+
+   <!--{% for video in videos %}
+    {{ video.video_title }}<br>
+    {{ video.category_name }}<br>
+    {{ video.video_description }}<br>
+    {{ video.video_venue }}<br>
+    {{ video.video_author }}<br>
+    {{ video.date }}<br>
+    {{ video.video_link}}<br>
+    {% endfor %}-->
+<!--Featured Videos-->
+
+
