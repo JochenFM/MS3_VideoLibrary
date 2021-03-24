@@ -21,16 +21,14 @@
                     </div>
                     <!--video title-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <i class="fas fa-video prefix"></i>
                             <input id="video_title" name="video_title" minlength="5" maxlength="70" type="text"
                                 class="validate" required>
                             <label for="video_title">Video Title</label>
                         </div>
-                    </div>
-                    <!--presenter name-->
-                    <div class="row">
-                        <div class="input-field col s12">
+                        <!--presenter name-->
+                        <div class="input-field col s6">
                             <i class="fas fa-chalkboard-teacher prefix"></i>
                             <input id="video_author" name="video_author" minlength="5" maxlength="70" type="text"
                                 class="validate" required>
@@ -39,16 +37,14 @@
                     </div>
                     <!--video description-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <i class="fas fa-align-left prefix"></i>
                             <textarea id="video_description" name="video_description" minlength="5" maxlength="350"
                                 class="materialize-textarea validate" required></textarea>
                             <label for="video_description">Video Abstract</label>
                         </div>
-                    </div>
-                    <!--presentation venue-->
-                    <div class="row">
-                        <div class="input-field col s12">
+                        <!--presentation venue-->
+                        <div class="input-field col s6">
                             <i class="fas fa-university prefix"></i>
                             <input id="video_venue" name="video_venue" minlength="5" maxlength="70" type="text"
                                 class="validate" required>
@@ -57,21 +53,19 @@
                     </div>
                     <!--Date picker-->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <i class="fas fa-calendar-alt prefix"></i>
                             <input id="date" name="date" type="text" class="datepicker validate" required>
                             <label for="date">Date</label>
                         </div>
-                    </div>
                     <!--video link-->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-link prefix"></i>
-                            <input id="video_link" name="video_link" minlength="5" maxlength="100" type="text"
-                                class="validate" required>
-                            <label for="video_link">Link to Video</label>
-                        </div>
+                    <div class="input-field col s6">
+                        <i class="fas fa-link prefix"></i>
+                        <input id="video_link" name="video_link" minlength="5" maxlength="100" type="text"
+                            class="validate" required>
+                        <label for="video_link">Link to Video</label>
                     </div>
+                    </div>          
                     <!--submit button-->
                     <div class="row">
                         <div class="col s12 center-align">
@@ -85,6 +79,3 @@
         </div>
 
         {% endblock %}
-
-
-        DURATION <i class="fas fa-hourglass-start prefix"></i>

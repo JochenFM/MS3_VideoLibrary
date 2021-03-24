@@ -57,41 +57,38 @@ The project goal is...
 
 ### User Stories
 
-**Guest User**
+**General User**
 
 
- - (US014) - As a user I want to receive clear feedback for my actions so I know what the consequences are and whether any further action is required.
+- (US015) - As a general user I want to access the websites from my favourite equipment, such as smartphones, tablets, laptops or PCs, without loss of content.
+- (US 0188) - As a general user I want to be able to navigate the website intuitively and with ease.
+- (US 0188) - As a general user I want to find out more about the website on social media.
+- (US001) - As a general user I want the website to make suggestions to me so I can be introduced to new content (concerning presentations in the history of science and technology)
+- (US002) - As a general user I want to be able to see at a glance some of the available content in sufficient detail so I get an idea what is displayed.
+- (US002) - As a general user I want to be able to get an idea what the videos are about prior to loading them in order for me to decide whether or not I want to proceed watching them.  
+- (US014) - As a general user I want to receive clear feedback for my actions so I know what the consequences are and whether any further action is required.
   Also, it is good practice to include a confirmation step for deletion. 
-
- - (US015) - As a user I want to access the websites from my favourite equipment, such as smartphones, tablets, laptops or PCs, without loss of content.
- - 
-
-
-- (US001) - As an interested reader I want the website to make suggestions to me so I can be introduced to new content (concerning presentations in the history of science and technology)
-- (US002) - As an interested reader I want to be able to see at a glance some of the available content in sufficient detail so I get an idea what is displayed.
-- (US002) - As an interested reader I want to be able to get an idea what the videos are about prior to loading them in order for me to decide whether or not I want to proceed watching them.  
-
-
-
-
-- (US003) - As an interested reader I want to search videos by title and author so that I can find specific content that helps me satisfy my curiosity.
-- (US004) - As an interested reader I want to search videos by category name so that I can group content of a specific type which reflects my interest.
-- (US005) - As an interested reader I want to be able to filter videos based on duration so I can get content that fits my available time budget.
-- (US006) - As....save videos for furture reference (not sure I can pull this off)
+- (US005) - As a general user I want to be able to filter videos based on duration so I can get content that fits my available time budget.
+- (US 0188) - As a general user I want the possibility to register to the website.
 
 
 **Registered User**
 
-- (US008) - As an active viewer I want to upload my own selection of videos so that other users can benefit from them.
-- (US010) - As an active viewer I want to be able to edit or delete a video entry I have submitted to I can improve or remove it.
+- (US012) - As a registered user I want to be able to log in my account with username and password.
+- (US012) - As a registered user I want to get visual confirmation when I am logged in.
+- (US008) - As a registered user I want to upload my own selection of video entries so that other users can benefit from them.
+- (US012) - As a registered user I want to get visual confirmation when I added/deleted a video entry.
+- (US010) - As a registered user I want to be able to edit or delete a video entry I have submitted so that I can improve or remove it.
+- (US003) - As a general user I want to search videos by title and author so that I can find specific content that helps me satisfy my curiosity.
+- (US004) - As a general user I want to search videos by category name so that I can group content of a specific kind which reflects my interest.
+- (US010) - As a registered user I want to be able to edit my profile by adding a picture and relevant information.
+- (US010) - As a registered user I want to be able to delete my profile.
+- (US012) - As a registered user I want to get visual confirmation when I deleted my profile.
+- (US006) - As....save videos for furture reference (not sure I can pull this off).
 
-
-
-- (US011) - As a new user I want to be able to register with the site so that I can upload new videos and see what other users uploaded.
-- (US012) - As a registered user I want to be able to log into my account to that I can access my profile and my favourite videos.
 
 **Admin**
- - (US013) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
+- (US013) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
 - (US) - As an Admin I want to be able to create and delete video categories.
 - (US) - As an Admin I want to be able to view how many users are registered on the website and delete users if necessary.
  
