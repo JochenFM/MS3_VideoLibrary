@@ -12,18 +12,20 @@
     </div>
 </div>
 <div class="row">
-     {% for video in videos %}
+    {% for video in videos %}
     <div class="col s12 m6 l3">
         <div class="card">
-            <div class="video-container">
+            <!--div class="video-container" add one div below of reactivated-->
                 <div class="card-image">
+                    <!--<a href ="{{url_for('get_videos', video_id=video._id)}}" add </a> behind img-->
                     <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
                 </div>
             </div>
             <ul class="collapsible">
                 <li class="active">
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Title</div>
-                    <div class="collapsible-body"> {{ video.video_title }}
+                    <div class="collapsible-body"> <strong>{{ video.video_title }}</strong>
+                         <p><em>Key word: {{ video.category_name }}</em></p>
                         <p><em>by: {{ video.created_by }}</em></p>
                     </div>
                 </li>
@@ -55,7 +57,7 @@
             </ul>
         </div>
     </div>
-</div>
+
 {% endfor %}
 <!--div class="row">
     <div class="col s12 m6 l3">
@@ -109,8 +111,8 @@
     </div>
 </div-->
 
- 
 
 
 
-    {% endblock %}
+
+{% endblock %}

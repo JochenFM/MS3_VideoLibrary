@@ -118,6 +118,7 @@ def add_video():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_video.html", categories=categories)
 
+
 @app.route("/all_videos")
 def all_videos():
     return render_template("library.html")
