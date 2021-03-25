@@ -16,47 +16,53 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <!--div class="video-container" add one div below of reactivated-->
-                <div class="card-image">
-                    <!--<a href ="{{url_for('get_videos', video_id=video._id)}}" add </a> behind img-->
-                    <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
-                </div>
+            <div class="card-image">
+                <!--<a href ="{{url_for('get_videos', video_id=video._id)}}" add </a> behind img-->
+                <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
             </div>
-            <ul class="collapsible">
-                <li class="active">
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Title</div>
-                    <div class="collapsible-body"> <strong>{{ video.video_title }}</strong>
-                         <p><em>Key word: {{ video.category_name }}</em></p>
-                        <p><em>by: {{ video.created_by }}</em></p>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Author</div>
-                    <div class="collapsible-body"> {{ video.video_author }}
-
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Abstract</div>
-                    <div class="collapsible-body">
-                        <p>{{ video.video_description }}</p>
-
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Venue</div>
-                    <div class="collapsible-body">{{ video.video_venue }}</div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Date</div>
-                    <div class="collapsible-body">{{ video.date }}</div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Link</div>
-                    <div class="collapsible-body">{{ video.video_link}}</div>
-                </li>
-            </ul>
         </div>
+        <ul class="collapsible">
+            <li class="active">
+                <div class="collapsible-header">
+                    <i class="far fa-caret-square-down"></i>Title</div>
+                <div class="collapsible-body"> <strong>{{ video.video_title }}</strong>
+                    <p><em>Key word: {{ video.category_name }}</em></p>
+                    <p><em>by: {{ video.created_by }}</em></p>
+                    <a href="" class="edit-interface">
+                        <i class="fas fa-trash"></i></a>
+                    <a href="" class="edit-interface">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Author</div>
+                <div class="collapsible-body"> {{ video.video_author }}
+
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Abstract</div>
+                <div class="collapsible-body">
+                    <p>{{ video.video_description }}</p>
+
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Venue</div>
+                <div class="collapsible-body">{{ video.video_venue }}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Date</div>
+                <div class="collapsible-body">{{ video.date }}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Link</div>
+                <div class="collapsible-body">{{ video.video_link}}</div>
+            </li>
+        </ul>
     </div>
+</div>
 
 {% endfor %}
 <!--div class="row">

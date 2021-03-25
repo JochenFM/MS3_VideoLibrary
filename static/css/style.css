@@ -81,4 +81,23 @@
 }
 
 
+/* edit interfaces*/
+
+.edit-interface{
+
+    margin: 4px;
+    
+}
+
+.edit-interface .fa-trash{
+
+    color: red;
+    
+}
+
+.edit-interface .fa-edit{
+
+    color: #7EBC89;
+}
+
 /*footer*/
