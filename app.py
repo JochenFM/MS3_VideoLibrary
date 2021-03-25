@@ -146,7 +146,16 @@ def edit_video(video_id):
         "edit_video.html", video=video, categories=categories)
 
 
+@app.route("/delete_video/<video_id>")
+def delete_video(video_id):
+    mongo.db.videos.remove({"_id": ObjectId(video_id)})
+    flash("Video successfully deleted")
+    return redirect(url_for("all_videos"))
+
+
 # to tell app where and how to run the application
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

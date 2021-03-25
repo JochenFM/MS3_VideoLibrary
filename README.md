@@ -143,6 +143,13 @@ that of the video library, and in the latter, a new card with image is created a
 
 
 
+in library.html:
+{% if session.user|lower == video.created_by|lower %} needed to be injected outside of the antecedent <P></P> tags to function to show the edit and delete icons only if session user
+is identical with video creator. Initially, this did not work but for another reason: the category_id I added in MongoDB lacked the underscore.
+
+
+
+
    <!--{% for video in videos %}
     {{ video.video_title }}<br>
     {{ video.category_name }}<br>
