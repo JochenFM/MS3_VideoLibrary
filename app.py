@@ -124,6 +124,14 @@ def all_videos():
     return render_template("library.html")
 
 
+@app.route("/edit_video/<video_id>", methods=["GET", "POST"])
+def edit_video(video_id):
+    video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_video.html", video=video, categories=categories)
+
+
 # to tell app where and how to run the application
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
