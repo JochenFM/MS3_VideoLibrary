@@ -2,7 +2,7 @@
 const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, { edge: "right" });
 
-//slider
+//carousel
 
 const carousel = document.querySelector('.carousel');
 M.Carousel.init(carousel, {
@@ -32,10 +32,27 @@ M.Datepicker.init(datepicker, {
     }
 });
 
+//collapisble video card
 
 const collapsible = document.querySelector('.collapsible');
 M.Collapsible.init(collapsible, {
 });
+
+
+// modal delete
+
+function toggleModal() {
+    const instance = M.Modal.getInstance($("#delete_video"))
+    instance.open();
+}
+
+
+//document.addEventListener('DOMContentLoaded', function() {
+    //const modal = document.querySelectorAll('.modal');
+    //M.Modal.init(modal);
+  //});
+
+
 
 
 
