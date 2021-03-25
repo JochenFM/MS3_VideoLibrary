@@ -126,6 +126,20 @@ def all_videos():
 
 @app.route("/edit_video/<video_id>", methods=["GET", "POST"])
 def edit_video(video_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "video_title": request.form.get("video_title"),
+            "video_author": request.form.get("video_author"),
+            "video_description": request.form.get("video_description"),
+            "video_venue": request.form.get("video_venue"),
+            "date": request.form.get("date"),
+            "video_link": request.form.get("video_link"),
+            "created by": session["user"]
+        }
+        mongo.db.videos.update({"_id": ObjectId(video_id)}, submit)
+        flash("Video sucessfully updated")
+
     video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(

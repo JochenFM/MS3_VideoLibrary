@@ -24,15 +24,16 @@
         <ul class="collapsible">
             <li class="active">
                 <div class="collapsible-header">
-                    <i class="far fa-caret-square-down"></i>Title</div>
+                    <i class="far fa-caret-square-down"></i>Title</div> 
                 <div class="collapsible-body"> <strong>{{ video.video_title }}</strong>
                     <p><em>Key word: {{ video.category_name }}</em></p>
                     <p><em>by: {{ video.created_by }}</em></p>
+                    {% if session.user|lower == video.created_by|lower %}
                     <a href="" class="edit-interface">
                         <i class="fas fa-trash"></i></a>
                     <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface">
-                        <i class="fas fa-edit"></i>
-                    </a>
+                        <i class="fas fa-edit"></i></a>
+                    {% endif %}
                 </div>
             </li>
             <li>

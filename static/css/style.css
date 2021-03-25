@@ -86,12 +86,13 @@
 .edit-interface{
 
     margin: 4px;
-    
+   
 }
 
 .edit-interface .fa-trash{
 
     color: red;
+    padding-left: 300px;
     
 }
 
