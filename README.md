@@ -9,6 +9,51 @@ os.environ.setdefault("SECRET_KEY", "T&eYic9UGY95F9|~AMyKlJ(5DliADY")
 os.environ.setdefault("MONGO_URI", "mongodb+srv://JochenUser:J0chenUser666@myfirstcluster.ex33f.mongodb.net/videolibrary?retryWrites=true&w=majority")
 os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
+
+
+Modal code:
+
+<!---->
+
+    <!-- Modal Structure 
+  <div id="delete_video" class="modal">
+    <div class="modal-content">
+      <h4>Delete this video?</h4>
+      <p>Are you sure you want to delete this video? This cannot be undone</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="{{ url_for('delete_video', video_id=video._id) }}" class="btn btn-danger">Delete</a>
+    </div>
+  </div-->
+       
+
+
+<!--Modal from Santé
+<div class="modal fade" id="delete_video_{{video._id}}" tabindex="-1" role="dialog"
+    aria-labelledby="delete_video_{{video._id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete this video?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this cocktail? This will be deleted forever.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning text-white" data-dismiss="modal">Cancel</button>
+                <a href="{{ url_for('delete_video', video_id=video._id)}}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div-->
+
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 ## Table of Contents

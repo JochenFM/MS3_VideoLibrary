@@ -115,6 +115,26 @@ color: black
 .fab { 
 
     color: black;
-    
+    font-size: 25px;
 }
 
+/*need to push icons down but what to taret?
+
+    margin-top: 40px;
+}*/
+
+/*like button*/
+
+
+.fa-heart {
+
+    color: red;
+    font-size: 25px;
+} 
+
+/* profile field*/
+
+.move {
+
+    margin-top: 60px;
+}
