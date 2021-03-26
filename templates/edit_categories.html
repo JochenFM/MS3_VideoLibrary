@@ -21,7 +21,12 @@
         </div>
     </div>
     {% endfor %}
-</div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href = "{{ url_for('add_category') }}" class="btn-large deep-orange lighten-2 waves-effect">Add Category
+                <i class="fas fa-plus-square right"></i>
+            </a>
+        </div>
 
 
-{% endblock %}
+        {% endblock %}

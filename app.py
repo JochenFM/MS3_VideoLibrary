@@ -159,6 +159,19 @@ def edit_categories():
     return render_template("edit_categories.html", categories=categories)
 
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New category added")
+        return redirect(url_for("edit_categories"))
+
+    return render_template("add_category.html")
+
+
 # to tell app where and how to run the application
 
 
