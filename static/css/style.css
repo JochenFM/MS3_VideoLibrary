@@ -81,13 +81,13 @@
 }
 
 
-/* edit interfaces*/
+/* edit interfaces
 
 .edit-interface{
 
     margin: 4px;
    
-}
+}*/
 
 .edit-interface .fa-trash{
 
@@ -137,4 +137,10 @@ color: black
 .move {
 
     margin-top: 60px;
+}
+
+.edit-panel{
+
+background-color: #C1DBB3;
+
 }
