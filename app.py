@@ -22,8 +22,17 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     videos = list(mongo.db.videos.find())
-    return render_template("videos.html", videos=videos)
+    return render_template("library.html", videos=videos)
 
+    # change library.html back to videos.html for the correct way
+
+
+@app.route("/search", methods =["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    videos = list(mongo.db.videos.find({"$text": {"$search": query}}))
+    return render_template("library.html", videos=videos)
+    
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -191,8 +200,6 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category sucessfully deleted")
     return redirect(url_for("get_categories"))
-
-
 
 
 # to tell app where and how to run the application

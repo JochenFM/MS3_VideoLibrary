@@ -1,23 +1,27 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-
-
-
 <div class="row">
     <div class="col-12">
         <h3 class="feature-text-center">Video Library
         </h3>
     </div>
 </div>
+
+<div class=" row card panel">
+    <form action ="{{ url_for('search') }}" method="POST" class= "col s12">
+        
+    </form>
+
+</div>
+
+
 <div class="row">
     {% for video in videos %}
     <div class="col s12 m6 l3">
         <div class="card">
             <!--div class="video-container" add one div below if reactivated-->
             <div class="card-image">
-                <!--<a href ="{{url_for('get_videos', video_id=video._id)}}" add </a> behind img-->
+                <!--<a href ="{{url_for('index', video_id=video._id)}}" add </a> behind img-->
                 <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
                 <a href="#" class="like-button">
                     <i class="fas fa-heart"></i>
@@ -32,18 +36,18 @@
                     <p><em>Key word: {{ video.category_name }}</em></p>
                     <p><em>by: {{ video.created_by }}</em></p>
                     {% if session.user|lower == video.created_by|lower %}
-                    <a href="#" onclick="toggleModal();" class="edit-interface center-align">
-                        <i class="fas fa-trash"></i>
-                    </a>
                     <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface center-align">
-                        <i class="fas fa-edit"></i></a>
+                        <i class="fas fa-edit tooltipped"
+                        data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#" onclick="toggleModal();" class="edit-interface center-align">
+                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i>
+                    </a>
                     {% endif %}
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Author</div>
                 <div class="collapsible-body"> {{ video.video_author }}
-
                 </div>
             </li>
             <li>

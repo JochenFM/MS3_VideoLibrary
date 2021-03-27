@@ -52,6 +52,21 @@ Modal code:
 </div-->
 
 
+//tooltips delete/edit icons library.html
+
+  document.addEventListener(function() {
+      const tooltip = document.querySelectorAll('.tooltipped');
+      M.Tooltip.init(tooltip, {
+  });
+
+
+// modal delete
+
+function toggleModal() {
+    const instance = M.Modal.getInstance($("#delete_video"));
+    instance.open();
+
+
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)

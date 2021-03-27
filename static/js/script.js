@@ -32,19 +32,18 @@ M.Datepicker.init(datepicker, {
     }
 });
 
-//collapisble video card
+//collapsible video card
 
 const collapsible = document.querySelector('.collapsible');
 M.Collapsible.init(collapsible, {
 });
 
 
-// modal delete
+//tooltips delete/edit icons library.html goes here
 
-function toggleModal() {
-    const instance = M.Modal.getInstance($("#delete_video"))
-    instance.open();
-}
+// modal for delete icon library.html goes here
+
+
 
 
 //document.addEventListener('DOMContentLoaded', function() {
