@@ -101,6 +101,11 @@ color: black
 
 /*footer*/
 
+.footer .fab {
+
+    margin: 10px 8px;
+}
+
 /*sticky footer*/
 
 body {
