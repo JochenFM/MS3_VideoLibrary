@@ -163,3 +163,28 @@ body {
 background-color: #C1DBB3;
 
 }
+
+/*search form*/
+
+.row.card-panel {
+
+    margin-bottom: 200px;
+    margin-top: 20px;
+
+}
+
+.fa-search {
+
+    color: black;
+}
+
+
+.fa-redo-alt{
+
+    color:black;
+}
+
+.search .btn {
+
+    color: #7EBC89;
+}
