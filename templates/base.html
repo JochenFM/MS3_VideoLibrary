@@ -31,16 +31,16 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_video') }}">New Video</a></li>
-                        <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
-                     {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                    <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('add_video') }}">New Video</a></li>
+                    <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                     {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('login') }}">Login In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('login') }}">Login In</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -52,16 +52,16 @@
             </li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_video') }}">New Video</a></li>
-                <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
+            <li><a href="{{ url_for('profile', username= session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('add_video') }}">New Video</a></li>
+            <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
             {% if session.user|lower == "admin"|lower %}
-                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
             {% endif %}
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}">Login In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+            <li><a href="{{ url_for('login') }}">Login In</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
         </ul>
     </header>
@@ -90,30 +90,24 @@
 
 
     <!--footer-->
-
-    <footer class="fixed-page-footer deep-orange lighten-2">
-        <div class="container footer">
+    <section class = "footer center deep-orange lighten-2">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="center-align" id = "social">
-                        <ul class="social-links" >
-                            <li class="list-inline-item">
-                                <a class="fab fa-twitter" href="https://twitter.com"></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="fab fa-youtube" href="https://youtube.com"></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="fab fa-instagram" href="https://instagram.com"></a>
-                            </li>
-                        </ul>
-                        <p class="center-align text-shadow">Jochen F. Mayer &copy; 2021</p>
-                    </div>
+                <div class="col s12">
+                    <a href="https://twitter.com">
+                        <i class="fab fa-twitter"></i> 
+                    </a>
+                    <a href="https://youtube.com">
+                        <i class="fab fa-youtube"></i> 
+                    </a>
+                    <a href="https://instagram.com">
+                        <i class="fab fa-instagram"></i> 
+                    </a>
+                    <p class="center-align text-shadow">Jochen F. Mayer &copy; 2021</p>
                 </div>
             </div>
         </div>
-    </footer>
-
+</section>
     <!--<footer>
                 <ul class ="text-center social-buttons">
                     <li class ="list-inline-item">

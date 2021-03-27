@@ -70,18 +70,6 @@ function toggleModal() {
 
 
 
-//carousel
-
-const carousel = document.querySelector('.carousel');
-M.Carousel.init(carousel, {
-    indicators: true,
-    height: 900,
-    transition: 500,
-    interval: 6000
-});
-
-
-
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 ## Table of Contents
@@ -199,6 +187,9 @@ Jo for helping me with slider: "For the images, remember you're working with Fla
 Fellow student Sean Young for...
 
 herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
+
+https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
+
 
 For image sizing in carousel:
 https://stackoverflow.com/questions/50652298/how-to-resize-an-image-inside-of-a-materialize-css-slider-to-make-it-fit
