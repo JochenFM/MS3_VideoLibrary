@@ -142,13 +142,13 @@ body {
 
 .fa-heart {
     margin-right: 10px;
-    color: red;
+    color: black;
     font-size: 25px;
 } 
 
 .fa-heart:hover {
 
-    
+    color: red;
 }
 
 /* profile field*/
@@ -168,7 +168,7 @@ background-color: #C1DBB3;
 
 .row.card-panel {
 
-    margin-bottom: 200px;
+    margin-bottom: 150px;
     margin-top: 20px;
 
 }
