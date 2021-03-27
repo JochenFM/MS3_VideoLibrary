@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     videos = list(mongo.db.videos.find())
-    return render_template("library.html", videos=videos)
+    return render_template("videos.html", videos=videos)
 
     # change library.html back to videos.html for the correct way
 

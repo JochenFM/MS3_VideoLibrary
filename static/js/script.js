@@ -2,16 +2,15 @@
 const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, { edge: "right" });
 
-//carousel
+//slider
 
-const carousel = document.querySelector('.carousel');
-M.Carousel.init(carousel, {
-    indicators: true,
-    height: 900,
-    transition: 500,
+const slider = document.querySelector('.slider');
+M.Slider.init(slider, {
+    indicators: false,
+    height: 600,
+    transition: 700,
     interval: 6000
 });
-
 
 //category selector
 

@@ -69,6 +69,19 @@ function toggleModal() {
 
 
 
+
+//carousel
+
+const carousel = document.querySelector('.carousel');
+M.Carousel.init(carousel, {
+    indicators: true,
+    height: 900,
+    transition: 500,
+    interval: 6000
+});
+
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 ## Table of Contents
