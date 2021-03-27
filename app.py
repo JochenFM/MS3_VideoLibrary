@@ -27,7 +27,7 @@ def index():
     # change library.html back to videos.html for the correct way
 
 
-@app.route("/search", methods =["GET", "POST"])
+@app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     videos = list(mongo.db.videos.find({"$text": {"$search": query}}))

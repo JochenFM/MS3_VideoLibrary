@@ -117,6 +117,7 @@ color: black
 
 /*footer*/
 
+/*sticky footer*/
 
 body {
     display: flex;
@@ -135,19 +136,20 @@ body {
     font-size: 25px;
 }
 
-/*need to push icons down but what to taret?
-
-    margin-top: 40px;
-}*/
 
 /*like button*/
 
 
 .fa-heart {
-
+    margin-right: 10px;
     color: red;
     font-size: 25px;
 } 
+
+.fa-heart:hover {
+
+    
+}
 
 /* profile field*/
 
