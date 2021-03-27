@@ -5,6 +5,11 @@
     text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
+.nav-wrapper a {
+
+    color: black;
+    padding-left: 15px;
+}
 
 /*text color side nav, does not work yet*/
 
@@ -92,7 +97,7 @@
 .edit-interface .fa-trash{
 
     color: red;
-    padding-left: 300px;
+    /*padding-left: 300px;*/
     
 }
 

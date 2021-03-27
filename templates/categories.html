@@ -2,20 +2,20 @@
 
 {% block content %}
 
-<h3 class="feature-text-center">Edit Categories</h3>
+<h3 class="feature-text-center">Manage Categories</h3>
 
 <div class="row">
     {% for category in categories %}
-    <div class="col s12 m3">
+    <div class="col s12 m2">
         <div class="card edit-panel center-align">
-            <div class="card-content white-text">
+            <div class="card-content">
                 <span class="card-title">{{ category.category_name }}</span>
             </div>
             <div class="card-action">
-                <a href="#" class="edit-interface center-align">
+                <a href="" class="edit-interface center-align">
                     <i class="fas fa-trash"></i>
                 </a>
-                <a href="#" class="edit-interface center-align">
+                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="edit-interface center-align">
                     <i class="fas fa-edit"></i></a>
             </div>
         </div>
@@ -23,7 +23,7 @@
     {% endfor %}
     <div class="row">
         <div class="col s12 center-align">
-            <a href = "{{ url_for('add_category') }}" class="btn-large deep-orange lighten-2 waves-effect">Add Category
+            <a href="{{ url_for('add_category') }}" class="btn-large deep-orange lighten-2 waves-effect">Add Category
                 <i class="fas fa-plus-square right"></i>
             </a>
         </div>

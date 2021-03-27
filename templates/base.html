@@ -24,7 +24,7 @@
 
     <header>
         <!--main top navbar-->
-        <nav class="nav-extended grey-text deep-orange lighten-2">
+        <nav class="nav-extended deep-orange lighten-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('index') }}" class="brand-logo">Video Wunderkammer</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
@@ -35,7 +35,7 @@
                         <li><a href="{{ url_for('add_video') }}">New Video</a></li>
                         <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
                      {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('edit_categories') }}">Edit Categories</a></li>
+                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                     {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -56,7 +56,7 @@
                 <li><a href="{{ url_for('add_video') }}">New Video</a></li>
                 <li><a href="{{ url_for('all_videos') }}">Video Library</a></li>
             {% if session.user|lower == "admin"|lower %}
-                <li><a href="{{ url_for('edit_categories') }}">Edit Categories</a></li>
+                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
             {% endif %}
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}

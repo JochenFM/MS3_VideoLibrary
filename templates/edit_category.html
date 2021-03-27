@@ -4,26 +4,27 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3 class="feature-text-center">Add Category</h3>
+            <h3 class="feature-text-center">Edit Category</h3>
             <div class="row card-panel">
-                <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
+                <form class="col s12" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
                     <!--category name-->
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="fas fa-folder-open prefix"></i>
                             <input id="category_name" name="category_name" minlength="5" maxlength="50" type="text"
-                                class="validate" required>
-                            <label for="category_name">Category Name</label>
+                                value = "{{ category.category_name }}" class="validate" required>
+                            <label for="category_nanme">Category Name</label>
                         </div>
                     <!--submit button-->
                     <div class="row">
                         <div class="col s12 center-align">
-                            <button class="btn-large deep-orange lighten-2 waves-effect" type="submit">Add Category
-                                <i class="fas fa-plus-square right"></i>
+                            <a href ="{{ url_for('get_categories') }}" class= "btn-large red" >
+                                Cancel <i class= "fas fa-times-circle right"></i>
+                            </a>
+                            <button class="btn-large deep-orange lighten-2 waves-effect" type="submit">Edit Category
+                                <i class="fas fa-edit right"></i>
                             </button>
                         </div>
                     </div>
             </div>
-        </div>
-    </div>
-</div>       {% endblock %}
+{% endblock %}
