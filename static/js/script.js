@@ -6,7 +6,7 @@ M.Sidenav.init(sideNav, { edge: "right" });
 
 const slider = document.querySelector('.slider');
 M.Slider.init(slider, {
-    indicators: false,
+    indicators: true,
     height: 600,
     transition: 700,
     interval: 6000

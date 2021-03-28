@@ -21,10 +21,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
-    videos = list(mongo.db.videos.find())
-    return render_template("videos.html", videos=videos)
+    return render_template("videos.html")
 
-    # change library.html back to videos.html for the correct way
+
+@app.route("/all_videos")
+def all_videos():
+    videos = list(mongo.db.videos.find())
+    return render_template("library.html", videos=videos)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -90,10 +93,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db 
+    # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    if session["user"]: 
+    if session["user"]:
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
@@ -126,11 +129,6 @@ def add_video():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_video.html", categories=categories)
-
-
-@app.route("/all_videos")
-def all_videos():
-    return render_template("library.html")
 
 
 @app.route("/edit_video/<video_id>", methods=["GET", "POST"])
@@ -195,7 +193,7 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
-@app.route("/delete_category/<category_id>") 
+@app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category sucessfully deleted")
