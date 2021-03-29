@@ -189,9 +189,6 @@ herschel, curie images from the Wellcome Collection https://wellcomecollection.o
 https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
 
 
-For image sizing in carousel:
-https://stackoverflow.com/questions/50652298/how-to-resize-an-image-inside-of-a-materialize-css-slider-to-make-it-fit
-
 check out responsive video container https://materializecss.com/media-css.html
 
 
@@ -201,7 +198,12 @@ As Flask is a framework, you will need to validate the HTML code using the URL t
 
 
 My attempt at binding data from MongoDB to the video library failed in that data got injected into videos.html rather than library.html, but the html for the video.html changes to 
-that of the video library, and in the latter, a new card with image is created as it should but not in the right format.
+that of the video library, and in the latter, a new card with image is created as it should but not in the right format. Solved by swapping the functions index() and add_videos() in how 
+each connects to MongoDB
+
+
+Customize Cloudinary widget I followed https://cloudinary.com/documentation/upload_widget#localization
+
 
 
 

@@ -51,12 +51,13 @@ M.Collapsible.init(collapsible, {
   //});
 
 
-//shows cloudinary upload widget
+//shows cloudinary upload widget, customized
 
 
 const myWidget = cloudinary.createUploadWidget({
   cloudName: 'wunderkammer', 
-  uploadPreset: 'mptmhbl9'}, (error, result) => { 
+  uploadPreset: 'hmnjq4lg',
+sources: [ 'local', 'url', 'google_drive'],}, (error, result) => { 
     if (!error && result && result.event === "success") { 
       console.log('Done! Here is the image info: ', result.info); 
     }
@@ -65,10 +66,11 @@ const myWidget = cloudinary.createUploadWidget({
 
 document.getElementById("video-upload-btn").addEventListener("click", function(){
     myWidget.open();
-  }, false);
+  }, false
+  );
 
-
-
+//add video url to the hidden form field value in add_video.html
+document.getElementById("video_link").val(result[0].secure_url);
 
 
 //category select validation from CI's TIm Nelson
