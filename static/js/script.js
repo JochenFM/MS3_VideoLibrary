@@ -55,22 +55,25 @@ M.Collapsible.init(collapsible, {
 
 
 const myWidget = cloudinary.createUploadWidget({
-  cloudName: 'wunderkammer', 
-  uploadPreset: 'hmnjq4lg',
-sources: [ 'local', 'url', 'google_drive'],}, (error, result) => { 
-    if (!error && result && result.event === "success") { 
-      console.log('Done! Here is the image info: ', result.info); 
+    cloudName: 'wunderkammer', 
+    uploadPreset: 'hmnjq4lg',
+    sources: [ 'local', 'url', 'google_drive']},
+    (error, result) => {//This is the callback, code outside this doesn't have access to result from cloudinary.
+        if (!error && result && result.event === "success") { 
+          console.log('Done! Here is the image info: ', result.info.secure_url); 
+          document.getElementById("video_link").value = result.info.secure_url;
+        }
     }
-  }
-)
+);
 
 document.getElementById("video-upload-btn").addEventListener("click", function(){
     myWidget.open();
   }, false
   );
 
+
 //add video url to the hidden form field value in add_video.html
-document.getElementById("video_link").val(result[0].secure_url);
+//document.getElementById("video_url").val(result[0].secure_url);
 
 
 //category select validation from CI's TIm Nelson
