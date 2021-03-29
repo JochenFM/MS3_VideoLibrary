@@ -51,18 +51,24 @@ M.Collapsible.init(collapsible, {
   //});
 
 
+//shows cloudinary upload widget
+
+
+const myWidget = cloudinary.createUploadWidget({
+  cloudName: 'wunderkammer', 
+  uploadPreset: 'mptmhbl9'}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+    }
+  }
+)
+
+document.getElementById("video-upload-btn").addEventListener("click", function(){
+    myWidget.open();
+  }, false);
 
 
 
-
-//slider
-//const slider = document.querySelector('.slider');
-//M.Sidenav.init(slider, {
-//  indicators: false,
-//height: 500,
-//transition: 500,
-//interval: 6000    
-//});
 
 
 //category select validation from CI's TIm Nelson
