@@ -15,17 +15,7 @@ Modal code:
 
 <!---->
 
-    <!-- Modal Structure 
-  <div id="delete_video" class="modal">
-    <div class="modal-content">
-      <h4>Delete this video?</h4>
-      <p>Are you sure you want to delete this video? This cannot be undone</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-      <a href="{{ url_for('delete_video', video_id=video._id) }}" class="btn btn-danger">Delete</a>
-    </div>
-  </div-->
+
        
 
 
@@ -60,11 +50,8 @@ Modal code:
   });
 
 
-// modal delete
 
-function toggleModal() {
-    const instance = M.Modal.getInstance($("#delete_video"));
-    instance.open();
+
 
 
 
