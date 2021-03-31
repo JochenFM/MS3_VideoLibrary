@@ -43,9 +43,11 @@ M.Collapsible.init(collapsible, {
 
 // modal for delete icon library.html goes here
 
-//That is the JQuery for modal i need in JS $(document).ready(function(){
-    //$('.modal').modal();
-//})
+//That is the JQuery for modal i need in JS 
+
+$(document).ready(function(){
+    $('.modal').modal();
+})
 
 
 

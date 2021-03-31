@@ -12,6 +12,10 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
+
+https://www.youtube.com/watch?v=PSWf2TjTGNY for pagination with Flask
+
+
 Pagination code:
 
 video_collection = mongo.db.videos
