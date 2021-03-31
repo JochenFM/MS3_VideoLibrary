@@ -38,6 +38,7 @@ M.Collapsible.init(collapsible, {
 });
 
 
+
 //tooltips delete/edit icons library.html goes here
 
 // modal for delete icon library.html goes here
@@ -67,6 +68,20 @@ document.getElementById("video-upload-btn").addEventListener("click", function()
     myWidget.open();
   }, false
   );
+
+
+
+/// cloudinary videoplayer customized
+
+const player = cld.videoPlayer('player', {
+    "fluid": true,
+    "controls": true,
+    "colors": {
+        "base": "#ff8a65",
+        "accent": "#7ebc89",
+        "text": "#000000"
+    }
+});
 
 
 

@@ -6,40 +6,45 @@
         </h3>
     </div>
 </div>
-<div class= "container">
-<div class="row card-panel">
-    <form action ="{{ url_for('search') }}" method="POST" class= "col s12">
-        <div class="row valign-wrapper center-align">
-            <div class="input-field col col s12 m8">
-                <i class="fas fa-search prefix"></i>
-                <input type="text" name="query" id="query" minlength="3" class ="validate" required>
-                <label for ="query">Search Videos</label>
+<div class="container">
+    <div class="row card-panel">
+        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col col s12 m8">
+                    <i class="fas fa-search prefix"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Videos</label>
+                </div>
+                <div class="col s12 m4">
+                    <button type="submit" class="search btn left">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="{{ url_for('all_videos') }}" class="red btn left">
+                        <i class="fas fa-redo-alt"></i>
+                    </a>
+                </div>
             </div>
-            <div class="col s12 m4">
-                <button type="submit" class="search btn left">
-                <i class="fas fa-search"></i>
-                </button>
-                <a href= "{{ url_for('all_videos') }}" class="red btn left">
-                    <i class="fas fa-redo-alt"></i>
-                </a>
-            </div>
-        </div> 
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 {% if videos|length > 0 %}
 <div class="row">
     {% for video in videos %}
     <div class="col s12 m6 l3">
+        <div class="video-container responsive-video">
+            <iframe
+                src="https://player.cloudinary.com/embed/?public_id=elephants&cloud_name=demo&player%5Bfluid%5D=true&player%5Bcontrols%5D=true&player%5Bcolors%5D%5Bbase%5D=%23ff8a65&player%5Bcolors%5D%5Baccent%5D=%237ebc89&player%5Bcolors%5D%5Btext%5D=%23000000&source%5Bsource_types%5D%5B0%5D=mp4"
+                width="640" height="480" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowfullscreen frameborder="0"></iframe>
+        </div>
         <div class="card">
-            <!--div class="video-container" add one div below if reactivated-->
             <div class="card-image">
-                <!--<a href ="{{url_for('index', video_id=video._id)}}" add </a> behind img-->
-                <img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}">
+                <a href="{{url_for('index', video_id=video._id)}}"></a>
+                <!--img src="{{url_for('static', filename='images/national-cancer-institute.jpg')}}"-->
                 <div class="like-button right-align">
-                <a href="#">
-                    <i class="far fa-heart"></i>
-                </a>
+                    <a href="#">
+                        <i class="far fa-heart"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -52,9 +57,8 @@
                     <p><em>by: {{ video.created_by }}</em></p>
                     {% if session.user|lower == video.created_by|lower %}
                     <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
-                        <i class="fas fa-edit tooltipped"
-                        data-position="bottom" data-tooltip="Edit"></i></a>
-                    <a href="#delete_video"  class="edit-interface modal-trigger center-align">
+                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#delete_video" class="edit-interface modal-trigger center-align">
                         <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i>
                     </a>
                     {% endif %}
@@ -87,20 +91,21 @@
         </ul>
     </div>
 
-        <!-- Modal Structure--> 
-  <div id="delete_video" class="modal">
-    <div class="modal-content">
-      <h4>Delete this video?</h4>
-      <p>Are you sure you want to delete this video? This cannot be undone</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-      <a href="{{ url_for('delete_video', video_id=video._id) }}" class="btn btn-danger">Delete</a>
-    </div>
-</div>
     {% endfor %}
 </div>
 {% else %}
-    <h4 class="red-text center-align">No results found</h4>
+<h4 class="red-text center-align">No results found</h4>
 {% endif %}
 {% endblock %}
+
+<!-- Modal Structure-->
+<div id="delete_video" class="modal">
+    <div class="modal-content">
+        <h4>Delete this video?</h4>
+        <p>Are you sure you want to delete this video? This cannot be undone</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        <a href="{{ url_for('delete_video', video_id=video._id) }}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
