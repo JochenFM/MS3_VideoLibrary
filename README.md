@@ -11,12 +11,26 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
+
+Pagination code:
+
+video_collection = mongo.db.videos
+
+    # fetch the page number from request / set the page 1
+    page = int(request.args.get('page') or 1)
+    num = 9
+
+    # count documents for of pagination options
+    count = ceil(float(video_collection.count_documents({}) / num))
+
+    # page - 1 checks that the first items can be found
+    videos = list(
+        video_collection.find({}).skip((page - 1) * num).limit(num))
+
+
+
+
 Modal code:
-
-<!---->
-
-
-       
 
 
 <!--Modal from Santé
@@ -163,6 +177,14 @@ M.Sidenav.init(sideNav, {});
 
 Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
 
+
+For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
+
+
+Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
+
+
+To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
 
 Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
 it was due to the env.py file being deleted/had dispaared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
