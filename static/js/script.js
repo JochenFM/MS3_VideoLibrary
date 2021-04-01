@@ -39,17 +39,6 @@ M.Collapsible.init(collapsible, {
 
 
 
-//tooltips delete/edit icons library.html goes here
-
-// modal for delete icon library.html goes here
-
-//That is the JQuery for modal i need in JS 
-
-$(document).ready(function(){
-    $('.modal').modal();
-})
-
-
 
 //shows cloudinary upload widget, customized
 
@@ -85,6 +74,22 @@ const player = cld.videoPlayer('player', {
         "text": "#000000"
     }
 });
+
+
+
+
+//tooltips delete/edit icons library.html goes here
+
+// modal for delete icon library.html goes here
+
+//That is the JQuery for modal i need in JS 
+
+//$(document).ready(function(){
+    //$('.modal').modal();
+//})
+
+
+
 
 
 
