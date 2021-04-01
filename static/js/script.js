@@ -75,6 +75,7 @@ document.getElementById("video-upload-btn").addEventListener("click", function()
 
 /// cloudinary videoplayer customized
 
+
 const player = cld.videoPlayer('player', {
     "fluid": true,
     "controls": true,
@@ -84,6 +85,9 @@ const player = cld.videoPlayer('player', {
         "text": "#000000"
     }
 });
+
+
+
 
 
 

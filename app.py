@@ -27,6 +27,13 @@ def index():
 @app.route("/all_videos")
 def all_videos():
     videos = list(mongo.db.videos.find())
+
+# Set the pagination configuration
+
+    page = request.args.get('page', 1, type=int)
+    videos = mongo.db.videos.query.order_by(
+        mongo.db.videos.date.posted.desc()).paginate(
+            page=page, per_page=6)
     return render_template("library.html", videos=videos)
 
 
