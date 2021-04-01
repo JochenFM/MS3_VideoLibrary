@@ -20,6 +20,12 @@
 }
 
 
+.nav-wrapper .brand-logo{
+
+    white-space: nowrap;
+}
+
+
 /* slider*/
 
 .caption h2 {

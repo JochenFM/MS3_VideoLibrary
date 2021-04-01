@@ -25,13 +25,11 @@ def index():
 
 
 @app.route("/all_videos")
-def all_videos():
-    videos = list(mongo.db.videos.find())
-    # Set the pagination configuration
-    page = request.args.get('page', 1, type=int)
-    paginated_vids = videos.query.order_by(
-        videos.date.posted.desc()).paginate(page=page, per_page=6)
-    return render_template("library.html", videos=paginated_vids)
+def all_videos(last_id=None):
+    videos = list(mongo.db.videos.find(
+        {'_id': {'$gt': last_id}}).limit(6))
+    last_id = videos[-1]['_id']
+    return render_template("library.html", videos=videos)
 
 
 @app.route("/search", methods=["GET", "POST"])
