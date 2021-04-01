@@ -5,8 +5,6 @@
     <div class="row">
         <div class="col-12">
             <h3 class="feature-text-center">Add Video</h3>
-
-
             <div class="row card-panel">
                 <form class="col s12" method="POST" action="{{ url_for('add_video') }}">
                     <!--Upload button-->
@@ -19,15 +17,17 @@
                     </div>
                     <!--video title-->
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field s12">
                             <i class="fas fa-video prefix"></i>
                             <input id="video_title" name="video_title" minlength="5" maxlength="200" type="text"
                                 class="validate" required>
                             <small class="white-text col 12">Between 5 and 200 characters </small>
                             <label for="video_title">Video Title</label>
                         </div>
+                    </div>
                         <!--presenter name-->
-                        <div class="input-field col s6">
+                    <div class="row">
+                        <div class="input-field col s12">
                             <i class="fas fa-chalkboard-teacher prefix"></i>
                             <input id="video_author" name="video_author" minlength="5" maxlength="200" type="text"
                                 class="validate" required>
@@ -47,21 +47,24 @@
                     </div>
                     <!--presentation venue-->
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <i class="fas fa-university prefix"></i>
                             <input id="video_venue" name="video_venue" minlength="5" maxlength="70" type="text"
                                 class="validate" required>
                             <label for="video_venue">Venue</label>
                         </div>
+                    </div>   
                         <!--Date picker-->
-                        <div class="input-field col s6">
+                        <div class="row">
+                        <div class="input-field col s12">
                             <i class="fas fa-calendar-alt prefix"></i>
                             <input id="date" name="date" type="text" class="datepicker validate" required>
                             <label for="date">Date</label>
                         </div>
+                        </div>
                         <!--category selection-->
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s12">
                                 <select id="category_name" name="category_name" class="validate" required>
                                     <option value="" disabled selected>Choose Category</option>
                                     {% for category in categories %}
@@ -70,8 +73,10 @@
                                 </select>
                                 <label for="category_name">Video Category</label>
                             </div>
+                        </div>
                             <!--video link-->
-                            <div class="input-field col s6">
+                            <div class="row">
+                            <div class="input-field col s12">
                                 <i class="fas fa-link prefix"></i>
                                 <input id="video_link" name="video_link" type="text" class="validate">
                                 <small class="white-text col 12">Will be uploaded automatically together with

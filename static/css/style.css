@@ -14,10 +14,26 @@
 
 /*text color side nav, does not work yet*/
 
-.h4 {
+.sidenav.h4 {
 
     color: #ff8a65
 }
+
+
+/* slider*/
+
+.caption h2 {
+
+    color: black;
+    }
+
+.caption mark {
+
+    padding: .1em;
+    background-color: #FAEDCA;
+
+}
+
 
 /* registration form on register.html */
 
