@@ -27,9 +27,9 @@ def index():
 @app.route("/all_videos")
 def all_videos(last_id=None):
     if last_id:  # If there was a last id, start the search from there
-        videos = mongo.db.videos.find({'_id': {'$gt': last_id}}).limit(4)
+        videos = mongo.db.videos.find({'_id': {'$gt': last_id}}).limit(2)
     else:  # If there was no last_id start from the beginning
-        videos = list(mongo.db.videos.find().limit(4))
+        videos = list(mongo.db.videos.find().limit(2))
     last_id = None  # Makes last_id None if nothing found in database
     if len(videos) > 0:
         last_id = videos[-1]['_id']

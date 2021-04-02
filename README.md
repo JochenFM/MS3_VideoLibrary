@@ -53,6 +53,27 @@ video_collection = mongo.db.videos
         video_collection.find({}).skip((page - 1) * num).limit(num))
 
 
+In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
+
+<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
+                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
+                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+
+
+
+
+@app.route("/all_videos")
+def all_videos(last_id=None):
+    if last_id:  # If there was a last id, start the search from there
+        videos = mongo.db.videos.find({'_id': {'$gt': last_id}}).limit(2)
+    else:  # If there was no last_id start from the beginning
+        videos = list(mongo.db.videos.find().limit(2))
+    last_id = None  # Makes last_id None if nothing found in database
+    if len(videos) > 0:
+        last_id = videos[-1]['_id']
+    return render_template("library.html", videos=videos)
+
 
 @app.route("/all_videos")
 def all_videos():
