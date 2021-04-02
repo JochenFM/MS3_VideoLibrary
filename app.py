@@ -7,9 +7,14 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+from flask import Blueprint
+from flask_paginate import Pagination, get_page_parameter
 
 
 app = Flask(__name__)
+
+mod = Blueprint('users', __name__)
+
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -25,15 +30,20 @@ def index():
 
 
 @app.route("/all_videos")
-def all_videos(last_id=None):
-    if last_id:  # If there was a last id, start the search from there
-        videos = mongo.db.videos.find({'_id': {'$gt': last_id}}).limit(2)
-    else:  # If there was no last_id start from the beginning
-        videos = list(mongo.db.videos.find().limit(2))
-    last_id = None  # Makes last_id None if nothing found in database
-    if len(videos) > 0:
-        last_id = videos[-1]['_id']
-    return render_template("library.html", videos=videos)
+def all_videos():
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    videos = list(mongo.db.videos.find())
+    pagination = Pagination(
+        page=page, total=videos.count(4), search=search, record_name='videos')
+
+    return render_template(
+        "library.html", videos=videos, pagination=pagination)
 
 
 @app.route("/search", methods=["GET", "POST"])
