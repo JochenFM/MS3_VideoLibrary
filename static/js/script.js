@@ -78,17 +78,22 @@ const player = cld.videoPlayer('player', {
 
 
 
-//tooltips delete/edit icons library.html goes here
+//tooltips delete/edit icons library.html 
 
-// modal for delete icon library.html goes here
+document.addEventListener("DOMContentLoaded", function(){
+    const tip = document.querySelector('.tooltipped');
+    M.Tooltip.init(tip, {});
 
-//That is the JQuery for modal i need in JS 
-
-//$(document).ready(function(){
-    //$('.modal').modal();
-//})
+});
 
 
+// modal for delete icon library.html 
+
+document.addEventListener("DOMContentLoaded", function(){
+    const trash = document.querySelector('.modal');
+    M.Modal.init(trash, {});
+
+});
 
 
 
