@@ -13,6 +13,27 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
+
+
+{% endfor %}
+{% for page_num in videos.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}  
+<ul class="pagination center-align">
+    <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
+    {% if page_num %}
+        {% if videos.page == page_num %}
+    <li class="page-link active"><a href="{{ 'url_for(all_videos', page=page_num) }}">{{ page_num }}</a></li>
+        {% else %}
+            <li class="page-link"><a href="{{ 'url_for(all_videos', page=page_num) }}">{{ page_num }}</a></li>
+      {% endif %}
+    {% else %}
+        ...  
+    <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
+  </ul>
+    {% endif %}
+{% endfor %}
+
+
+
 https://www.youtube.com/watch?v=PSWf2TjTGNY for pagination with Flask
 
 
