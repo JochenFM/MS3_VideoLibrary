@@ -1,3 +1,20 @@
+//tooltips delete/edit icons library.html 
+
+document.addEventListener("DOMContentLoaded", function(){
+    const tip = document.querySelector('.tooltipped');
+    M.Tooltip.init(tip, {});
+
+});
+
+
+// modal for delete icon library.html 
+
+document.addEventListener("DOMContentLoaded", function(){
+    const trash = document.querySelector('.modal');
+    M.Modal.init(trash, {});
+
+});
+
 //sidenav
 const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, { edge: "right" });
@@ -78,22 +95,6 @@ const player = cld.videoPlayer('player', {
 
 
 
-//tooltips delete/edit icons library.html 
-
-document.addEventListener("DOMContentLoaded", function(){
-    const tip = document.querySelector('.tooltipped');
-    M.Tooltip.init(tip, {});
-
-});
-
-
-// modal for delete icon library.html 
-
-document.addEventListener("DOMContentLoaded", function(){
-    const trash = document.querySelector('.modal');
-    M.Modal.init(trash, {});
-
-});
 
 
 

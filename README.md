@@ -61,6 +61,13 @@ In iframe allow class, "autoplay" needs to be deleted, otherwise videos start pl
                         <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
 
 
+Good video for modals in materialize with JS:
+https://www.youtube.com/watch?v=GAQoVIgjeZA
+
+He uses data-target to target the modal id. I use href so might be worthwhile going over this video again in case modals do not work.
+Data-target ="" goes with class of btn in this video, so I will have to see whether href="#delete_video_{{video._id}}" to id="delete_video_{{video._id}}"
+works in my case.
+
 
 
 @app.route("/all_videos")
