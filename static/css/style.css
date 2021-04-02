@@ -199,3 +199,33 @@ background-color: #C1DBB3;
 
     color: #7EBC89;
 }
+
+
+/*modal delete video*/
+
+.modal-content {
+
+    background-color: #ff8a65;
+    
+}
+
+
+.btn-flat  {
+
+background-color: #7EBC89;
+color: black;
+
+}
+
+.btn-flat {
+
+    background-color: red;
+    color: black;
+}
+
+.modal .modal-footer {
+
+    background-color: #FAEDCA;
+}
+
+/*modal delete category*/

@@ -137,7 +137,7 @@ def add_video():
             "video_venue": request.form.get("video_venue"),
             "date": request.form.get("date"),
             "video_link": request.form.get("video_link"),
-            "created by": session["user"]
+            "created_by": session["user"]
         }
         mongo.db.videos.insert_one(video)
         flash("Video sucessfully added")
@@ -158,7 +158,7 @@ def edit_video(video_id):
             "video_venue": request.form.get("video_venue"),
             "date": request.form.get("date"),
             "video_link": request.form.get("video_link"),
-            "created by": session["user"]
+            "created_by": session["user"]
         }
         mongo.db.videos.update({"_id": ObjectId(video_id)}, submit)
         flash("Video sucessfully updated")
