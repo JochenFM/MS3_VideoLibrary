@@ -7,6 +7,7 @@
     </div>
 </div>
 <div class="container">
+    {{ pagination.links }}
     <div class="row card-panel">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
@@ -31,12 +32,13 @@
 <div class="row">
     {% for video in videos %}
     <div class="col s12 m6 l3">
-        <div class="video-container responsive-video">
+        {{ loop.all_videos + (page - 1) * per_page }}
+        <div class="video-container responsive-video hoverable">
             <iframe src=" {{ video.video_link }} " width="640" height="480"
                 allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0">
             </iframe>
         </div>
-        <ul class="collapsible">
+        <ul class="collapsible hoverable">
             <li class="active">
                 <div class="collapsible-header">
                     <i class="far fa-caret-square-down"></i>Title</div>
@@ -75,6 +77,8 @@
             </li>
         </ul>
     </div>
+    {% endfor %}
+    {{ pagination.links }}
     <!-- Modal Structure-->
     <div id="delete_video_{{video._id}}" class="modal">
         <div class="modal-content">

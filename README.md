@@ -37,7 +37,7 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 https://www.youtube.com/watch?v=PSWf2TjTGNY for pagination with Flask
 
 
-Pagination code:
+Pagination code 1:
 
 video_collection = mongo.db.videos
 
@@ -51,6 +51,20 @@ video_collection = mongo.db.videos
     # page - 1 checks that the first items can be found
     videos = list(
         video_collection.find({}).skip((page - 1) * num).limit(num))
+
+
+
+Pagination code 2:
+search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+
+    videos = list(mongo.db.videos.find())
+    pagination = Pagination(
+        page=page, total=videos.count(4), search=search, record_name='videos')
 
 
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.

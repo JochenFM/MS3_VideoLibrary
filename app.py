@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 from flask import Blueprint
-from flask_paginate import Pagination, get_page_parameter
+from flask_paginate import Pagination, get_page_args
 
 
 app = Flask(__name__)
@@ -30,20 +30,22 @@ def index():
 
 
 @app.route("/all_videos")
-def all_videos():
-    search = False
-    q = request.args.get('q')
-    if q:
-        search = True
-
-    page = request.args.get(get_page_parameter(), type=int, default=1)
-
+def all_videos(offset=0, per_page=4):
     videos = list(mongo.db.videos.find())
-    pagination = Pagination(
-        page=page, total=videos.count(4), search=search, record_name='videos')
 
-    return render_template(
-        "library.html", videos=videos, pagination=pagination)
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    total = len(videos)
+    pagination_videos = all_videos(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            )
+
+    return render_template("library.html",
+                           videos=pagination_videos,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
 
 
 @app.route("/search", methods=["GET", "POST"])
