@@ -93,6 +93,14 @@ background:
 }
 
 
+/*add video panel
+
+.card-panel.add {
+
+    margin-top: 300px;
+}*/
+
+
 /* edit interfaces */
 
 .edit-interface{
@@ -114,11 +122,19 @@ background:
 }
 
 
+/*edit video card panel*/
+
+.row .card-panel.edit {
+
+    margin-top: 80px;
+}
+
 /* edit and add buttons*/
 
 .btn-large {
 
-color: black
+color: black;
+margin: 10px; 
 }
 
 /*footer*/
@@ -172,6 +188,7 @@ body {
 .edit-panel{
 
 background-color: #C1DBB3;
+
 
 }
 
@@ -236,14 +253,19 @@ background-color: red;
 /* profile card*/
 
 
-.row .profile {
+.card-panel.profile {
 
     margin-top: 100px;
 }
+
 
 .card {
 
     background-color: #C1DBB3;
 }
 
+.card-action .profile {
+
+    padding: 10px;
+}
 
