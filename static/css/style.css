@@ -1,11 +1,4 @@
 
-
-/* text shadow in navbar */
-
-.text-shadow {
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-}
-
 .nav-wrapper a {
 
     color: black;
@@ -16,14 +9,11 @@
 
 .sidenav.h4 {
 
-    color: #ff8a65
+    color: #ff8a65;
+
+
 }
 
-
-/*.nav-wrapper .brand-logo{
-
-    white-space: nowrap;
-}*/
 
 
 /* slider*/
@@ -240,3 +230,10 @@ background-color: red;
 
     background-color: #C1DBB3;
 }
+
+/*
+.profile img{
+
+    max-width:100%;
+    height:auto;
+}*/

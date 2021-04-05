@@ -218,6 +218,23 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
+
+# allows user to delete account when in session
+# deletes user from user database
+# deletes video from from database
+# sends visual confirmation
+
+
+@app.route("/delete_profile/<username>")
+def delete_profile(username):
+
+    mongo.db.videos.remove({"created_by": username.lower()})
+    mongo.db.users.remove({"username": username.lower()})
+    flash("Profile deleted")
+
+    return redirect(url_for("register"))
+
+
 # get selection of videos to display as featured videos in videos.html
 
 # def get_featured_videos(cocktail_id, comp_field, count):
