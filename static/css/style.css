@@ -1,3 +1,7 @@
+body {
+font-family: 'Londrina Solid', cursive
+}
+
 
 .nav-wrapper a {
 
@@ -29,6 +33,12 @@
     background-color: #FAEDCA;
 
 }
+.slides {
+background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),}
 
 
 /* registration form on register.html */
@@ -83,18 +93,18 @@
 }
 
 
-/* edit interfaces
+/* edit interfaces */
 
 .edit-interface{
 
     margin: 4px;
    
-}*/
+}
 
 .edit-interface .fa-trash{
 
     color: red;
-    /*padding-left: 300px;*/
+
     
 }
 
@@ -185,11 +195,12 @@ background-color: #C1DBB3;
     color:black;
 }
 
-.search .btn {
 
-    color: #7EBC89;
-}
+/*does not work 
+ .search.btn {    
+ color: #7EBC89;
 
+}*/
 
 /*modal delete video*/
 
@@ -225,15 +236,14 @@ background-color: red;
 /* profile card*/
 
 
+.row .profile {
+
+    margin-top: 100px;
+}
 
 .card {
 
     background-color: #C1DBB3;
 }
 
-/*
-.profile img{
 
-    max-width:100%;
-    height:auto;
-}*/

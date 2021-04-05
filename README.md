@@ -122,6 +122,20 @@ def get_suggested_videos(video_id, count):
         
 
 
+
+CSS for color-overlay in slider:
+
+.color-overlay {
+
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .7;
+    position: absolute;
+    z-index: -1;
+}
+
+
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
 
 <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">

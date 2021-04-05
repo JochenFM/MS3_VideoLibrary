@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -48,7 +50,7 @@
         <!--mobile side navbar-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <h4 class="center-align deep-orange lighten-2">Video Wunderkammer</h4>
+                <h4 class="center-align deep-orange lighten-2">Video <em>Wunderkammer</em></h4>
             </li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if session.user %}

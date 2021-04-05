@@ -241,10 +241,10 @@ def delete_category(category_id):
 
 
 @app.route("/delete_profile/<username_id>")
-def delete_profile(video_id, username_id):
+def delete_profile(video, username):
 
-    mongo.db.videos.remove({"_id": ObjectId(video_id)})
-    mongo.db.users.remove({"_id": ObjectId(username_id)})
+    mongo.db.videos.remove({"_id": ObjectId(video)})
+    mongo.db.users.remove({"_id": ObjectId(username)})
     flash("Profile deleted")
     return redirect(url_for("register"))
 
