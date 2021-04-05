@@ -1,45 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <div class="row">
-    <div class="col s12 m8 offset-m2 move">
-        <div class="card">
-            <h3 class="center-align">
-                {{ username }}`s Profile </h3>
-                <div class="card-panel">
-            <div class="card-image profile">
-                <img src="{{url_for('static', filename='images/curies.jpg')}}" class ="circle responsive-img">
-            </div>
-        
-            <div class="card-content">
-                <p>Welcome, {{ username }}</p>
-            </div>
-            <div class="card-action">
-                <a href="#" class="edit-interface align-item-right">
-                    <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit Profile"></i></a>
-                <a href="#delete_profile" class="edit-interface modal-trigger align-item-right">
-                    <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
-            </div>
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <h3 class="center-align">
+            {{ username }}`s Profile </h3>
+        <div class="card-panel">
+            <div class="row valign-wrapper">
+                <div class="col s2">
+                    <img src="{{url_for('static', filename='images/profile_pic.jpg')}}" class="circle responsive-img">
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        <p>Welcome, {{ username }}</p>
+                    </span>
+                </div>
+                <div class="card-action">
+                    <a href="#" class="edit-interface align-item-right">
+                        <i class="fas fa-edit tooltipped" data-position="top" data-tooltip="Edit Profile, not functional yet"></i></a>
+                    <a href="#delete_profile" class="edit-interface modal-trigger align-item-right">
+                        <i class="fas fa-trash tooltipped" data-position="bottom" data-tooltip="Delete Profile"></i></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
             <h3 class="center-align">
                 {{ username }}`s Videos </h3>
         </div>
     </div>
-<div class="row">
-    <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
             <h3 class="center-align">
                 {{ username }}`s Favourites </h3>
         </div>
     </div>
 
-     <!-- Modal Structure-->
+    <!-- Modal Structure-->
     <div id="delete_profile" class="modal">
         <div class="modal-content">
             <h4>Delete your Profile?</h4>
@@ -47,8 +47,9 @@
         </div>
         <div class="modal-footer">
             <a href="#" class="modal-close waves-effect btn-flat">Cancel</a>
-            <a href="#" class="btn-flat" id="delete-button">Delete</a>
+            <a href="{{ url_for('delete_profile', username_id=username._id) }}" class="btn-flat" id="delete-button">Delete</a>
         </div>
     </div>
+    
 
-{% endblock %}
+    {% endblock %}

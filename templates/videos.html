@@ -31,7 +31,6 @@
         </li>
     </ul>
 </section>
-
 <!--Featured Videos-->
 <section class="feature">
     <div class="row">
@@ -41,70 +40,63 @@
             <hr>
         </div>
     </div>
-    {% if videos|length > 0 %}
     <div class="row">
-        {% for video in videos %}
+        {% for suggested_video in suggested_videos %}
         <div class="col s12 m6 l3">
-            <div class="video-container responsive-video">
-                <iframe
-                    src="" width="640" height="480" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                    allowfullscreen frameborder="0"></iframe>
+            <div class="video-container responsive-video hoverable">
+                <iframe src=" {{ suggested_video.video_link }} " width="640" height="480"
+                    allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0">
+                </iframe>
             </div>
-            <div class="card">
-                <div class="card-image">
-                    <a href ="{{url_for('index', video_id=video._id)}}"></a>
-                    <div class="like-button right-align">
-                        <a href="#">
-                            <i class="far fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <ul class="collapsible">
-                <li class="">
+            <ul class="collapsible hoverable">
+                <li class="active">
                     <div class="collapsible-header">
                         <i class="far fa-caret-square-down"></i>Title</div>
-                    <div class="collapsible-body"> <strong>{{ video.video_title }}</strong>
-                        <p><em>Key word: {{ video.category_name }}</em></p>
-                        <p><em>by: {{ video.created_by }}</em></p>
+                    <div class="collapsible-body"><strong>{{ suggested_video.video_title }}</strong>
+                        <p><em>Key word: {{ suggested_video.category_name }}</em></p>
+                        <p><em>by: {{ suggested_video.created_by }}</em></p>
                         {% if session.user|lower == video.created_by|lower %}
-                        <a href="{{ url_for('edit_video', video_id=video._id) }}"
+                        <a href="{{ url_for('edit_video', video_id=suggested_video._id) }}"
                             class="edit-interface align-item-right">
                             <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
-                        <a href="#delete_video" class="edit-interface modal-trigger center-align">
-                            <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i>
-                        </a>
+                        <a href="#delete_video_{{suggested_video._id}}" class="edit-interface modal-trigger align-item-right">
+                            <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+                        <a href="#">
+                            <i class="fas fa-heart align-item-right"></i></a>
                         {% endif %}
                     </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Author</div>
-                    <div class="collapsible-body"> {{ video.video_author }}
+                    <div class="collapsible-body"> {{ suggested_video.video_author }}
                     </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Abstract</div>
                     <div class="collapsible-body">
-                        <p>{{ video.video_description }}</p>
+                        <p>{{ suggested_video.video_description }}</p>
 
                     </div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Venue</div>
-                    <div class="collapsible-body">{{ video.video_venue }}</div>
+                    <div class="collapsible-body">{{ suggested_video.video_venue }}</div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Date</div>
-                    <div class="collapsible-body">{{ video.date }}</div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="far fa-caret-square-down"></i>Link</div>
-                    <div class="collapsible-body">{{ video.video_link}}</div>
+                    <div class="collapsible-body">{{ suggested_video.date }}</div>
                 </li>
             </ul>
         </div>
-
         {% endfor %}
-    </div>
-    {% endif %}
-    {% endblock %}
+
+
+        <ul class="pagination center-align">
+            <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
+            <li class="page-link active"><a href="{{ url_for('all_videos')}}"></a></li>
+            <li class="page-link"><a href="{{ url_for('all_videos') }}"></a></li>
+
+            <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
+        </ul>
+
+{% endblock %}

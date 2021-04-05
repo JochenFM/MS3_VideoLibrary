@@ -9,6 +9,7 @@ if os.path.exists("env.py"):
     import env
 from flask import Blueprint
 from flask_paginate import Pagination, get_page_args
+import random
 
 
 app = Flask(__name__)
@@ -30,23 +31,38 @@ def index():
 
 
 @app.route("/all_videos")
-def all_videos(offset=0, per_page=4):
+def all_videos():
     videos = list(mongo.db.videos.find())
+    return render_template("library.html", videos=videos)
 
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-    total = len(videos)
-    pagination_videos = all_videos(offset=offset, per_page=per_page)
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            )
 
-    return render_template("library.html",
-                           videos=pagination_videos,
-                           page=page,
-                           per_page=per_page,
-                           pagination=pagination,
-                           )
+def get_suggested_videos(video_id):
 
+    """
+        Get random videos based on compared fields
+        Finds all videos where compared fields match with provided video.
+        Returns random sample.
+        Parameter:
+        string: video_id from videos collection field "_id".
+        string: comp_field, name of the keyword to compare with.
+        Int: number of random videos returned.
+        Returns:
+        list: dictionnary of random videos.
+    """
+    video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
+    num_to_select = 3
+    suggested_videos = list.random.sample(
+                mongo.db.videos.find({video, num_to_select}))
+
+    # removes current video from suggested cocktails
+    for i, item in enumerate(suggested_videos):
+        if item["_id"] == ObjectId(video_id):
+            suggested_videos.pop(i)
+            break
+
+    # pick 3 random from suggested list
+    return random.sample("videos.html")
+        
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -218,20 +234,18 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-
 # allows user to delete account when in session
 # deletes user from user database
 # deletes video from from database
 # sends visual confirmation
 
 
-@app.route("/delete_profile/<username>")
-def delete_profile(username):
+@app.route("/delete_profile/<username_id>")
+def delete_profile(video_id, username_id):
 
-    mongo.db.videos.remove({"created_by": username.lower()})
-    mongo.db.users.remove({"username": username.lower()})
+    mongo.db.videos.remove({"_id": ObjectId(video_id)})
+    mongo.db.users.remove({"_id": ObjectId(username_id)})
     flash("Profile deleted")
-
     return redirect(url_for("register"))
 
 

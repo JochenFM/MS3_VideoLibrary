@@ -66,6 +66,61 @@ search = False
     pagination = Pagination(
         page=page, total=videos.count(4), search=search, record_name='videos')
 
+    
+
+Pagination code 3, following https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+
+@app.route("/all_videos")
+def all_videos(offset=0, per_page=4):
+    videos = list(mongo.db.videos.find())
+
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    total = len(videos)
+    pagination_videos = all_videos(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            )
+
+    return render_template("library.html",
+                           videos=pagination_videos,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
+
+
+
+Old random.selection code:
+
+def get_suggested_videos(video_id, count):
+
+    """
+        Get random videos based on compared fields
+        Finds all videos where compared fields match with provided video.
+        Returns random sample.
+        Parameter:
+        string: video_id from videos collection field "_id".
+        string: comp_field, name of the keyword to compare with.
+        Int: number of random videos returned.
+        Returns:
+        list: dictionnary of random videos.
+    """
+    video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
+    num_to_select = 3
+    suggested_videos = list.random.sample(
+                mongo.db.videos.find({video, num_to_select}))
+
+    # removes current video from suggested cocktails
+    for i, item in enumerate(suggested_videos):
+        if item["_id"] == ObjectId(video_id):
+            suggested_videos.pop(i)
+            break
+
+    # pick 3 random from suggested list
+    return random.sample(
+        suggested_videos, min(len(suggested_videos), count))
+        
+
 
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
 
