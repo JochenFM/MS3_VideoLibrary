@@ -5,16 +5,20 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-if os.path.exists("env.py"):
-    import env
 from flask import Blueprint
 from flask_paginate import Pagination, get_page_args
 import random
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
 
 mod = Blueprint('users', __name__)
+
+# Pagination activity limit
+
+PER_PAGE = 4
 
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -30,10 +34,32 @@ def index():
     return render_template("videos.html")
 
 
+videos = list(mongo.db.videos.find())
+
+
+def paginated(videos):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+    return videos[offset: offset + PER_PAGE]
+
+
+def pagination_args(videos):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(videos)
+
+    return Pagination(page=page, per_page=PER_PAGE, total=total)
+
+
 @app.route("/all_videos")
 def all_videos():
     videos = list(mongo.db.videos.find())
-    return render_template("library.html", videos=videos)
+    videos_paginated = paginated(videos)
+    pagination = pagination_args(videos)
+
+    return render_template(
+        "library.html", videos=videos_paginated, pagination=pagination)
 
 
 def get_suggested_videos(video_id):
