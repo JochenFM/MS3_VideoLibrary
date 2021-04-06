@@ -30,8 +30,12 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/index")
-def index():
-    return render_template("videos.html")
+def get_suggested_videos():
+    suggested_videos = (
+        [video for video in mongo.db.videos.aggregate([
+            {"$sample": {"size": 3}}])])
+
+    return render_template("videos.html", suggested_videos=suggested_videos)
 
 
 # Pagination
@@ -59,15 +63,6 @@ def all_videos():
 
     return render_template(
         "library.html", videos=videos_paginated, pagination=pagination)
-
-
-def get_suggested_videos():
-    videos_collection = list(mongo.db.videos)
-    suggested_videos = (
-        [video for video in videos_collection.aggregate([
-            {"$sample": {"size": 4}}])])
-
-    return render_template("videos.html", suggested_videos=suggested_videos)
 
 
 @app.route("/search", methods=["GET", "POST"])
