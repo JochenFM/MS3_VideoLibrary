@@ -110,7 +110,7 @@ def get_suggested_videos(video_id, count):
     suggested_videos = list.random.sample(
                 mongo.db.videos.find({video, num_to_select}))
 
-    # removes current video from suggested cocktails
+    # removes current video from suggested videos
     for i, item in enumerate(suggested_videos):
         if item["_id"] == ObjectId(video_id):
             suggested_videos.pop(i)
@@ -134,6 +134,32 @@ CSS for color-overlay in slider:
     position: absolute;
     z-index: -1;
 }
+
+
+
+JS code for cloudinary upload widget needs to be focused on the one element on the page - thanks to Tim Nelson
+
+Ah so if it's applicable only to that template, then it shouldn't be a global function.
+﻿
+﻿You have two options.
+﻿
+﻿Easy option:
+﻿Add that only to the add_video.html template, if that's all it's applicable to...
+﻿
+﻿Not as easy option:
+﻿Add a conditional check to that JS file for this element.... something like:
+﻿
+﻿const videoUploadBtn = document.getElementById("video-upload-btn");
+﻿if (videoUploadBtn) {
+﻿ videoUploadBtn.addEventListener("click", function() {
+myWidget.open();
+}, false
+);
+But that assumes your code is applicable to every page... whereby, yours is only applicable to a single page.
+So you just need to put it on that page only, or do a conditional check to make sure that element actually exists
+
+
+
 
 
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.

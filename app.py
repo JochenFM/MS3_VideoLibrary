@@ -61,28 +61,14 @@ def all_videos():
         "library.html", videos=videos_paginated, pagination=pagination)
 
 
-def get_suggested_videos(video_id):
+def get_suggested_videos():
+    videos_collection = list(mongo.db.videos)
+    suggested_videos = (
+        [video for video in videos_collection.aggregate([
+            {"$sample": {"size": 4}}])])
 
-    """
-        Get random videos based on compared fields
-        Finds all videos where compared fields match with provided video.
-        Returns random sample.
-        Parameter:
-        string: video_id from videos collection field "_id".
-        string: comp_field, name of the keyword to compare with.
-        Int: number of random videos returned.
-        Returns:
-        list: dictionnary of random videos.
-    """
-    video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
-    num_to_select = 3
-    suggested_videos = list.random.sample(
-                mongo.db.videos.find({video, num_to_select}))
+    return render_template("videos.html", suggested_videos=suggested_videos)
 
-
-    # pick 3 random from suggested list
-    return random.sample("videos.html", suggested_videos=suggested_videos)
-        
 
 @app.route("/search", methods=["GET", "POST"])
 def search():

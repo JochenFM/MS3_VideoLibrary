@@ -50,12 +50,9 @@ M.Datepicker.init(datepicker, {
 
 //collapsible video card
 
-const collapsible = document.querySelector('.collapsible');
-M.Collapsible.init(collapsible, {
-	
-});
 
-
+const collapsibles = document.querySelectorAll('.collapsible');
+M.Collapsible.init(collapsibles);
 
 
 //shows cloudinary upload widget, customized
@@ -73,33 +70,31 @@ const myWidget = cloudinary.createUploadWidget({
     }
 );
 
-document.getElementById("video-upload-btn").addEventListener("click", function(){
-    myWidget.open();
-  }, false
-  );
 
+const videoUploadBtn = document.getElementById("video-upload-btn");
+if (videoUploadBtn) {
+    videoUploadBtn.addEventListener("click", function () {
+        myWidget.open();
+    }, false
+    );
+}
 
 
 /// cloudinary videoplayer customized
 
 
+const cld = cloudinary.Cloudinary.new({ cloud_name: "wunderkammer", secure: true});
+
+
 const player = cld.videoPlayer('player', {
-    "fluid": true,
-    "controls": true,
-    "colors": {
-        "base": "#ff8a65",
-        "accent": "#7ebc89",
-        "text": "#000000"
-    }
-});
-
-
-
-
-
-
-
-
+        "fluid": true,
+        "controls": true,
+        "colors": {
+            "base": "#ff8a65",
+            "accent": "#7ebc89",
+            "text": "#000000"
+        }
+    });
 
 
 
