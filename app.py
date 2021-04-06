@@ -34,9 +34,8 @@ def index():
     return render_template("videos.html")
 
 
-videos = list(mongo.db.videos.find())
-
-
+# Pagination
+# https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 def paginated(videos):
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
@@ -80,14 +79,9 @@ def get_suggested_videos(video_id):
     suggested_videos = list.random.sample(
                 mongo.db.videos.find({video, num_to_select}))
 
-    # removes current video from suggested cocktails
-    for i, item in enumerate(suggested_videos):
-        if item["_id"] == ObjectId(video_id):
-            suggested_videos.pop(i)
-            break
 
     # pick 3 random from suggested list
-    return random.sample("videos.html")
+    return random.sample("videos.html", suggested_videos=suggested_videos)
         
 
 @app.route("/search", methods=["GET", "POST"])

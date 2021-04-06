@@ -52,6 +52,7 @@ M.Datepicker.init(datepicker, {
 
 const collapsible = document.querySelector('.collapsible');
 M.Collapsible.init(collapsible, {
+	
 });
 
 
