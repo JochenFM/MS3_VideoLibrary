@@ -27,7 +27,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# Code for selecting sample of videos from Tim Nelson
 @app.route("/")
 @app.route("/index")
 def get_suggested_videos():

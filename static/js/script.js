@@ -10,10 +10,12 @@ document.addEventListener("DOMContentLoaded", function(){
 // modal for delete icon library.html 
 
 document.addEventListener("DOMContentLoaded", function(){
-    const trash = document.querySelector('.modal');
+    const trash = document.querySelectorAll('.modal');
     M.Modal.init(trash, {});
 
+
 });
+
 
 //sidenav
 const sideNav = document.querySelector('.sidenav');
@@ -78,24 +80,6 @@ if (videoUploadBtn) {
     }, false
     );
 }
-
-
-/// cloudinary videoplayer customized
-
-
-const cld = cloudinary.Cloudinary.new({ cloud_name: "wunderkammer", secure: true});
-
-
-const player = cld.videoPlayer('player', {
-        "fluid": true,
-        "controls": true,
-        "colors": {
-            "base": "#ff8a65",
-            "accent": "#7ebc89",
-            "text": "#000000"
-        }
-    });
-
 
 
 //category select validation from CI's TIm Nelson
