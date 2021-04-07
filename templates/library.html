@@ -38,7 +38,7 @@
             </iframe>
         </div>
         <ul class="collapsible hoverable">
-            <li class="active">
+            <li class="">
                 <div class="collapsible-header">
                     <i class="far fa-caret-square-down"></i>Title</div>
                 <div class="collapsible-body"><strong>{{ video.video_title }}</strong>
@@ -91,17 +91,13 @@
     {% endfor %}
 
 </div>
+
+{{ pagination.links }}
+
+
 {% else %}
 <h4 class="red-text center-align">No results found</h4>
 {% endif %}
 
-
-<ul class="pagination center-align">
-    <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
-    <li class="page-link active"><a href="{{ url_for('all_videos')}}"></a></li>
-    <li class="page-link"><a href="{{ url_for('all_videos') }}"></a></li>
-
-    <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
-</ul>
 
 {% endblock %}

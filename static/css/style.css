@@ -33,13 +33,13 @@ font-family: 'Londrina Solid', cursive
     background-color: #FAEDCA;
 
 }
-.slides {
+/*.slides {
 background: 
     linear-gradient(
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
-    ),}
-
+    )}
+*/
 
 /* registration form on register.html */
 
@@ -269,3 +269,13 @@ background-color: red;
     padding: 10px;
 }
 
+/* Pagination*/
+
+
+.pagination {
+    text-align: center;
+}
+
+.pagination li.active {
+    background-color: #ff8a65;
+}
