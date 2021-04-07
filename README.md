@@ -15,125 +15,7 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
-{% endfor %}
-{% for page_num in videos.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}  
-<ul class="pagination center-align">
-    <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
-    {% if page_num %}
-        {% if videos.page == page_num %}
-    <li class="page-link active"><a href="{{ 'url_for(all_videos', page=page_num) }}">{{ page_num }}</a></li>
-        {% else %}
-            <li class="page-link"><a href="{{ 'url_for(all_videos', page=page_num) }}">{{ page_num }}</a></li>
-      {% endif %}
-    {% else %}
-        ...  
-    <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
-  </ul>
-    {% endif %}
-{% endfor %}
 
-
-
-https://www.youtube.com/watch?v=PSWf2TjTGNY for pagination with Flask
-
-
-Pagination code 1:
-
-video_collection = mongo.db.videos
-
-    # fetch the page number from request / set the page 1
-    page = int(request.args.get('page') or 1)
-    num = 9
-
-    # count documents for of pagination options
-    count = ceil(float(video_collection.count_documents({}) / num))
-
-    # page - 1 checks that the first items can be found
-    videos = list(
-        video_collection.find({}).skip((page - 1) * num).limit(num))
-
-
-
-Pagination code 2:
-search = False
-    q = request.args.get('q')
-    if q:
-        search = True
-
-    page = request.args.get(get_page_parameter(), type=int, default=1)
-
-    videos = list(mongo.db.videos.find())
-    pagination = Pagination(
-        page=page, total=videos.count(4), search=search, record_name='videos')
-
-    
-
-Pagination code 3, following https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
-
-@app.route("/all_videos")
-def all_videos(offset=0, per_page=4):
-    videos = list(mongo.db.videos.find())
-
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-    total = len(videos)
-    pagination_videos = all_videos(offset=offset, per_page=per_page)
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            )
-
-    return render_template("library.html",
-                           videos=pagination_videos,
-                           page=page,
-                           per_page=per_page,
-                           pagination=pagination,
-                           )
-
-
-
-Old random.selection code:
-
-def get_suggested_videos(video_id, count):
-
-    """
-        Get random videos based on compared fields
-        Finds all videos where compared fields match with provided video.
-        Returns random sample.
-        Parameter:
-        string: video_id from videos collection field "_id".
-        string: comp_field, name of the keyword to compare with.
-        Int: number of random videos returned.
-        Returns:
-        list: dictionnary of random videos.
-    """
-    video = mongo.db.videos.find_one({"_id": ObjectId(video_id)})
-    num_to_select = 3
-    suggested_videos = list.random.sample(
-                mongo.db.videos.find({video, num_to_select}))
-
-    # removes current video from suggested videos
-    for i, item in enumerate(suggested_videos):
-        if item["_id"] == ObjectId(video_id):
-            suggested_videos.pop(i)
-            break
-
-    # pick 3 random from suggested list
-    return random.sample(
-        suggested_videos, min(len(suggested_videos), count))
-        
-
-
-
-CSS for color-overlay in slider:
-
-.color-overlay {
-
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: .7;
-    position: absolute;
-    z-index: -1;
-}
 
 
 
@@ -198,39 +80,11 @@ def all_videos():
 
 
 
-# Set the pagination configuration
-    page = request.args.get('page', 1, type=int)
-    paginated_vids = videos.query.order_by(
-        videos.date.posted.desc()).paginate(page=page, per_page=6)
-    return render_template("library.html", videos=paginated_vids)
 
 
 
 
-Modal code:
 
-
-<!--Modal from Santé
-<div class="modal fade" id="delete_video_{{video._id}}" tabindex="-1" role="dialog"
-    aria-labelledby="delete_video_{{video._id}}" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered " role="document">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete this video?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete this cocktail? This will be deleted forever.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-warning text-white" data-dismiss="modal">Cancel</button>
-                <a href="{{ url_for('delete_video', video_id=video._id)}}" class="btn btn-danger">Delete</a>
-            </div>
-        </div>
-    </div>
-</div-->
 
 
 //tooltips delete/edit icons library.html
@@ -400,15 +254,191 @@ is identical with video creator. Initially, this did not work but for another re
 
 
 
-   <!--{% for video in videos %}
-    {{ video.video_title }}<br>
-    {{ video.category_name }}<br>
-    {{ video.video_description }}<br>
-    {{ video.video_venue }}<br>
-    {{ video.video_author }}<br>
-    {{ video.date }}<br>
-    {{ video.video_link}}<br>
-    {% endfor %}-->
-<!--Featured Videos-->
+## Testing
+
+Lighthouse was used to test the performance of the application on all pages on mobile and desktop.
+
+The following reports were generated:
+
+
+*videos.html - Home:*
+
+
+* Performance: REDO as currently at 19%
+
+* Accessibility: 74%
+
+"iframe elements do not have a title"
+"Image elements do not have [alt] attributes"
+
+- I added a title to the iframe tags and all attributes to all img
+
+"Links do not have a discernible name"
+
+- This refers to social link icons and not quite sure what to make of it 
+
+
+* Best Practices: 80
+
+"Browser errors were logged to the console"
+"Issues were logged in the Issues panel in Chrome Devtools"
+
+- CHECK
+
+* SEO: 83
+
+"Document does not have a meta description" 
+
+- I added _meta name="Description" content=""_ providing a summary of the page content. 
+
+"Image elements do not have [alt] attributes"
+
+- I added them
+
+
+*Profile.html*
+
+
+* Performance:73
+
+"Does not use passive listeners to improve scrolling performance"
+
+Adding 'touchstart', onTouchStart, {passive: true} to my event listener functions, as advised, threw up errors so I left it as it is.
+
+"Image elements do not have explicit width and height"
+
+As I use the MaterializeCSS class="circle responsive-img", I skipped that.
+
+
+
+* Accessibility:95
+* Best Practices:87 because of console errors
+* SEO: 100
+
+*New_Video.html*
+
+* Performance. 92
+* Accessibility:80
+
+"Form elements do not have associated labels"
+That refers to the categories drop-down for which I do not see the option to add another "label for" tag so I left it.
+
+"Links do not have a discernible name"
+
+Again, in the footer
+
+* Best Practices:93 because of console errors
+* SEO: 89
+
+"Document doesn't use legible font sizes"
+- Let's check again after white etxt converted to black text, but this might concern font size only
+
+"Tap targets are not sized appropriately"
+added margin of 8px around category validate class
+
+
+
+*Library.html*
+
+The page loaded too slowly to finish within the time limit. Results may be incomplete.
+
+* Performance: 81
+
+"Does not use passive listeners to improve scrolling performance"
+- see above
+
+
+* Accessibility:85
+
+
+"Buttons do not have an accessible name"
+
+Added aria-label = "Center Align"
+
+"Links do not have a discernible name"
+
+As above, this concerns social links, but here also search and reset buttons. I added tooltips to them for better accessibility, but I do not know whether Lihgthouse rewards that.
+
+
+* Best Practices:87 because of console errors
+
+* SEO: 88
+
+"Links are not crawlable"
+This refers to two <a> tags from the {{pagination.links}} flask extension which I do not seem to be able to change
+
+"Tap targets are not sized appropriately"
+
+Refers to pagination links for which I now added margin and padding
+
+
+
+    Lighthouse report is now as [follows]() 
+
+
+
+
+
+
+
+1. Best Practice Report indicated that:
+
+"Links to cross-origin destinations are unsafe"
+
+- I added rel="noopener" to all eight links to meet requirements of cross-origin destination audit.
+
+"Charset declaration is missing or occurs too late in the HTML"
+
+- I moved the _meta charset="UTF-8"_ element right after the _head_ element.
+
+
+2. Performance Report said that:
+
+"Image elements do not have explicit width and height
+Set an explicit width and height on image elements to reduce layout shifts and improve CLS."
+
+- I addressed this issue by manually reiszing all images using free and open-access [Picresize](https://picresize.com/) software as I have a responsive grid which would not allow 
+    specific image dimensions. But the issue persisted and I lost points here as even although images now are all same height and width, this was not achieved via 
+    setting an explicit height and width on image elements in CSS.  
+
+
+2. SEO Report flagged out that:
+
+"Does not have a _meta name="viewport"_ tag with width or initial-scale" 
+
+- I added that in the _head_ elements.
+
+"Document does not have a meta description" 
+
+- I added _meta name="Description" content=""_ providing a summary of the page content. 
+
+"Links do not have descriptive text" 
+
+- I changed clickable link text from 'here' to more descriptive language for both users and search engines to more easily understand content and how it relates to other pages. 
+
+
+3. Accesibility Report stated:
+
+"Heading elements are not in a sequentially-descending order" 
+
+- I replaed "h4" in the footer with a "h3" to avoid anti-pattern and use a correctly sequenced heading structure from h1-h3 instead.
+
+Lighthouse report is now as [follows](https://imgur.com/eZfwbgh) 
+
+A few opportunities to improve Performance and Best Practices of both pages remain 
+and will be addressed at a later stage:
+
+
+* Performance of both pages:  
+
+"Eliminate render-blocking resources"
+
+"Serve images in next-gen formats"
+
+"Image elements do not have explicit width and height"
+
+* Best Practices in both pages:
+
+"Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 

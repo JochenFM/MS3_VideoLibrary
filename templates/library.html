@@ -16,7 +16,7 @@
                     <label for="query">Search</label>
                 </div>
                 <div class="col s12 m4">
-                    <button type="submit" class="search btn left" id= "search">
+                    <button type="submit" class="search btn left" aria-label = "Center Align" id= "search">
                         <i class="fas fa-search tooltipped" data-position="left" data-tooltip="Search Videos"></i>
                     </button>
                     <a href="{{ url_for('all_videos') }}" class="deep-orange lighten-2 btn left">
@@ -33,7 +33,7 @@
     
     <div class="col s12 m6 l3">
         <div class="video-container responsive-video hoverable">
-            <iframe src=" {{ video.video_link }} " width="640" height="480"
+            <iframe title = "Your Video" src=" {{ video.video_link }} " width="640" height="480"
                 allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0">
             </iframe>
         </div>

@@ -21,7 +21,7 @@
                             <i class="fas fa-video prefix"></i>
                             <input id="video_title" name="video_title" minlength="5" maxlength="200" type="text"
                                 class="validate" required>
-                            <small class="white-text col 12">Between 5 and 200 characters </small>
+                            <small class="black-text col 12">Between 5 and 200 characters </small>
                             <label for="video_title">Video Title</label>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <i class="fas fa-chalkboard-teacher prefix"></i>
                             <input id="video_author" name="video_author" minlength="5" maxlength="200" type="text"
                                 class="validate" required>
-                            <small class="white-text col 12">Between 5 and 200 characters </small>
+                            <small class="black-text col 12">Between 5 and 200 characters </small>
                             <label for="video_author">Author/Presenter</label>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <i class="fas fa-align-left prefix"></i>
                             <textarea id="video_description" name="video_description" minlength="5" maxlength="1000"
                                 class="materialize-textarea validate" required></textarea>
-                            <small class="white-text col 12">250 characters max </small>
+                            <small class="black-text col 12">250 characters max </small>
                             <label for="video_description">Video Abstract</label>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                         <!--category selection-->
                         <div class="row">
                             <div class="input-field col s12">
-                                <select id="category_name" name="category_name" class="validate" required>
+                                <select id="category_name" name="category_name" class="category validate" required>
                                     <option value="" disabled selected>Choose Category</option>
                                     {% for category in categories %}
                                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
@@ -79,7 +79,7 @@
                             <div class="input-field col s12">
                                 <i class="fas fa-link prefix"></i>
                                 <input id="video_link" name="video_link" type="text" class="validate">
-                                <small class="white-text col 12">Will be uploaded automatically together with
+                                <small class="black-text col 12">Will be uploaded automatically together with
                                     video</small>
                                 <label for="video_link">Video Link</label>
                             </div>

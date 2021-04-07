@@ -6,7 +6,7 @@
 <section class="slider">
     <ul class="slides">
         <li>
-            <img src="{{ url_for('static', filename='images/march-of-intellect-1828.jpg') }}">
+            <img src="{{ url_for('static', filename='images/march-of-intellect-1828.jpg') }}" alt ="slider-image">
             <div class="caption center-align">
                 <h2><strong><mark>A History of Science Video Database</mark></strong></h2>
                 <h4 class="light grey-text text-lighten-3 hide-on-small-only">Recorded Talks, Symposia, and
@@ -14,7 +14,7 @@
             </div>
         </li>
         <li>
-            <img src="{{url_for('static', filename='images/blake_newton.jpg')}}">
+            <img src="{{ url_for('static', filename='images/blake_newton.jpg') }}" alt="slider-image">
             <div class="caption right-align">
                 <h3>Watch your favourite scholarly presentations</h3>
                 <h4 class="light grey-text text-lighten-3 hide-on-small-only">Safe a best-of selection in your profile
@@ -22,7 +22,7 @@
             </div>
         </li>
         <li>
-            <img src="{{url_for('static', filename='images/herschel.jpg')}}">
+            <img src="{{url_for('static', filename='images/herschel.jpg')}}" alt ="slider-image">
             <div class="caption left-align">
                 <h3>Upload videos to the searchable database</h3>
                 <h5 class="light grey-text text-lighten-3 hide-on-small-only">Help organize a growing stream of digital
@@ -44,7 +44,7 @@
         {% for video in suggested_videos %}
         <div class="col s12 m6 l3">
             <div class="video-container responsive-video hoverable">
-                <iframe src=" {{ video.video_link }} " width="640" height="480"
+                <iframe title = "Your Video" src=" {{ video.video_link }} " width="640" height="480"
                     allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0">
                 </iframe>
             </div>

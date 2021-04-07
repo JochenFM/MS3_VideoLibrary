@@ -35,7 +35,7 @@ mongo = PyMongo(app)
 def get_suggested_videos():
     suggested_videos = (
         [video for video in mongo.db.videos.aggregate([
-            {"$sample": {"size": 3}}])])
+            {"$sample": {"size": 4}}])])
 
     return render_template("videos.html", suggested_videos=suggested_videos)
 

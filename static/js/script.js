@@ -1,20 +1,13 @@
-//tooltips delete/edit icons library.html 
+//tooltips and modals library.html, videos.html 
 
 document.addEventListener("DOMContentLoaded", function(){
     const tip = document.querySelector('.tooltipped');
     M.Tooltip.init(tip, {});
-
-});
-
-
-// modal for delete icon library.html 
-
-document.addEventListener("DOMContentLoaded", function(){
     const trash = document.querySelectorAll('.modal');
     M.Modal.init(trash, {});
 
-
 });
+
 
 
 //sidenav
