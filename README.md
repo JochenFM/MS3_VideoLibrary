@@ -61,17 +61,6 @@ works in my case.
 
 
 
-@app.route("/all_videos")
-def all_videos(last_id=None):
-    if last_id:  # If there was a last id, start the search from there
-        videos = mongo.db.videos.find({'_id': {'$gt': last_id}}).limit(2)
-    else:  # If there was no last_id start from the beginning
-        videos = list(mongo.db.videos.find().limit(2))
-    last_id = None  # Makes last_id None if nothing found in database
-    if len(videos) > 0:
-        last_id = videos[-1]['_id']
-    return render_template("library.html", videos=videos)
-
 
 @app.route("/all_videos")
 def all_videos():
@@ -222,7 +211,19 @@ it was due to the env.py file being deleted/had dispaared so that I was unable t
 
 Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 
-Fellow student Sean Young for...
+Fellow student Sean Young for help with setting up the Cloudinary upload widget, explaining the concept of flask pagination extension, especially {{pagination.links}}, for pointing out that
+a web-hosted video players plus iframes actually works without any JS scripts
+
+Tim Nelson for trying to solve the console errors from the cloudinary video player which was taken up my Sean Young
+and for helping me change the collapsible query selector in JS to select *all* collapsibles
+
+Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
+MaterializeCSS as in Bootstrap.
+Fellow student Toto for sharing his code for the above pagination.
+
+Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
+
+
 
 herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
 
@@ -371,6 +372,38 @@ This refers to two <a> tags from the {{pagination.links}} flask extension which 
 
 Refers to pagination links for which I now added margin and padding
 
+
+*logout.html, Login.html, register.html*
+
+* Performance: 94
+* Accesibility: 96
+
+"Links do not have a discernible name"
+
+* Best Practices: 87 remove browser errors
+* SEO: 100
+
+*add_category.html*
+
+* Performance: 93
+* Accessibility: 93
+"Links do not have a discernible name"
+
+* Best Practices: 87
+* SEO: 100
+
+
+*edit_category.html*
+
+* Performance: 93
+* Accessibility: 81
+"Links do not have a discernible name"
+"Form elements do not have associated labels"
+That refers to the categories drop-down for which a label for tag is already in place and adding another one does not make sense, especially as the category field is populated with 
+data from mongoDB.
+
+* Best Practices: 87
+* SEO: 100
 
 
     Lighthouse report is now as [follows]() 
