@@ -316,7 +316,7 @@ As I use the MaterializeCSS class="circle responsive-img", I skipped that.
 * Best Practices:87 because of console errors
 * SEO: 100
 
-*New_Video.html*
+*Add_Video.html*
 
 * Performance. 92
 * Accessibility:80
@@ -337,6 +337,26 @@ Again, in the footer
 "Tap targets are not sized appropriately"
 added margin of 8px around category validate class
 
+
+*edit_video.html*
+
+* Performance: 94
+
+remove unused CSS and JS 
+* Accessibility: 84
+"Links do not have a discernible name"
+"Form elements do not have associated labels"
+That refers to the categories drop-down for which a label for tag is already in place and adding another one does not make sense, especially as the category field is populated with 
+data from mongoDB.
+* Best Practices: 93
+ issues with JS
+
+* SEO: 98
+
+I have a full stop under my category drop down which is not meant to be there
+"
+Tap targets are not sized appropriately"
+Category drop down is overlaping with label text on open: need to put margin/padding
 
 
 *Library.html*
