@@ -19,26 +19,6 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
-JS code for cloudinary upload widget needs to be focused on the one element on the page - thanks to Tim Nelson
-
-Ah so if it's applicable only to that template, then it shouldn't be a global function.
-﻿
-﻿You have two options.
-﻿
-﻿Easy option:
-﻿Add that only to the add_video.html template, if that's all it's applicable to...
-﻿
-﻿Not as easy option:
-﻿Add a conditional check to that JS file for this element.... something like:
-﻿
-﻿const videoUploadBtn = document.getElementById("video-upload-btn");
-﻿if (videoUploadBtn) {
-﻿ videoUploadBtn.addEventListener("click", function() {
-myWidget.open();
-}, false
-);
-But that assumes your code is applicable to every page... whereby, yours is only applicable to a single page.
-So you just need to put it on that page only, or do a conditional check to make sure that element actually exists
 
 
 
@@ -76,16 +56,6 @@ def all_videos():
 
 
 
-//tooltips delete/edit icons library.html
-
-  document.addEventListener(function() {
-      const tooltip = document.querySelectorAll('.tooltipped');
-      M.Tooltip.init(tooltip, {
-  });
-
-
-
-
 
 
 
@@ -93,45 +63,63 @@ def all_videos():
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+
+# Video *Wunderkammer* - A History of Science Video Database
+
+![alt text]( "Responsive sample")
+
+**[Live demo](https://ms3-video-library.herokuapp.com/)**
+
+---
+
+<span id="top"></span>
+
 ## Table of Contents
 
-- **[User Experience](#User-Experience)**
-  - [Project Goals](#Project-Goals)
-    - [User Stories](#User-Stories)
-- **[Design](#Design)**
-  - [Database](#Database)
-    - [Indexes](#Indexes)
-    - [Queries](#Queries)
-      - [Browsing](#Browsing)
-      - [Users](#Users)
-      - [Searching](#Searching)
-      - [Uploading](#Uploading)
-      - [Administration](#Administration)
-  - [Fonts](#Fonts)
-  - [Colours](#Colours)
-  - [Layout](#Layout)
-- **[Features](#Features)**
-  - [Existing Features](#Existing-Features)
-  - [Future Features](Future-Features)
-- **[Technologies](#Technologies)**
-  - [Site architecture](#Site-architecture)
-  - [Languages](#Languages)
-  - [Libraries](#Libraries)
-  - [Editors](#Editors)
-  - [Tools](#Tools)
-  - [Platforms](#Platforms)
-- **[Testing](#Testing)**
-- **[Source Control](#Source-Control)**
-  - [Branches](#Branches)
-  - [Github Desktop](#Github-Desktop)
-- **[Deployment](#Deployment)**
-  - [Database Deployment](#Database-Deployment)
-  - [Deployment Platform](#Deployment-Platform)
-- **[Credits](#Credits)**
-  - [Media](#Media)
-  - [Acknowledgements](#Acknowledgements)
+- <a href="#context">Context</a>
+- <a href="#ux">UX</a>
+  - <a href="#ux-overview">Overview</a>
+  - <a href="#ux-stories">User stories</a>
+  - <a href="#ux-wireframes">Wireframes</a>
+  - <a href="#ux-design">Design</a>
+- <a href="#database-model">Database model</a>
+- <a href="#features">Features</a>
+  - <a href="#features-current">Current</a>
+  - <a href="#features-future">Future</a>
+- <a href="#technologies">Technologies Used</a>
+- <a href="#testing">Testing</a>
+- <a href="#deployment">Deployment</a>
+- <a href="#credits">Credits</a>
 
-## User Experience
+
+<span id="context"></span>
+
+## Context
+
+With the cancellation of virtually all in-person acacdemic conferences, symposia and workshops during the pandemic, presentations and other scholarly contributions 
+have been delivered online, via Zoom and similar software programs, leaving behind a growing video database. This video library intends to capture some of that precious knowledge by 
+enabling users to store, retrieve, search, update, and delete recorded presentations. For practical reasons, its main focus is the History of science and technology, 
+a field I am also most familiar with. *Wunderkammer* in my title, which literally means Cabinet of Wonder, but is better known as cabinet of curiosities in English, 
+reflects that focus. *Wunderkammern* emerged in the 16th century and - mainly formed by members of the merchant class and early practitioners of science - 
+were a collection of notable objects, similar to modern museums. Some of them also served as entertainment, and similarly, this project intends to build a collection, not of corals, bones, or plant specimen
+but of history of science talks, symposia, and workshop presentations. 
+From what I gather from discussions in the relevant online communities, there is a real need to collect and make available this archive at a single online space, 
+for scholars to watch and learn, but also to order, store and retrieve content at their convenience.
+However, it is not only scholars who can benefit from this project, but also the wider interested public, which - with the turn to the digital format - has generally 
+been more involved in a hitherto traditionally closed academic space. The project is developed in that spirit of greater accessibility, and aims to address everyone with an interest in the 
+wonders of the history of science.
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<span id="ux"></span>
+
+## UX
+
+<span id="ux-overview"></span>
+
+### Overview
+
+Video *Wunderkammer* is a site aimed at the interested public and adresses everyone who is looking to get an overview of the digital video content created in the history of science, especially
+during the current pandemic. Users are looking for content to learn, educate and somehow enrich their lives, and that so  
 
 ### Project Goals
 
@@ -179,12 +167,7 @@ The project goal is...
 
 
 
-With the cancellation of all acacdemic conferences, symposia and workshops during the pandemic, presentations and other scholarly contributions 
-have been delivered online, via Zoom and similar software program, leaving behind a growing video database. This project is an interactive database 
-enabling users to store, retrieve, search, update, and delete recorded presentations in the history of science and technology. From what I gather from 
-discussions in the field, there is a real need to collect and make available this archive at a single online space, for scholars to watch and learn. 
-However, it is not only scholars who can benefit from this project, but also the wider interested public, which - with the turn to the digital format - has generally 
-been more involved in a hitherto traditionally closed academic space. Hence also the interactive element in the project enabling users to upload (and delete) videos.
+
  
 
 
@@ -431,58 +414,11 @@ data from mongoDB.
 
 
 
-
-
-
-1. Best Practice Report indicated that:
-
-"Links to cross-origin destinations are unsafe"
-
-- I added rel="noopener" to all eight links to meet requirements of cross-origin destination audit.
-
-"Charset declaration is missing or occurs too late in the HTML"
-
-- I moved the _meta charset="UTF-8"_ element right after the _head_ element.
-
-
-2. Performance Report said that:
-
-"Image elements do not have explicit width and height
-Set an explicit width and height on image elements to reduce layout shifts and improve CLS."
-
-- I addressed this issue by manually reiszing all images using free and open-access [Picresize](https://picresize.com/) software as I have a responsive grid which would not allow 
-    specific image dimensions. But the issue persisted and I lost points here as even although images now are all same height and width, this was not achieved via 
-    setting an explicit height and width on image elements in CSS.  
-
-
-2. SEO Report flagged out that:
-
-"Does not have a _meta name="viewport"_ tag with width or initial-scale" 
-
-- I added that in the _head_ elements.
-
-"Document does not have a meta description" 
-
-- I added _meta name="Description" content=""_ providing a summary of the page content. 
-
-"Links do not have descriptive text" 
-
-- I changed clickable link text from 'here' to more descriptive language for both users and search engines to more easily understand content and how it relates to other pages. 
-
-
-3. Accesibility Report stated:
-
-"Heading elements are not in a sequentially-descending order" 
-
-- I replaed "h4" in the footer with a "h3" to avoid anti-pattern and use a correctly sequenced heading structure from h1-h3 instead.
-
-Lighthouse report is now as [follows](https://imgur.com/eZfwbgh) 
-
-A few opportunities to improve Performance and Best Practices of both pages remain 
+A few opportunities to improve Performance and Best Practices on all pages remain 
 and will be addressed at a later stage:
 
 
-* Performance of both pages:  
+* Performance of ...:  
 
 "Eliminate render-blocking resources"
 
@@ -495,3 +431,23 @@ and will be addressed at a later stage:
 "Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 
+JS code for cloudinary upload widget needs to be focused on the one element on the page - thanks to Tim Nelson
+
+Ah so if it's applicable only to that template, then it shouldn't be a global function.
+﻿
+﻿You have two options.
+﻿
+﻿Easy option:
+﻿Add that only to the add_video.html template, if that's all it's applicable to...
+﻿
+﻿Not as easy option:
+﻿Add a conditional check to that JS file for this element.... something like:
+﻿
+﻿const videoUploadBtn = document.getElementById("video-upload-btn");
+﻿if (videoUploadBtn) {
+﻿ videoUploadBtn.addEventListener("click", function() {
+myWidget.open();
+}, false
+);
+But that assumes your code is applicable to every page... whereby, yours is only applicable to a single page.
+So you just need to put it on that page only, or do a conditional check to make sure that element actually exists

@@ -299,7 +299,9 @@ background-color: red;
 .pagination li {
 
     margin: 3px;
+
 }
+
 
 .pagination li.active {
     background-color: #ff8a65;
