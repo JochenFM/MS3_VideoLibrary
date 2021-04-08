@@ -103,7 +103,7 @@ CSS for color-overlay in slider:
 
 .collapsible-body {
     
-    background-color: #FAEDCA;
+    background-color: #F2C078;
 }
 
 
@@ -284,9 +284,12 @@ background-color: red;
     background-color: #C1DBB3;
 }
 
-.card-action .profile {
+
+.card-action {
 
     padding: 10px;
+    text-align: end;
+
 }
 
 /* Pagination*/
@@ -306,4 +309,10 @@ background-color: red;
 
 .pagination li.active {
     background-color: #ff8a65;
+}
+
+.toolipped {
+
+    background-color: #FAEDCA;
+
 }

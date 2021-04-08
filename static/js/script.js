@@ -1,13 +1,13 @@
 //tooltips delete/edit icons and search/reset buttons library.html
 document.addEventListener("DOMContentLoaded", function(){
-    const tip = document.querySelector('.tooltipped');
+    const tip = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(tip, {});
 });
 
 
 // modals for delete icon library.html/videos.html and profile.html 
 document.addEventListener("DOMContentLoaded", function(){
-    const trash = document.querySelector('.modal');
+    const trash = document.querySelectorAll('.modal');
     M.Modal.init(trash, {});
 });
 

@@ -201,7 +201,7 @@ The decision to use Materialize meant customisation was somewhat limited, but th
 
 #### Colours
 
-I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too clsoe to red to allow for visual user guidance, so I switched to #ff8a65 deep-orange lighten-2 but kept the other components of the ![palette](wireframes/collors_palette.png)
+I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too clsoe to red to allow for visual user guidance, so I switched to #ff8a65 deep-orange lighten-2 but kept the other components of the palette: ![palette](wireframes/coolors_palette.png)
 
 The color composition was inspired by one of the slider images which I had already included in my wireframes - one print of William Heath's series March of the Intellect (1826, which contains the matt grey-green and cream colours which are used througout this page and contrast well with the lightened orange. I used the hex values of the Materialize's named colour in any required custom CSS styling.
 
@@ -215,38 +215,118 @@ The combination between green/orange/cream was maintained throughout the entire 
 The buttons have consistent colours with intuitive suggestions about their functions. Orange buttons against black description text were used throughout the page to signify action - the only deviation being the delete like and delete buttons/icons which I kept in an alert red. 
 
 
-
-
-It was important for the buttons to have have consistent colours with intuitive suggestions about their functions. A slightly lighter shade of indigo was used for buttons which could be classed as part of the outer 'shell' of the site, responsible for navigating the site and matching the Navbar and Footer's colour. These are  Search, 'Back to Activities', active pagination page, 'View' (category's activities) and 'Cancel' (a deletion). One exception was made for the hover effect of activity filters (i.e. target age, category and activity author), to provide some variety.
-
-A 'green means go' approach was taken for buttons which suggest the user will be making changes to their content (i.e. Edit and 'Submit'). Negative user actions (i.e Delete and Cancel search) are naturally red.
-
-Orange was used as an accent colour for the pulsing FAB 'Add Activity' and 'Add Category' and also for Toast alert messages.
-
-
-
 **Transition and transformation**
 
-To add to the physicality of the cards, the Materialize `hoverable` (all) and `waves-effect` (categories) classes were used. To give the Footer a touch of interactivity, a subtle scale effect has been applied on clickable links.
+To add to the physicality of all cards, video coallapsibles and containers, the Materialize `hoverable` classes were added, and the `waves-effect` class for some buttons. 
 
 #### Fonts
 
-[Bubblegum Sans](https://fonts.google.com/specimen/Bubblegum+Sans#about)
+[Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more ncontemporary format of digital recordings. Moreover, as is mentioned in the description for the font, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I was definitely drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil" which I felt was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science can represent.
 
-A cursive font which gives a sense of childlike playfulness, in keeping with the site's theme of creativity and fun. This font is used sparingly for the Self Isolution logo, sub-headings and hard titles. 
-
-[Montserrat](https://fonts.google.com/specimen/Montserrat#about)
-
-Monserrat is the ever steady foil to more playful fonts like Bubblegum Sans, used here for all other content to provide a soft clarity.
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
+
 <span id="database-model"></span>
 
-
-
+MongoDB's non-relational database structure makes sense for this type of site as there are only a few relationships between the various collections. My database model looks as follows: ![dataschema](wireframes/ms3_video_dataschema.png)
+As can be seen, I originally planned with five collections - users, videos, liking, categories, and profile images - to order the relations between users and videos. My actual implementation deviates from this model in that the site due to time constraints operates with only three collections: users, categories, and videos. Profile images, that users can upload as well as the liking option for videos will have to be implemented at a later stage.    
+Also, number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envisioned it being captured in the video recordings.
 
  
+#### Activities collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|activity_name|string|The user's chosen title of the activity.|
+|category_name|string|In hindsight this should really have been the category ObjectId to make things easier. The admin is prevented from changing category names to mitigate against this oversight, but also to prevent activities ending up under an inappropriately named category.|
+|target_age|string|Options such as 'Under 2' and '6+' meant using int was not appropriate here.|
+|activity_summary|string|Brief summary used to flesh out cards on Activities page.|
+|activity_details|string|The main content of the View Activity page.|
+|image_file|string|This is a link to a user image uploaded to Amazon AWS. If left blank the relevant category.image_file will be used, but this field will be left unaltered.|
+|created_by|string|Set on activity creation. As users cannot change username, simpler to store as a string.|
+|date_added|string|Set on activity creation. Activities are sorted by _id therefore simplest to store as a string.|
+|activity_equipment|string|Rather than storing as an array, it was simpler to request users enter each item on new line and manipulate in Python.|
+
+#### Categories collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|category_name|string|The admin's chosen title of the category. Cannot be changed.|
+|category_summary|string|Brief summary to add some meat to the Categories cards.|
+|image_file|string|This is a link to an image uploaded to Amazon AWS by the admin.|
+|activity_list|Array|Given the possibility of users changing the name of their activity, the decision was made to store activity ObjectIDs in array.|
+
+
+#### Users collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|username|string|Chosen by user on account creation. Cannot be changed.|
+|password|string|Chosen by user on account creation and hashed using Werkzeug Security.|
+
+#### Ages collection
+
+Initially it was anticipated that the admin might need the ability to change the target age ranges, but as the site progressed this no longer seemed necessary and this collection was abandoned and replaced by a hardcoded selection.
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="features"></span>
+
+## Features
+
+<span id="features-current"></span>
+
+#### Videos collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|category_name|string|Can be updated by Admin|
+|video_title|string|Video title as inserted by the user.|
+|video_author |string|Presenter(s) as entered by the user|
+|video_description|string|Brief abstract of video content used to flesh out cards on library and home pages.|
+|date|string||
+|video_duration|string|eventually not implemented as duration is shown on iframe of video |
+|video_URL|string|This is the link stored in MongoDB to the video uploaded to Cloudinary. Inserted via callback function during upload process |
+|original_website|string| eventually not implemented as I am yet to figure out Copyright and hosting issues |
+|created_by|string| Added as user is logged in with their username. As users currently cannot change username, simpler to store as a string|
+
+#### Categories collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|category_name|string|The admin's chosen title of the category. Cannot only be changed by Admin|
+
+
+#### Users collection
+
+|**Key**|**Type**|**Notes**|
+|:-----|:-----|:-----|
+|_id|ObjectId||
+|username|string|Chosen by user on account creation. Cannot be changed.|
+|password|string|Chosen by user on account creation and hashed using Werkzeug Security.|
+|image|string|Profile pic chosen by user on account creation (not implemented yet)
+
+#### Images collection
+
+Initially, I anticipated that users would be able to upload a profile picture of their choice to be saved on another database program with a link being stored in MongoDB but due to time constraints, I was unable to implement this now.
+
+#### Likes collection
+
+Similarly, I anticipated that users would be able to 'like' particular videos which will then be displayed on their respective profile page, but this will have to be implemented at a later stage as well. 
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="features"></span>
+
+## Features
+
+<span id="features-current"></span>
 
 
 
