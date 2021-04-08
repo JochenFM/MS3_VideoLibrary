@@ -1,5 +1,4 @@
 
-
 THis is the env.py file, just in case it gets lost again:
 import os
 
@@ -23,7 +22,6 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
-
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
 
 <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
@@ -31,14 +29,12 @@ In iframe allow class, "autoplay" needs to be deleted, otherwise videos start pl
                     <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
                         <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
 
-
 Good video for modals in materialize with JS:
 https://www.youtube.com/watch?v=GAQoVIgjeZA
 
 He uses data-target to target the modal id. I use href so might be worthwhile going over this video again in case modals do not work.
 Data-target ="" goes with class of btn in this video, so I will have to see whether href="#delete_video_{{video._id}}" to id="delete_video_{{video._id}}"
 works in my case.
-
 
 
 
@@ -60,9 +56,7 @@ def all_videos():
 
 
 
-
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
 
 # Video *Wunderkammer* - A History of Science Video Database
 
@@ -84,13 +78,12 @@ def all_videos():
   - <a href="#ux-design">Design</a>
 - <a href="#database-model">Database model</a>
 - <a href="#features">Features</a>
-  - <a href="#features-current">Current</a>
-  - <a href="#features-future">Future</a>
+  - <a href="#features-current">Existing Features</a>
+  - <a href="#features-future">Future Features</a>
 - <a href="#technologies">Technologies Used</a>
 - <a href="#testing">Testing</a>
 - <a href="#deployment">Deployment</a>
 - <a href="#credits">Credits</a>
-
 
 <span id="context"></span>
 
@@ -139,9 +132,7 @@ All design decisions have been made with the following goals in mind:
 - Secure
 - Visually appealing
 
-
 #### General User ####
-
 
 - (US001) - As a general user I want to access the websites from my favourite equipment, such as smartphones, tablets, laptops or PCs, without loss of content.
 - (US 002) - As a general user I want to be able to navigate the website intuitively and with ease.
@@ -151,7 +142,6 @@ All design decisions have been made with the following goals in mind:
 - (US006) - As a general user I want to be able to get an idea what the videos are about prior to loading them in order for me to decide whether or not I want to proceed watching them.  
 - (US007) - As a general user I want to receive clear feedback for my actions so I know what the consequences are and whether any further action is required.
 - (US 009) - As a general user I want the possibility to register to the website.
-
 
 #### Registered User ####
 
@@ -168,7 +158,6 @@ All design decisions have been made with the following goals in mind:
 - (US019) - As a registered user I want to be able to delete my profile.
 - (US020) - As a registered user I want to get visual confirmation when I deleted my profile.
 
-
 #### Admin ####
 - (US021) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
 - (US022) - As an Admin I want to be able to create and delete video categories.
@@ -181,7 +170,6 @@ All design decisions have been made with the following goals in mind:
 ### Wireframes
 
 Wireframes created at the start of the project for **desktop** can be accessed [here](wireframes/), as well as the **data schema**.
-
 
 Some of the noteworthy deviations from the plan include:
 
@@ -212,8 +200,7 @@ Two bold shades of Materialize's orange were used for the core elements of the s
 **Cards** & **Buttons**
 
 The combination between green/orange/cream was maintained throughout the entire site to ensure consistency and maintain a contrast between components and action buttons on cards, search bar, modals, date picker, pagination links, and forms.
-The buttons have consistent colours with intuitive suggestions about their functions. Orange buttons against black description text were used throughout the page to signify action - the only deviation being the delete like and delete buttons/icons which I kept in an alert red. 
-
+The buttons have consistent colours with intuitive suggestions about their functions. Orange buttons against black description text were used throughout the page to signify action - the only exceptions being the delete and like  buttons/icons as well as the edit icon which I kept in an alert red and green respectively. 
 
 **Transition and transformation**
 
@@ -223,62 +210,19 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 
 [Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more ncontemporary format of digital recordings. Moreover, as is mentioned in the description for the font, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I was definitely drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil" which I felt was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science can represent.
 
-
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
-
 <span id="database-model"></span>
+
+### Database model
 
 MongoDB's non-relational database structure makes sense for this type of site as there are only a few relationships between the various collections. My database model looks as follows: ![dataschema](wireframes/ms3_video_dataschema.png)
 As can be seen, I originally planned with five collections - users, videos, liking, categories, and profile images - to order the relations between users and videos. My actual implementation deviates from this model in that the site due to time constraints operates with only three collections: users, categories, and videos. Profile images, that users can upload as well as the liking option for videos will have to be implemented at a later stage.    
 Also, number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envisioned it being captured in the video recordings.
 
  
-#### Activities collection
-
-|**Key**|**Type**|**Notes**|
-|:-----|:-----|:-----|
-|_id|ObjectId||
-|activity_name|string|The user's chosen title of the activity.|
-|category_name|string|In hindsight this should really have been the category ObjectId to make things easier. The admin is prevented from changing category names to mitigate against this oversight, but also to prevent activities ending up under an inappropriately named category.|
-|target_age|string|Options such as 'Under 2' and '6+' meant using int was not appropriate here.|
-|activity_summary|string|Brief summary used to flesh out cards on Activities page.|
-|activity_details|string|The main content of the View Activity page.|
-|image_file|string|This is a link to a user image uploaded to Amazon AWS. If left blank the relevant category.image_file will be used, but this field will be left unaltered.|
-|created_by|string|Set on activity creation. As users cannot change username, simpler to store as a string.|
-|date_added|string|Set on activity creation. Activities are sorted by _id therefore simplest to store as a string.|
-|activity_equipment|string|Rather than storing as an array, it was simpler to request users enter each item on new line and manipulate in Python.|
-
-#### Categories collection
-
-|**Key**|**Type**|**Notes**|
-|:-----|:-----|:-----|
-|_id|ObjectId||
-|category_name|string|The admin's chosen title of the category. Cannot be changed.|
-|category_summary|string|Brief summary to add some meat to the Categories cards.|
-|image_file|string|This is a link to an image uploaded to Amazon AWS by the admin.|
-|activity_list|Array|Given the possibility of users changing the name of their activity, the decision was made to store activity ObjectIDs in array.|
 
 
-#### Users collection
-
-|**Key**|**Type**|**Notes**|
-|:-----|:-----|:-----|
-|_id|ObjectId||
-|username|string|Chosen by user on account creation. Cannot be changed.|
-|password|string|Chosen by user on account creation and hashed using Werkzeug Security.|
-
-#### Ages collection
-
-Initially it was anticipated that the admin might need the ability to change the target age ranges, but as the site progressed this no longer seemed necessary and this collection was abandoned and replaced by a hardcoded selection.
-
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
-
-<span id="features"></span>
-
-## Features
-
-<span id="features-current"></span>
 
 #### Videos collection
 
@@ -301,7 +245,6 @@ Initially it was anticipated that the admin might need the ability to change the
 |:-----|:-----|:-----|
 |_id|ObjectId||
 |category_name|string|The admin's chosen title of the category. Cannot only be changed by Admin|
-
 
 #### Users collection
 
@@ -328,6 +271,98 @@ Similarly, I anticipated that users would be able to 'like' particular videos wh
 
 <span id="features-current"></span>
 
+### Existing Features
+
+The site allows users to upload new videos and edit existing ones (when logged in). Users can also search for videos based on title, description, and category.  
+
+**1. Material design**
+
+MaterializeCSS features:
+- [Cards](https://materializecss.com/cards.html)
+- [Forms](https://materializecss.com/text-inputs.html)
+- [Collapsibles]()
+- [Modals](https://materializecss.com/modals.html)
+- [Sidenav](https://materializecss.com/sidenav.html)
+- [Tooltips]()
+
+**2. Secure passwords**
+
+When registering for the site, the user's password is hashed so that it is not revealed to the database owner.
+
+**3. CRUD functionality**
+
+Visitors can:
+- View all activities
+- View all categories.
+
+Users can:
+- Add their own activities
+- Edit their own activities 
+- Delete their own activities.
+
+The admin can:
+- Add their own activities
+- Edit any users' activities
+- Delete any users' activities
+- Add a category
+- Edit a category
+- Delete a category.
+
+**6. User profile**
+
+Users can view all activities they have created in one place and easily edit or delete them.
+
+**7. Admin rights**
+
+The admin has the additional ability to:
+- Edit or delete any activity on the site from its View Activity page
+- Add categories
+- Edit a category summary or image (but they cannot edit the name of a category to preserve relationship integrity)
+- Delete categories from the Categories page, with measures for preserving relational integrity for activities no longer associated with a category.
+
+**8. Confirm delete**
+
+When the user or admin clicks to delete an activity or category, a modal pops up to confirm they wish to do so to prevent accidental deletion.
+
+**9. Category reassignment on deletion**
+
+When the admin chooses to delete a category which has associated activities, these activities are moved to the 'Unassigined' category and are still visible on the site. 
+
+**10. Search**
+
+All users can search for keywords appearing in:
+- Activity title
+- Activity summary
+- Activity description
+- Activity required equipment
+
+Activities can be filtered by category from the Categories page and also by target age or activity author by clicking on the associated tag from the Activities, View Activity or Profile pages.
+
+**11. Pagination**
+
+The Activities page (and any search or filters applied) will limit the number of activities visible to 9 in order to reduce the number of images loaded and keep the focus on the content. As individual users are unlikely to be adding much more than 9 activities, it makes sense not to paginate the Profile page to avoid spilling onto a second page in this rare instance.
+
+**12. Access protection**
+
+Routes to restricted functions such as add, edit and delete (for both session user and admin) are protected so that they cannot be accessed by brute force via the URL.
+
+**13. 404 and 500 error handling**
+
+Pages for 404 and 500 errors keep the user on the site when something goes wrong, allowing them to return to the content with minimal disruption.
+
+<span id="features-future"></span>
+
+### Future
+
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="technologies"></span>
+
+## Technologies Used
+
+### Languages
 
 
 
@@ -337,9 +372,7 @@ Lighthouse was used to test the performance of the application on all pages on m
 
 The following reports were generated:
 
-
 *videos.html - Home:*
-
 
 * Performance: REDO as currently at 19%
 
@@ -353,7 +386,6 @@ The following reports were generated:
 "Links do not have a discernible name"
 
 - This refers to social link icons and not quite sure what to make of it 
-
 
 * Best Practices: 80
 
@@ -372,9 +404,7 @@ The following reports were generated:
 
 - I added them
 
-
 *Profile.html*
-
 
 * Performance:73
 
@@ -385,7 +415,6 @@ Adding 'touchstart', onTouchStart, {passive: true} to my event listener function
 "Image elements do not have explicit width and height"
 
 As I use the MaterializeCSS class="circle responsive-img", I skipped that.
-
 
 
 * Accessibility:95
@@ -413,7 +442,6 @@ Again, in the footer
 "Tap targets are not sized appropriately"
 added margin of 8px around category validate class
 
-
 *edit_video.html*
 
 * Performance: 94
@@ -434,7 +462,6 @@ I have a full stop under my category drop down which is not meant to be there
 Tap targets are not sized appropriately"
 Category drop down is overlaping with label text on open: need to put margin/padding
 
-
 *Library.html*
 
 The page loaded too slowly to finish within the time limit. Results may be incomplete.
@@ -444,9 +471,7 @@ The page loaded too slowly to finish within the time limit. Results may be incom
 "Does not use passive listeners to improve scrolling performance"
 - see above
 
-
 * Accessibility:85
-
 
 "Buttons do not have an accessible name"
 
@@ -455,7 +480,6 @@ Added aria-label = "Center Align"
 "Links do not have a discernible name"
 
 As above, this concerns social links, but here also search and reset buttons. I added tooltips to them for better accessibility, but I do not know whether Lihgthouse rewards that.
-
 
 * Best Practices:87 because of console errors
 
@@ -467,7 +491,6 @@ This refers to two <a> tags from the {{pagination.links}} flask extension which 
 "Tap targets are not sized appropriately"
 
 Refers to pagination links for which I now added margin and padding
-
 
 *logout.html, Login.html, register.html*
 
@@ -488,7 +511,6 @@ Refers to pagination links for which I now added margin and padding
 * Best Practices: 87
 * SEO: 100
 
-
 *edit_category.html*
 
 * Performance: 93
@@ -501,15 +523,12 @@ data from mongoDB.
 * Best Practices: 87
 * SEO: 100
 
-
     Lighthouse report is now as [follows]() 
-
 
 
 
 A few opportunities to improve Performance and Best Practices on all pages remain 
 and will be addressed at a later stage:
-
 
 * Performance of ...:  
 
@@ -523,27 +542,22 @@ and will be addressed at a later stage:
 
 "Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
-
 Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
 const sideNav = document.querySelector('.sidenav');
 M.Sidenav.init(sideNav, {});
 
 
 
-
 Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
-
 
 For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
 
-
 Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
-
 
 To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
 
 Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
-it was due to the env.py file being deleted/had dispaared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
+it was due to the env.py file being deleted/had disappeared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
 
 Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
 
@@ -560,10 +574,9 @@ Fellow student Toto for sharing his code for the above pagination.
 Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
 
 
-
 herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
 
 https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
 
-
 check out responsive video container https://materializecss.com/media-css.html
+
