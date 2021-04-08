@@ -118,14 +118,29 @@ wonders of the history of science.
 
 ### Overview
 
-Video *Wunderkammer* is a site aimed at the interested public and adresses everyone who is looking to get an overview of the digital video content created in the history of science, especially
-during the current pandemic. Users are looking for content to learn, educate and somehow enrich their lives, and that so  
+Video *Wunderkammer* adresses everyone who is looking to get an overview of the digital video content created in the history of science community and the wider public, especially
+during the current pandemic. Users are looking for content to learn, educate and somehow enrich their lives, and that so from the comfort of their electronic device. 
+All design decisions have been made with the following goals in mind:
+- Accessibility
+- Ease of use
+- Responsiveness
+- Visual appeal
 
-### Project Goals
+<span id="ux-stories"></span>
 
-The project goal is...
+### User stories
 
-**General User**
+#### Overarching user expectations
+
+- Consistent
+- Easy to navigate
+- Intuitive
+- Responsive
+- Secure
+- Visually appealing
+
+
+#### General User ####
 
 
 - (US001) - As a general user I want to access the websites from my favourite equipment, such as smartphones, tablets, laptops or PCs, without loss of content.
@@ -138,7 +153,7 @@ The project goal is...
 - (US 009) - As a general user I want the possibility to register to the website.
 
 
-**Registered User**
+#### Registered User ####
 
 - (US010) - As a registered user I want to be able to log in my account with username and password.
 - (US011) - As a registered user I want to get visual confirmation when I am logged in.
@@ -154,13 +169,19 @@ The project goal is...
 - (US020) - As a registered user I want to get visual confirmation when I deleted my profile.
 
 
-**Admin**
+#### Admin ####
 - (US021) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
 - (US022) - As an Admin I want to be able to create and delete video categories.
 - (US020) - As an Admin I want to be warned before I delete categories 
 - (US020) - As an Admin I want to get visual confirmation when I deleted a category.
 - (US023) - As an Admin I want to be able to view how many users are registered on the website and delete users if necessary.
  
+<span id="ux-wireframes"></span>
+
+### Wireframes
+
+Wireframes created at the start of the project for **desktop** can be accessed [here](wireframes/), as well as the **data schema**.
+
 
 
 
@@ -171,49 +192,7 @@ The project goal is...
  
 
 
-Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
-const sideNav = document.querySelector('.sidenav');
-M.Sidenav.init(sideNav, {});
 
-
-
-
-Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
-
-
-For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
-
-
-Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
-
-
-To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
-
-Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
-it was due to the env.py file being deleted/had dispaared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
-
-Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
-
-Fellow student Sean Young for help with setting up the Cloudinary upload widget, explaining the concept of flask pagination extension, especially {{pagination.links}}, for pointing out that
-a web-hosted video players plus iframes actually works without any JS scripts
-
-Tim Nelson for trying to solve the console errors from the cloudinary video player which was taken up my Sean Young
-and for helping me change the collapsible query selector in JS to select *all* collapsibles
-
-Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
-MaterializeCSS as in Bootstrap.
-Fellow student Toto for sharing his code for the above pagination.
-
-Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
-
-
-
-herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
-
-https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
-
-
-check out responsive video container https://materializecss.com/media-css.html
 
 
 Testing
@@ -431,23 +410,46 @@ and will be addressed at a later stage:
 "Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 
-JS code for cloudinary upload widget needs to be focused on the one element on the page - thanks to Tim Nelson
+Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
+const sideNav = document.querySelector('.sidenav');
+M.Sidenav.init(sideNav, {});
 
-Ah so if it's applicable only to that template, then it shouldn't be a global function.
-﻿
-﻿You have two options.
-﻿
-﻿Easy option:
-﻿Add that only to the add_video.html template, if that's all it's applicable to...
-﻿
-﻿Not as easy option:
-﻿Add a conditional check to that JS file for this element.... something like:
-﻿
-﻿const videoUploadBtn = document.getElementById("video-upload-btn");
-﻿if (videoUploadBtn) {
-﻿ videoUploadBtn.addEventListener("click", function() {
-myWidget.open();
-}, false
-);
-But that assumes your code is applicable to every page... whereby, yours is only applicable to a single page.
-So you just need to put it on that page only, or do a conditional check to make sure that element actually exists
+
+
+
+Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
+
+
+For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
+
+
+Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
+
+
+To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
+
+Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
+it was due to the env.py file being deleted/had dispaared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
+
+Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
+
+Fellow student Sean Young for help with setting up the Cloudinary upload widget, explaining the concept of flask pagination extension, especially {{pagination.links}}, for pointing out that
+a web-hosted video players plus iframes actually works without any JS scripts
+
+Tim Nelson for trying to solve the console errors from the cloudinary video player which was taken up my Sean Young
+and for helping me change the collapsible query selector in JS to select *all* collapsibles
+
+Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
+MaterializeCSS as in Bootstrap.
+Fellow student Toto for sharing his code for the above pagination.
+
+Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
+
+
+
+herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
+
+https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
+
+
+check out responsive video container https://materializecss.com/media-css.html
