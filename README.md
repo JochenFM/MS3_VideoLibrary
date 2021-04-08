@@ -183,6 +183,32 @@ All design decisions have been made with the following goals in mind:
 Wireframes created at the start of the project for **desktop** can be accessed [here](wireframes/), as well as the **data schema**.
 
 
+Some of the noteworthy deviations from the plan include:
+
+1. The Hero image was turned into a slider instead for greater visual appeal. 
+2. Pagination was included in All Videos for more convenient navigation, better visual overview, and to reduce loading time.
+3. Likes orginally included in my data schema, but not in the Balsamiq wireframes were not included due to time constraints, meaning link behind like buttons on video cards is dead.  
+4. I began to code the profile page originally not wireframed but did not go beyond a rought outline due to time constraints
+5. This includes profile image upload and storage functionality which is contained in my data schema but not yet implemented 
+6. Video cards were revised following implementation of upload functionality and now do not include link to video, but edit and delete icons which link to edit video interface which was not originally wireframed 
+7. Admin functionality was not planned in wireframes, but is implemented in basic form.
+
+<span id="ux-design"></span>
+
+### Design
+
+The decision to use Materialize meant customisation was somewhat limited, but this was an acceptable compromise given the site's purpose of displaying user content clearly. Judicious use of the framework's cards gives the site a solid and consistent feel which promotes the user content. 
+
+#### Colours
+
+[Coolers](https://coolors.co/) was used to find an appropriate colour scheme for the site, however the decision was made to default to Materialize's stock colours wherever possible, and to simply use the hex values of the framework's named colours in any required custom CSS styling.
+
+**Core**
+
+Two bold shades of Materialize's indigo were used for the core elements of the site, namely the Navbar, Footer and section headings. The aim was to have a neutral colour, not overly warm, to maintain a contrast with the white text and background.
+
+- ![#3949ab](https://via.placeholder.com/15/3949ab/000000?text=+) #3949ab (indigo darken-1)
+- ![#1a237e](https://via.placeholder.com/15/1a237e/000000?text=+) #1a237e (indigo darken-4)
 
 
 
