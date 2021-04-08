@@ -201,44 +201,65 @@ The decision to use Materialize meant customisation was somewhat limited, but th
 
 #### Colours
 
-[Coolers](https://coolors.co/) was used to find an appropriate colour scheme for the site, however the decision was made to default to Materialize's stock colours wherever possible, and to simply use the hex values of the framework's named colours in any required custom CSS styling.
+I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too clsoe to red to allow for visual user guidance, so I switched to #ff8a65 deep-orange lighten-2 but kept the other components of the ![palette](wireframes/collors_palette.png)
+
+The color composition was inspired by one of the slider images which I had already included in my wireframes - one print of William Heath's series March of the Intellect (1826, which contains the matt grey-green and cream colours which are used througout this page and contrast well with the lightened orange. I used the hex values of the Materialize's named colour in any required custom CSS styling.
 
 **Core**
 
-Two bold shades of Materialize's indigo were used for the core elements of the site, namely the Navbar, Footer and section headings. The aim was to have a neutral colour, not overly warm, to maintain a contrast with the white text and background.
+Two bold shades of Materialize's orange were used for the core elements of the site, namely the Navbar and Footer, in combination with the grey-green for all other components. My aim was to generate a combination of colours which would fit the slider images - all colours of which are in pastel shade - and to maintain a contrast with the black text and background.
 
-- ![#3949ab](https://via.placeholder.com/15/3949ab/000000?text=+) #3949ab (indigo darken-1)
-- ![#1a237e](https://via.placeholder.com/15/1a237e/000000?text=+) #1a237e (indigo darken-4)
+**Cards**
+
+The combination between green/orange was maintained throughout the entire site to ensure consistency and maintain a contrast between components and action buttons on cards, search bar, modals, date picker, and forms - the only deviation being the delete like and delete buttons/icons which I kept in an alert red.
 
 
+To give the activity and category cards some weight, lighter shades of indigo and green were used. The aim was to distinguish the two types of cards so that users can tell at a glance which page they are on and what the cards are representing. To provide a touch of variety, the chips containing required equipment on the View Activity page have a lighter shade of blue.
+
+- ![#e8eaf6](https://via.placeholder.com/15/e8eaf6/000000?text=+) #e8eaf6 (indigo lighten-5)
+
+- ![#f1f8e9](https://via.placeholder.com/15/f1f8e9/000000?text=+) #e8eaf6 (light-green lighten-5)
+
+- ![#0077ff](https://via.placeholder.com/15/0077ff/000000?text=+) #0077ff ("Dodger Blue")
+
+**Buttons**
+
+It was important for the buttons to have have consistent colours with intuitive suggestions about their functions. A slightly lighter shade of indigo was used for buttons which could be classed as part of the outer 'shell' of the site, responsible for navigating the site and matching the Navbar and Footer's colour. These are  Search, 'Back to Activities', active pagination page, 'View' (category's activities) and 'Cancel' (a deletion). One exception was made for the hover effect of activity filters (i.e. target age, category and activity author), to provide some variety.
+
+A 'green means go' approach was taken for buttons which suggest the user will be making changes to their content (i.e. Edit and 'Submit'). Negative user actions (i.e Delete and Cancel search) are naturally red.
+
+Orange was used as an accent colour for the pulsing FAB 'Add Activity' and 'Add Category' and also for Toast alert messages.
+
+- ![#26a69a](https://via.placeholder.com/15/26a69a/000000?text=+) #26a69a (teal lighten-1)
+
+- ![#3f51b5](https://via.placeholder.com/15/3f51b5/000000?text=+) #3f51b5 (indigo)
+
+- ![#f44336](https://via.placeholder.com/15/f44336/000000?text=+) #f44336 (red)
+
+- ![#ff6d00](https://via.placeholder.com/15/ff6d00/000000?text=+) #f44336 (orange accent-4)
+
+**Transition and transformation**
+
+To add to the physicality of the cards, the Materialize `hoverable` (all) and `waves-effect` (categories) classes were used. To give the Footer a touch of interactivity, a subtle scale effect has been applied on clickable links.
+
+#### Fonts
+
+[Bubblegum Sans](https://fonts.google.com/specimen/Bubblegum+Sans#about)
+
+A cursive font which gives a sense of childlike playfulness, in keeping with the site's theme of creativity and fun. This font is used sparingly for the Self Isolution logo, sub-headings and hard titles. 
+
+[Montserrat](https://fonts.google.com/specimen/Montserrat#about)
+
+Monserrat is the ever steady foil to more playful fonts like Bubblegum Sans, used here for all other content to provide a soft clarity.
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="database-model"></span>
 
 
 
 
  
-
-
-
-
-
-Testing
-As Flask is a framework, you will need to validate the HTML code using the URL to avoid false error flags due to jinja2. 
-
-
-
-My attempt at binding data from MongoDB to the video library failed in that data got injected into videos.html rather than library.html, but the html for the video.html changes to 
-that of the video library, and in the latter, a new card with image is created as it should but not in the right format. Solved by swapping the functions index() and add_videos() in how 
-each connects to MongoDB
-
-
-Customize Cloudinary widget I followed https://cloudinary.com/documentation/upload_widget#localization
-
-
-
-
-in library.html:
-{% if session.user|lower == video.created_by|lower %} needed to be injected outside of the antecedent <P></P> tags to function to show the edit and delete icons only if session user
-is identical with video creator. Initially, this did not work but for another reason: the category_id I added in MongoDB lacked the underscore.
 
 
 
