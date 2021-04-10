@@ -150,20 +150,20 @@ All design decisions have been made with the following goals in mind:
 - (US012) - As a registered user I want to upload my own selection of video entries so that other users can benefit from them.
 - (US013) - As a registered user I want to get visual confirmation when I added/deleted a video entry.
 - (US014) - As a registered user I want to be able to edit or delete a video entry I have submitted so that I can improve or remove it.
-- (US015) - As a general user I want to search videos by title and author so that I can find specific content that helps me satisfy my curiosity.
-- (US016) - As a general user I want to search videos by category name so that I can group content of a specific kind which reflects my interest.
-- (US017) - As a general user I want to be able to filter videos based on duration so I can get content that fits my available time budget.
-
-- (US018) - As a registered user I want to be able to edit my profile by adding a picture and relevant information.
-- (US019) - As a registered user I want to be able to delete my profile.
-- (US020) - As a registered user I want to get visual confirmation when I deleted my profile.
+- (US015) - As a registered user I want to be warned before I delete videos.
+- (US016) - As a general user I want to search videos by title and author so that I can find specific content that helps me satisfy my curiosity.
+- (US017) - As a general user I want to search videos by category name so that I can group content of a specific kind which reflects my interest.
+- (US018) - As a general user I want to be able to filter videos based on duration so I can get content that fits my available time budget.
+- (US019) - As a registered user I want to be able to edit my profile by adding a picture and relevant information.
+- (US020) - As a registered user I want to be able to delete my profile.
+- (US021) - As a registered user I want to get visual confirmation when I deleted my profile.
 
 #### Admin ####
-- (US021) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
-- (US022) - As an Admin I want to be able to create and delete video categories.
-- (US020) - As an Admin I want to be warned before I delete categories 
-- (US020) - As an Admin I want to get visual confirmation when I deleted a category.
-- (US023) - As an Admin I want to be able to view how many users are registered on the website and delete users if necessary.
+- (US022) - As an admin I want all of the above options but I would also like to be able to update content on the website and ensure it adheres to site rules.
+- (US023) - As an Admin I want to be able to create and delete video categories.
+- (US024) - As an Admin I want to be warned before I delete categories 
+- (US025) - As an Admin I want to get visual confirmation when I deleted a category.
+- (US026) - As an Admin I want to be able to view how many users are registered on the website and delete users if necessary.
  
 <span id="ux-wireframes"></span>
 
@@ -273,87 +273,84 @@ Similarly, I anticipated that users would be able to 'like' particular videos wh
 
 ### Existing Features
 
-The site allows users to upload new videos and edit existing ones (when logged in). Users can also search for videos based on title, description, and category.  
+The site allows users to upload and watch new videos and edit existing ones (when logged in). Users can also search for videos based on title, description, and category. Now we can come back to some of the user stories mentioned above to see how the requirements have been met:
+
+ 
 
 **1. Material design**
 
 MaterializeCSS features:
 - [Cards](https://materializecss.com/cards.html)
 - [Forms](https://materializecss.com/text-inputs.html)
-- [Collapsibles]()
+- [Collapsibles](https://materializecss.com/collapsible.html)
 - [Modals](https://materializecss.com/modals.html)
 - [Sidenav](https://materializecss.com/sidenav.html)
-- [Tooltips]()
+- [Tooltips](https://materializecss.com/tooltips.html)
+
 
 **2. Secure passwords**
 
-When registering for the site, the user's password is hashed so that it is not revealed to the database owner.
+(US009) When registering to the site, the user's password is hashed so that it is not revealed to the database owner.
 
 **3. CRUD functionality**
 
-Visitors can:
-- View all activities
-- View all categories.
+General users can:
+- (US005) on load see some of the available content in "fatured videos".
 
-Users can:
-- Add their own activities
-- Edit their own activities 
-- Delete their own activities.
+
+Registered users can:
+- (US012 & US013) upload videos of their choice which is then confirmed by a flash message.
+- (US014) edit and delete their own videos.
+- (US016) search videos by keywords appearing in video title, abstract or category to find specific content according to their own preferences.
+
 
 The admin can:
-- Add their own activities
-- Edit any users' activities
-- Delete any users' activities
-- Add a category
-- Edit a category
-- Delete a category.
+- (US022) perform all of the actions a registered user can. 
+- (US023) create new video categories and edit or delete existing ones.
 
-**6. User profile**
 
-Users can view all activities they have created in one place and easily edit or delete them.
+**4. Feedback Mechanisms with User**
 
-**7. Admin rights**
+(US015 & 021) When the user or admin clicks to delete a video or category, a modal pops up to confirm they wish to do so to prevent accidental deletion.
+The site provides a number of other feeback mechanisms:
+Forms indicate required fields with warning messages on submit.
+Forms provide validation warnings through colour cues and messages on the form field.
+Tooltips on hover next to delete/edit and reset/search icons explain functionality.
+Interactive site components react to user actions with hover cues (even although links such as 'likes' inactive as yet).
 
-The admin has the additional ability to:
-- Edit or delete any activity on the site from its View Activity page
-- Add categories
-- Edit a category summary or image (but they cannot edit the name of a category to preserve relationship integrity)
-- Delete categories from the Categories page, with measures for preserving relational integrity for activities no longer associated with a category.
 
-**8. Confirm delete**
 
-When the user or admin clicks to delete an activity or category, a modal pops up to confirm they wish to do so to prevent accidental deletion.
+**5. Pagination**
 
-**9. Category reassignment on deletion**
+The Video Library page (and any search applied) will limit the number of activities visible to 4 in order to reduce the number of vidoes loaded and keep the focus on the content. Any number of videos beyond that will be displayed on following pages accessible via the pagination links at the bottom of the page.
 
-When the admin chooses to delete a category which has associated activities, these activities are moved to the 'Unassigined' category and are still visible on the site. 
-
-**10. Search**
-
-All users can search for keywords appearing in:
-- Activity title
-- Activity summary
-- Activity description
-- Activity required equipment
-
-Activities can be filtered by category from the Categories page and also by target age or activity author by clicking on the associated tag from the Activities, View Activity or Profile pages.
-
-**11. Pagination**
-
-The Activities page (and any search or filters applied) will limit the number of activities visible to 9 in order to reduce the number of images loaded and keep the focus on the content. As individual users are unlikely to be adding much more than 9 activities, it makes sense not to paginate the Profile page to avoid spilling onto a second page in this rare instance.
-
-**12. Access protection**
-
-Routes to restricted functions such as add, edit and delete (for both session user and admin) are protected so that they cannot be accessed by brute force via the URL.
-
-**13. 404 and 500 error handling**
-
-Pages for 404 and 500 errors keep the user on the site when something goes wrong, allowing them to return to the content with minimal disruption.
 
 <span id="features-future"></span>
 
-### Future
+### Future Features
 
+**1. User profile**
+
+(US019-021) Finish the user profile I started so that users can 
+- view all videos they have created in one place and easily edit or delete them,
+- see their favoured videos in one place,
+- upload a profile image to the stored in Cloudinary and add a short bio,
+- delete their profile. 
+
+**2. Admin rights**
+
+The admin should get the additional abilities to:
+- (US022) edit or delete any video on the site in case inappropriate content has been uploaded,
+- (US023) delete categories from the Categories drop-down, with measures for preserving relational integrity for videos no longer associated with a category.
+
+**3. Implement 'like' functionality**
+
+To allow registered users to favour videos by wiring up the already existing heart icon on the video collapsible to MongoDB and back to the user's profile so that users can memorize videos they like and build a individual small video library in their profile.
+
+
+**4. Embedd videos in HTML**
+
+To replace the current iframes with a [Cloudinary self-hosted video player](https://cloudinary.com/documentation/video_player_how_to_embed) coded in HTML and JS to give me more control over the player and playback, including customization and better security against loading of malicious code on iframes. 
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
@@ -569,14 +566,21 @@ and for helping me change the collapsible query selector in JS to select *all* c
 
 Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
 MaterializeCSS as in Bootstrap.
+And also for his exemplary ReadMe file for his Self Isulation-Project from which I learned how to create tables in Markdown syntax.
 Fellow student Toto for sharing his code for the above pagination.
 
 Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
 
 
-herschel, curie images from the Wellcome Collection https://wellcomecollection.org/
+
 
 https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
 
 check out responsive video container https://materializecss.com/media-css.html
 
+March of Intellect by William Heath, ca. 1828 was downloaded from the digital collections of [The British Library](https://www.bl.uk/collection-items/march-of-the-intellect#)
+
+Sir William Herschel and Caroline Herschel. Colour lithograph by A. Diethe, ca. 1896, downloaded from the [Wellcome Collections' image library](https://wellcomecollection.org/collections).
+
+Newton by William Blake, 1795-c.1805, downloaded from [Tate](https://www.tate.org.uk/art/artworks/blake-newton-n05058
+)
