@@ -362,165 +362,71 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 ### Languages
 
 
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) to style HTML and dynamic elements.
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) is the markup language for the site layout.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) to create and manipulate the site's client-side dynamic elements.
+- [Python](https://www.python.org/) for the backend server and running queries to the database.
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) to generate HTML from site templates.
+
+
+### Frameworks
+
+- [Flask](https://palletsprojects.com/p/flask/) to simplify webserver tasks
+- [Materialize](https://materializecss.com/) to aid in responsive design and conforming to the google material design language.
+
+### Extensions and kits
+
+- [Flask Paginate](https://pythonhosted.org/Flask-paginate/) to help implement simple pagination on library.html
+- [Werkzeug](https://palletsprojects.com/p/werkzeug/) to manage the Web Server Gateway Interface.
+- [Cloudinary](https://cloudinary.com/) to store and serve videos and handle video uploading.
+
+### Project management
+
+- [Balsamiq](https://balsamiq.com/wireframes/) to create the wireframes for this project.
+- [GitHub](https://github.com/) to store the project repository and deploy the site
+- [GitPod](https://gitpod.io/) for version control.
+- [Heroku](https://www.heroku.com/about) is the deployment platform.
+- [MongoDB](https://www.mongodb.com/) as backend database.
+- [dbdiagram](https://dbdiagram.io/home)  to create Entity Relationship diagram of the database. 
+
+### Tools
+
+- [Am I Responsive?](http://ami.responsivedesign.is/) to generate images across different devices' screen sizes.
+- [Autoprefixer](https://autoprefixer.github.io/) to ensure CSS compatibility across different browsers.
+- [Coolers.co](https://coolors.co/d84315-f2c078-faedca-c1dbb3-7ebc89) to help create the color palette used across the site.
+- [Favicon.io](https://favicon.io//) to create the video recorder icon in the browser tab.
+- [Font Awesome](https://fontawesome.com/) for all (button) icons.
+- [Google Fonts](https://fonts.google.com/) for the font of this site.
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="deployment"></span>
+
+## Deployment
+
+
+
+
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="testing"></span>
 
 ## Testing
 
-Lighthouse was used to test the performance of the application on all pages on mobile and desktop.
+Full details of testing can be found [here](TESTING.md).
 
-The following reports were generated:
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
-*videos.html - Home:*
+<span id="credits"></span>
 
-* Performance: REDO as currently at 19%
+## Credits
 
-* Accessibility: 74%
+### Tutorials / Resources
 
-"iframe elements do not have a title"
-"Image elements do not have [alt] attributes"
-
-- I added a title to the iframe tags and all attributes to all img
-
-"Links do not have a discernible name"
-
-- This refers to social link icons and not quite sure what to make of it 
-
-* Best Practices: 80
-
-"Browser errors were logged to the console"
-"Issues were logged in the Issues panel in Chrome Devtools"
-
-- CHECK
-
-* SEO: 83
-
-"Document does not have a meta description" 
-
-- I added _meta name="Description" content=""_ providing a summary of the page content. 
-
-"Image elements do not have [alt] attributes"
-
-- I added them
-
-*Profile.html*
-
-* Performance:73
-
-"Does not use passive listeners to improve scrolling performance"
-
-Adding 'touchstart', onTouchStart, {passive: true} to my event listener functions, as advised, threw up errors so I left it as it is.
-
-"Image elements do not have explicit width and height"
-
-As I use the MaterializeCSS class="circle responsive-img", I skipped that.
-
-
-* Accessibility:95
-* Best Practices:87 because of console errors
-* SEO: 100
-
-*Add_Video.html*
-
-* Performance. 92
-* Accessibility:80
-
-"Form elements do not have associated labels"
-That refers to the categories drop-down for which I do not see the option to add another "label for" tag so I left it.
-
-"Links do not have a discernible name"
-
-Again, in the footer
-
-* Best Practices:93 because of console errors
-* SEO: 89
-
-"Document doesn't use legible font sizes"
-- Let's check again after white etxt converted to black text, but this might concern font size only
-
-"Tap targets are not sized appropriately"
-added margin of 8px around category validate class
-
-*edit_video.html*
-
-* Performance: 94
-
-remove unused CSS and JS 
-* Accessibility: 84
-"Links do not have a discernible name"
-"Form elements do not have associated labels"
-That refers to the categories drop-down for which a label for tag is already in place and adding another one does not make sense, especially as the category field is populated with 
-data from mongoDB.
-* Best Practices: 93
- issues with JS
-
-* SEO: 98
-
-I have a full stop under my category drop down which is not meant to be there
-"
-Tap targets are not sized appropriately"
-Category drop down is overlaping with label text on open: need to put margin/padding
-
-*Library.html*
-
-The page loaded too slowly to finish within the time limit. Results may be incomplete.
-
-* Performance: 81
-
-"Does not use passive listeners to improve scrolling performance"
-- see above
-
-* Accessibility:85
-
-"Buttons do not have an accessible name"
-
-Added aria-label = "Center Align"
-
-"Links do not have a discernible name"
-
-As above, this concerns social links, but here also search and reset buttons. I added tooltips to them for better accessibility, but I do not know whether Lihgthouse rewards that.
-
-* Best Practices:87 because of console errors
-
-* SEO: 88
-
-"Links are not crawlable"
-This refers to two <a> tags from the {{pagination.links}} flask extension which I do not seem to be able to change
-
-"Tap targets are not sized appropriately"
-
-Refers to pagination links for which I now added margin and padding
-
-*logout.html, Login.html, register.html*
-
-* Performance: 94
-* Accesibility: 96
-
-"Links do not have a discernible name"
-
-* Best Practices: 87 remove browser errors
-* SEO: 100
-
-*add_category.html*
-
-* Performance: 93
-* Accessibility: 93
-"Links do not have a discernible name"
-
-* Best Practices: 87
-* SEO: 100
-
-*edit_category.html*
-
-* Performance: 93
-* Accessibility: 81
-"Links do not have a discernible name"
-"Form elements do not have associated labels"
-That refers to the categories drop-down for which a label for tag is already in place and adding another one does not make sense, especially as the category field is populated with 
-data from mongoDB.
-
-* Best Practices: 87
-* SEO: 100
-
-    Lighthouse report is now as [follows]() 
+- Code Institute Task Manager Project ([Tim Nelson](https://github.com/TravelTimN))
 
 
 
@@ -545,8 +451,6 @@ M.Sidenav.init(sideNav, {});
 
 
 
-Coolors pallette: https://coolors.co/b22222-d84315-750075-030303-ffffff
-
 For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
 
 Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
@@ -566,7 +470,7 @@ and for helping me change the collapsible query selector in JS to select *all* c
 
 Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
 MaterializeCSS as in Bootstrap.
-And also for his exemplary ReadMe file for his Self Isulation-Project from which I learned how to create tables in Markdown syntax.
+And also for his exemplary ReadMe file for his Self-Isolution project from which I learned how to create tables in Markdown syntax.
 Fellow student Toto for sharing his code for the above pagination.
 
 Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
