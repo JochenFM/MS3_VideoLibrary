@@ -178,17 +178,17 @@ The decision to use Materialize meant customisation was somewhat limited, but th
 
 I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too close to red to allow for visual user guidance, so I switched to 
 
-![#ff8a65](https://via.placeholder.com/15/ff8a65/000000?text=+) #ff8a65 (deep-orange lighten-2), 
+![#ff8a65](https://via.placeholder.com/15/ff8a65/000000?text=+) #ff8a65 (Coral or deep-orange lighten-2 in MaterializeCSS), 
 
 but kept the other components of the palette: 
 
 ![palette](wireframes/coolors_palette.png)
 
-The color composition was inspired by one of the slider images, which I had already included in my wireframes - one print of William Heath's series March of the Intellect (1826). The print contains the matt grey-green and cream colours which are used througout this page and contrast well with the lightened orange. I used the hex values of the Materialize's named colour in any required custom CSS styling.
+The color composition was inspired by one of the slider images, which I had already included in my wireframes - one print of William Heath's series March of Intellect (1826). The print contains the matt grey-green and cream colours which are used througout this page, as, following Coolors' names, Tea Green/Dark Sea Green and Lemon Meringue/Gold Crayola. These contrast well with the lightened orange, or Coral. I used the hex values of the Materialize's named colour in any required custom CSS styling.
 
 **Core**
 
-Two bold shades of Materialize's orange were used for the core elements of the site, namely the Navbar and Footer, in combination with the grey-green for all other components. My aim was to generate a combination of colours which would fit the slider images - all colours of which are in pastel shade - and to maintain a contrast with the black text and light cream background.
+Two bold shades of Materialize's orange were used for the core elements of the site, namely the Navbar and Footer, in combination with the grey-green for all other components. My aim was to generate a combination of colours which would fit the slider images - all colours of which are in pastel shade - and to maintain a contrast with the black text and gold crayola/lemon meringue background.
 
 **Cards** & **Buttons**
 
@@ -276,6 +276,7 @@ MaterializeCSS features:
 - [Cards](https://materializecss.com/cards.html)
 - [Forms](https://materializecss.com/text-inputs.html)
 - [Collapsibles](https://materializecss.com/collapsible.html)
+- [Responsive Video Container](https://materializecss.com/media-css.html)
 - [Modals](https://materializecss.com/modals.html)
 - [Sidenav](https://materializecss.com/sidenav.html)
 - [Tooltips](https://materializecss.com/tooltips.html)
@@ -414,15 +415,10 @@ The site uses a Mongodb database for data storage and retrieval.
   - videos
   - categories
   - users
-- A document in categories should be created with the following fields:
-
-|**Key**|**Value**|**Type**|
-|:-----|:-----|:-----|
-|category_name|Unassigned|String|
 
 Further prerequisites:
 
-- Gitpod as the recommended IDE at Code Institute.
+- Gitpod as the recommended Integrated Development Environmet (IDE) at Code Institute.
 - Python3: In order to to run the application in combination with Flask.
 - PIP3: To install all application imports (such as Flask, PyMongo etc.).
 - A template folder: To link with the app routes.
@@ -434,7 +430,7 @@ To clone this project from its [GitHub repository](https://github.com/JochenFM/M
 
 1. From the repository, click **Code**.
 2. In the **Clone >> HTTPS** section, copy the clone URL for the repository.
-3. In your local development environment, open Git Bash.
+3. In your local IDE, open Git Bash.
 4. Change the current working directory to the location where you want the cloned directory to be made.
 5. Type `git clone`, and paste the URL copied in Step 2.
 
@@ -464,7 +460,7 @@ python3 app.py
 
 To deploy the app to Heroku from its [GitHub repository](https://github.com/JochenFM/MS3_VideoLibrary), the following steps were taken:
 
-1. From the GitPod terminal, create **requirements.txt** and **Procfile** using these commands:
+1. From the GitPod terminal, create **requirements.txt** and **Procfile** (always with an uppercase P) using these commands:
 
 ```console
 pip3 freeze --local > requirements.txt
@@ -476,10 +472,23 @@ echo web: python app.py > Procfile
 4. Select **Create new app** from the dropdown in the Heroku dashboard.
 5. Create a unique app-name ('ms3-video-library') and choose the region nearest to you. Then press **Create app**.
 6. Go to the **Deploy** tab and under **Deployment method** choose GitHub
-7. In **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**
+7. Scroll to **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**
 8. Go to the **Settings** tab and under **Config Vars** choose **Reveal Config Vars**
 9. Enter the following keys and values, which must match those in the env.py file created earlier:
 
+|**Key**|**Value**|
+|:-----|:-----|
+|IP|`0.0.0.0`|
+|MONGO_DBNAME|`<database name>`|
+|MONGO_URI|mongodb+srv://`<username>`:<password>@`<cluster_name>`.ex33f.mongodb.net/`<database_name>`?|
+|PORT|`5000`|
+|SECRET_KEY|`<app secret key>`|
+
+
+
+10. Go back to the **Deploy** tab and under **Automatic deploys** choose **Enable Automatic Deploys**
+11. Under **Manual deploy**, select **master** and click **Deploy Branch**
+12. Once the app has finished building, click **Open app** from the header row of the dashboard
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
@@ -501,23 +510,10 @@ Full details of testing can be found [here](TESTING.md).
 
 - Code Institute Task Manager Project ([Tim Nelson](https://github.com/TravelTimN))
 
+Good resources to initialize MaterializeCSS components with Javascript are:
 
-In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
-<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
-                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
-                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
-                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
-Good video for modals in materialize with JS:
-https://www.youtube.com/watch?v=GAQoVIgjeZA
-He uses data-target to target the modal id. I use href so might be worthwhile going over this video again in case modals do not work.
-Data-target ="" goes with class of btn in this video, so I will have to see whether href="#delete_video_{{video._id}}" to id="delete_video_{{video._id}}"
-works in my case.
-
-
-Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
-const sideNav = document.querySelector('.sidenav');
-M.Sidenav.init(sideNav, {});
-
+- Oston Code Cypher on [Modals](https://www.youtube.com/watch?v=GAQoVIgjeZA)
+- Traversy Media on [Sidenav](https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s) and some slider styling.
 
 
 For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
@@ -525,6 +521,18 @@ For embedding the Cloudinary video player, I followed https://cloudinary.com/doc
 Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
 
 To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
+
+
+
+In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
+<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
+                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
+                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+
+
+
+
 
 Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
 it was due to the env.py file being deleted/had disappeared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
@@ -546,10 +554,8 @@ Cormac for help with accessing my mongo.db database in the get_suggested_videos 
 
 
 
+### Image Credits
 
-https://www.youtube.com/watch?v=MaP3vO-vEsg&t=397s for help in implementing slider
-
-check out responsive video container https://materializecss.com/media-css.html
 
 March of Intellect by William Heath, ca. 1828 was downloaded from the digital collections of [The British Library](https://www.bl.uk/collection-items/march-of-the-intellect#)
 
