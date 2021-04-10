@@ -335,16 +335,24 @@ The Video Library page (and any search applied) will limit the number of activit
 The admin should get the additional abilities to:
 - (US022) edit or delete any video on the site in case inappropriate content has been uploaded,
 - (US023) delete categories from the Categories drop-down, with measures for preserving relational integrity for videos no longer associated with a category.
+- Admin should be defined by superuser functionality, rather than by name "Admin"
 
-**3. Implement 'like' functionality**
+**3. 404 and 500 error handling**
+
+Pages for 404 and 500 errors need to be inserted for when something goes wrong, allowing user to return to the content with minimal disruption.
+
+**4. Implement 'like' functionality**
 
 To allow registered users to favour videos by wiring up the already existing heart icon on the video collapsible to MongoDB and back to the user's profile so that users can memorize videos they like and build a individual small video library in their profile.
 
 
-**4. Embedd videos in HTML**
+**5. Embedd videos in HTML**
 
 To replace the current iframes with a [Cloudinary self-hosted video player](https://cloudinary.com/documentation/video_player_how_to_embed) coded in HTML and JS to give me more control over the player and playback, including customization and better security against loading of malicious code on iframes. 
 
+**6. Upload videos by link only and display the video in my HTML**
+
+The upload widget in its current form already allows video upload by URL only, but I failed to subsequently display the video in my HTML. JS manipulation of the Cloudinary videoplayer mentioned under 5 will make this possible by allowing me to use the Cloudinary Javascript SDK to create a URL that, if included in my library.html, will show the video that was uploaded. 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
@@ -399,11 +407,83 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 ## Deployment
 
 
+### Database Deployment
+The site uses a Mongodb database for data storage and retrieval. 
+
+- The following collections were created:
+  - videos
+  - categories
+  - users
+- A document in categories should be created with the following fields:
+
+|**Key**|**Value**|**Type**|
+|:-----|:-----|:-----|
+|category_name|Unassigned|String|
+
+Further prerequisites:
+
+- Gitpod as the recommended IDE at Code Institute.
+- Python3: In order to to run the application in combination with Flask.
+- PIP3: To install all application imports (such as Flask, PyMongo etc.).
+- A template folder: To link with the app routes.
 
 
+### How to clone Video *Wunderkammer*
+
+To clone this project from its [GitHub repository](https://github.com/JochenFM/MS3_VideoLibrary):
+
+1. From the repository, click **Code**.
+2. In the **Clone >> HTTPS** section, copy the clone URL for the repository.
+3. In your local development environment, open Git Bash.
+4. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type `git clone`, and paste the URL copied in Step 2.
+
+```console
+git clone https://github.com/JochenFM/MS3_VideoLibrary
+```
+
+6. Press Enter. Your local clone is created.
+7. Create a file called env.py to hold your app's environment variables, which should contain the following:
+
+```console
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "<app secret key>")
+os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-.ex33f.mongodb.net/<database_name>?retryWrites=true&w=majority")
+os.environ.setdefault("MONGO_DBNAME", "<database_name>")
+```
+8. The app can now be run locally using
+```console
+python3 app.py
+```
+
+
+### Deployment Platform
+
+To deploy the app to Heroku from its [GitHub repository](https://github.com/JochenFM/MS3_VideoLibrary), the following steps were taken:
+
+1. From the GitPod terminal, create **requirements.txt** and **Procfile** using these commands:
+
+```console
+pip3 freeze --local > requirements.txt
+echo web: python app.py > Procfile
+```
+
+2. **Push** these files to GitHub.
+3. **Log In** to [Heroku](https://id.heroku.com/login).
+4. Select **Create new app** from the dropdown in the Heroku dashboard.
+5. Create a unique app-name ('ms3-video-library') and choose the region nearest to you. Then press **Create app**.
+6. Go to the **Deploy** tab and under **Deployment method** choose GitHub
+7. In **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**
+8. Go to the **Settings** tab and under **Config Vars** choose **Reveal Config Vars**
+9. Enter the following keys and values, which must match those in the env.py file created earlier:
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+
 
 <span id="testing"></span>
 
@@ -475,5 +555,4 @@ March of Intellect by William Heath, ca. 1828 was downloaded from the digital co
 
 Sir William Herschel and Caroline Herschel. Colour lithograph by A. Diethe, ca. 1896, downloaded from the [Wellcome Collections' image library](https://wellcomecollection.org/collections).
 
-Newton by William Blake, 1795-c.1805, downloaded from [Tate](https://www.tate.org.uk/art/artworks/blake-newton-n05058
-)
+Newton by William Blake, 1795-c.1805, downloaded from [Tate](https://www.tate.org.uk/art/artworks/blake-newton-n05058).
