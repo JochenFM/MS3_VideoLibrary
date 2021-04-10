@@ -516,49 +516,53 @@ Good resources to initialize MaterializeCSS components with Javascript are:
 - Traversy Media on [Sidenav](https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s) and some slider styling.
 
 
-For embedding the Cloudinary video player, I followed https://cloudinary.com/documentation/video_player_how_to_embed
+For embedding the Cloudinary upload widget and video player, I followed [Cloudinary's documentation](https://cloudinary.com/documentation/video_player_how_to_embed).
 
-Note When using both the Upload Widget and Video Player on the same page, the video player scripts must be loaded first to prevent any conflicts, see https://cloudinary.com/documentation/video_player_how_to_embed
-
-To get the upload widget working, I followed https://cloudinary.com/documentation/upload_widget and Sean Young's code for his MS3 which he kindly shared helped in wiring up the upload button
+Similarly, to get the  working, I followed https://cloudinary.com/documentation/upload_widget 
 
 
 
-In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
-<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
-                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
-                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
-                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+A number of Code Institute's tutors were of great help. Many thanks to:
+
+- At the initial stages of this project, Fatima helped me realize that the reason for why the application failed to run was because my env.py file had been deleted/had disappeared.
+- Jo altered me to how/where [Flask looks for images](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files).
+- Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
+MaterializeCSS as in Bootstrap. Ed also wrote an exemplary ReadMe file for his Self-Isolution project from which I learned how to create tables in Markdown syntax.
+- Cormac helped with accessing my mongo.db database in the get_suggested_videos function in app.py by correcting an error.
+- Tim Nelson helped me change the collapsible query selector in JS to select *all* collapsibles so they worked properly across the site. He also tried to solve the console errors from the cloudinary video player.
 
 
 
+Special thanks also to my fellow students on Slack, especially:
 
+- Sean Young who took up where Tim left and pointed out that a web-hosted video players plus iframes actually works without any JS scripts. Sean also 
+kindly helped me with setting up the Cloudinary upload widget, to code the JS callback function to inject the Cloudinary video URL back into the upload form to be submitted to MongoDB. He has an unusual ability to understand and explain code, I find.
 
-Fatima for helping me realize that when flask pymongo was not found in gitpod/did not run on gitpod, 
-it was due to the env.py file being deleted/had disappeared so that I was unable to load the MONGO-URI string from Heroku to flask. In the end, I reinserted the env.py as a whole.
+- Toto kindly shared his code for the above Flask pagination extension.
 
-Jo for helping me with slider: "For the images, remember you're working with Flask. Images on Flask need a url as follows", see https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files
+Some MS3s were a great inspiration for this project, especially Audrey Lloancy's [Cocktail App](https://sante-cocktail.herokuapp.com/), Sean Young's [Plum Recipes](https://sante-cocktail.herokuapp.com/).
 
-Fellow student Sean Young for help with setting up the Cloudinary upload widget, explaining the concept of flask pagination extension, especially {{pagination.links}}, for pointing out that
-a web-hosted video players plus iframes actually works without any JS scripts
-
-Tim Nelson for trying to solve the console errors from the cloudinary video player which was taken up my Sean Young
-and for helping me change the collapsible query selector in JS to select *all* collapsibles
-
-Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
-MaterializeCSS as in Bootstrap.
-And also for his exemplary ReadMe file for his Self-Isolution project from which I learned how to create tables in Markdown syntax.
-Fellow student Toto for sharing his code for the above pagination.
-
-Cormac for help with accessing my mongo.db database in the get_suggested_videos function in app.py
-
+Thanks also to my mentor [Adegbenga Adeye](https://github.com/deye9) for encouraging me in my idea to code a video library.
 
 
 ### Image Credits
 
+Slider images:
 
-March of Intellect by William Heath, ca. 1828 was downloaded from the digital collections of [The British Library](https://www.bl.uk/collection-items/march-of-the-intellect#)
+- March of Intellect by William Heath, ca. 1828 was downloaded from the digital collections of [The British Library](https://www.bl.uk/collection-items/march-of-the-intellect#)
 
-Sir William Herschel and Caroline Herschel. Colour lithograph by A. Diethe, ca. 1896, downloaded from the [Wellcome Collections' image library](https://wellcomecollection.org/collections).
+- Sir William Herschel and Caroline Herschel. Colour lithograph by A. Diethe, ca. 1896, downloaded from the [Wellcome Collections' image library](https://wellcomecollection.org/collections).
 
-Newton by William Blake, 1795-c.1805, downloaded from [Tate](https://www.tate.org.uk/art/artworks/blake-newton-n05058).
+- Newton by William Blake, 1795-c.1805, downloaded from [Tate](https://www.tate.org.uk/art/artworks/blake-newton-n05058).
+
+
+Default profile picture:
+
+- Corey Schafer's Python Flask Tutorial: Full-Featured Web App Part 7 - [User Account and Profile Picture](https://youtu.be/803Ei2Sq-Zs) (in the description below the video).
+
+
+### Disclaimer
+
+This site was developed for educational purposes only and for fun.
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>

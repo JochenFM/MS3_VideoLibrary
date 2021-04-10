@@ -173,3 +173,10 @@ and will be addressed at a later stage:
 "Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 
+In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
+<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
+                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
+                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+
+
