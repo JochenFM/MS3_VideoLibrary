@@ -155,3 +155,21 @@ data from mongoDB.
 
     Lighthouse report is now as [follows]() 
 
+
+
+A few opportunities to improve Performance and Best Practices on all pages remain 
+and will be addressed at a later stage:
+
+* Performance of ...:  
+
+"Eliminate render-blocking resources"
+
+"Serve images in next-gen formats"
+
+"Image elements do not have explicit width and height"
+
+* Best Practices in both pages:
+
+"Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
+
+

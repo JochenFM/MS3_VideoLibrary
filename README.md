@@ -22,19 +22,6 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
 
-In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
-
-<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
-                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
-                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
-                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
-
-Good video for modals in materialize with JS:
-https://www.youtube.com/watch?v=GAQoVIgjeZA
-
-He uses data-target to target the modal id. I use href so might be worthwhile going over this video again in case modals do not work.
-Data-target ="" goes with class of btn in this video, so I will have to see whether href="#delete_video_{{video._id}}" to id="delete_video_{{video._id}}"
-works in my case.
 
 
 
@@ -90,14 +77,14 @@ def all_videos():
 ## Context
 
 With the cancellation of virtually all in-person acacdemic conferences, symposia and workshops during the pandemic, presentations and other scholarly contributions 
-have been delivered online, via Zoom and similar software programs, leaving behind a growing video database. This video library intends to capture some of that precious knowledge by 
-enabling users to store, retrieve, search, update, and delete recorded presentations. For practical reasons, its main focus is the History of science and technology, 
+have been delivered online, via Zoom and similar software programs, leaving behind a growing video database. This video library intends to capture some of these precious recordings by 
+enabling users to store, retrieve, search, update, and delete them. For practical reasons, its main focus is the History of science and technology, 
 a field I am also most familiar with. *Wunderkammer* in my title, which literally means Cabinet of Wonder, but is better known as cabinet of curiosities in English, 
 reflects that focus. *Wunderkammern* emerged in the 16th century and - mainly formed by members of the merchant class and early practitioners of science - 
-were a collection of notable objects, similar to modern museums. Some of them also served as entertainment, and similarly, this project intends to build a collection, not of corals, bones, or plant specimen
+were a collection of notable objects, similar to modern museums. Some of them also served as entertainment, and inspired by that use and purpose, this project intends to build a collection, not of corals, bones, or plant specimen,
 but of history of science talks, symposia, and workshop presentations. 
-From what I gather from discussions in the relevant online communities, there is a real need to collect and make available this archive at a single online space, 
-for scholars to watch and learn, but also to order, store and retrieve content at their convenience.
+From what I gather from discussions among historians of science in the relevant online communities and elsewhere, there is a real need to collect and make available this archive at a single online space, 
+for scholars to watch and learn, but also to store, order and retrieve content at their convenience.
 However, it is not only scholars who can benefit from this project, but also the wider interested public, which - with the turn to the digital format - has generally 
 been more involved in a hitherto traditionally closed academic space. The project is developed in that spirit of greater accessibility, and aims to address everyone with an interest in the 
 wonders of the history of science.
@@ -185,13 +172,19 @@ Some of the noteworthy deviations from the plan include:
 
 ### Design
 
-The decision to use Materialize meant customisation was somewhat limited, but this was an acceptable compromise given the site's purpose of displaying user content clearly. Judicious use of the framework's cards gives the site a solid and consistent feel which promotes the user content. 
+The decision to use Materialize meant customisation was somewhat limited, but this was an acceptable compromise given the site's purpose of displaying user content clearly.  
 
 #### Colours
 
-I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too clsoe to red to allow for visual user guidance, so I switched to #ff8a65 deep-orange lighten-2 but kept the other components of the palette: ![palette](wireframes/coolors_palette.png)
+I took one of Materialize's stock colours - initially #D84315 deep-orange darken-3 - as a base and used [Coolers](https://coolors.co/) to find a matching colour scheme for the site. The deep orange, however, proved both too dark to bring out contrast and too close to red to allow for visual user guidance, so I switched to 
 
-The color composition was inspired by one of the slider images which I had already included in my wireframes - one print of William Heath's series March of the Intellect (1826, which contains the matt grey-green and cream colours which are used througout this page and contrast well with the lightened orange. I used the hex values of the Materialize's named colour in any required custom CSS styling.
+![#ff8a65](https://via.placeholder.com/15/ff8a65/000000?text=+) #ff8a65 (deep-orange lighten-2), 
+
+but kept the other components of the palette: 
+
+![palette](wireframes/coolors_palette.png)
+
+The color composition was inspired by one of the slider images, which I had already included in my wireframes - one print of William Heath's series March of the Intellect (1826). The print contains the matt grey-green and cream colours which are used througout this page and contrast well with the lightened orange. I used the hex values of the Materialize's named colour in any required custom CSS styling.
 
 **Core**
 
@@ -208,7 +201,7 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 
 #### Fonts
 
-[Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more ncontemporary format of digital recordings. Moreover, as is mentioned in the description for the font, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I was definitely drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil" which I felt was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science can represent.
+[Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more contemporary format of digital recordings. Moreover, as is mentioned in the font description, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I felt the general theme was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science do represent. In that spirit, I was also drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil".
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
@@ -217,8 +210,8 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 ### Database model
 
 MongoDB's non-relational database structure makes sense for this type of site as there are only a few relationships between the various collections. My database model looks as follows: ![dataschema](wireframes/ms3_video_dataschema.png)
-As can be seen, I originally planned with five collections - users, videos, liking, categories, and profile images - to order the relations between users and videos. My actual implementation deviates from this model in that the site due to time constraints operates with only three collections: users, categories, and videos. Profile images, that users can upload as well as the liking option for videos will have to be implemented at a later stage.    
-Also, number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envisioned it being captured in the video recordings.
+As can be seen, I originally planned with five collections - users, videos, liking, categories, and profile images - to order the relations between users and videos. My actual implementation deviates from this model in that the site due to time constraints operates with only three collections: users, categories, and videos. Profile images, that users should be able to upload, as well as the liking option for videos will have to be implemented at a later stage.    
+Also, number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envision it being captured in the video recordings.
 
  
 
@@ -261,7 +254,7 @@ Initially, I anticipated that users would be able to upload a profile picture of
 
 #### Likes collection
 
-Similarly, I anticipated that users would be able to 'like' particular videos which will then be displayed on their respective profile page, but this will have to be implemented at a later stage as well. 
+Similarly, I anticipated that users would be able to 'like' particular videos, which will then be displayed on their respective profile page, but this will have to be implemented at a later stage as well. 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
@@ -393,7 +386,7 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 
 - [Am I Responsive?](http://ami.responsivedesign.is/) to generate images across different devices' screen sizes.
 - [Autoprefixer](https://autoprefixer.github.io/) to ensure CSS compatibility across different browsers.
-- [Coolers.co](https://coolors.co/d84315-f2c078-faedca-c1dbb3-7ebc89) to help create the color palette used across the site.
+- [Coolers.co](https://coolors.co/ff8a65-f2c078-faedca-c1dbb3-7ebc89) to help create the color palette used across the site.
 - [Favicon.io](https://favicon.io//) to create the video recorder icon in the browser tab.
 - [Font Awesome](https://fontawesome.com/) for all (button) icons.
 - [Google Fonts](https://fonts.google.com/) for the font of this site.
@@ -429,21 +422,17 @@ Full details of testing can be found [here](TESTING.md).
 - Code Institute Task Manager Project ([Tim Nelson](https://github.com/TravelTimN))
 
 
+In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
+<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
+                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
+                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
+                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+Good video for modals in materialize with JS:
+https://www.youtube.com/watch?v=GAQoVIgjeZA
+He uses data-target to target the modal id. I use href so might be worthwhile going over this video again in case modals do not work.
+Data-target ="" goes with class of btn in this video, so I will have to see whether href="#delete_video_{{video._id}}" to id="delete_video_{{video._id}}"
+works in my case.
 
-A few opportunities to improve Performance and Best Practices on all pages remain 
-and will be addressed at a later stage:
-
-* Performance of ...:  
-
-"Eliminate render-blocking resources"
-
-"Serve images in next-gen formats"
-
-"Image elements do not have explicit width and height"
-
-* Best Practices in both pages:
-
-"Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 Initializing of Sidenav with JS, via https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s (12:18min):
 const sideNav = document.querySelector('.sidenav');
