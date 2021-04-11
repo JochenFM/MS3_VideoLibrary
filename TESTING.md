@@ -333,10 +333,18 @@ In response to the [W3C - HTML](https://validator.w3.org/) errors shown:
 - closed a number of < divs > properly
 
 
-
-
 Validation by URL input now returns:
 
+
+
+[CSS Lint](http://csslint.net/) - 0 errors, 19 warnings - **PASS**
+
+- most warnings refer to "Don't use adjoining classes".
+- Others read "Don't use IDs in selectors". Selecting via IDs, however, 
+has only been used for styles which will not be reused and the specificity was needed.
+- A few had to do with "Disallow qualified headings" for which I do not see any other solution.
+- In one instance it was about "Disallow overqualified elements". This was a list element for which the qualification is necessary to both override Materialize and 
+link up on the output of Flask Paginate.
 
 
 
