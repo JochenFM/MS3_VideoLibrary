@@ -1,3 +1,23 @@
+span id="top"></span>
+
+Back to [README](README.md)
+
+## Index
+
+- <a href="#user-stories">User stories - how are they met?</a>
+- <a href="#testing-manual">Manual</a>
+- <a href="#testing-auto">Automated</a>
+- <a href="#testing-responsive">Responsiveness</a>
+- <a href="#testing-resolved">Resolved issues</a>
+- <a href="#testing-unresolved">Unresolved issues</a>
+
+---
+
+
+
+
+
+
 Lighthouse was used to test the performance of the application on all pages on mobile and desktop.
 
 The following reports were generated:

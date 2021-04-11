@@ -11,7 +11,9 @@ os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css
 
+https://css-tricks.com/design-considerations-text-images/
 
+https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide
 
 background: 
     linear-gradient(
@@ -299,11 +301,27 @@ MaterializeCSS features:
 - [Tooltips](https://materializecss.com/tooltips.html)
 
 
-**2. Secure passwords**
+**2. Intuitive Design**
+
+ - (US002 & US004) In the Navbar the Video *Wunderkammer* brand takes users to the part of the app that allows user to get an overview, the index page with featured videos and options to log in.
+- Familiar buttons and icons have been used across the site for commonly expected actions e.g. add, edit, delete, search, back.
+- Flash messages confirm to the user when meaningful actions were performed i.e., logins and content changes.
+- As a user might expect, modals appear to warn before content can be deleted.
+- (US003) The footer contains links to all relevant social media.
+
+
+**3. Responsiveness**
+
+- (US001) Pages adapt to a variety of screen sizes thanks to the Materialize grid template and extensive testing in Chrome Dev Tools.
+- Materialize CSS 'video-container responsive-video' and 'responsive-img' classes were used to make both resize responsively to page width.
+- Where readability is compromised, content structure is modified to give more space to items (e.g. more margin or padding around icons, hide content on small devices etc.) 
+
+
+**4. Secure passwords**
 
 (US009) When registering to the site, the user's password is hashed so that it is not revealed to the database owner.
 
-**3. CRUD functionality**
+**5. CRUD functionality**
 
 General users can:
 - (US005) on load see some of the available content in "fatured videos".
@@ -320,9 +338,9 @@ The admin can:
 - (US023) create new video categories and edit or delete existing ones.
 
 
-**4. Feedback Mechanisms with User**
+**6. Feedback Mechanisms with User**
 
-(US015 & 021) When the user or admin clicks to delete a video or category, a modal pops up to confirm they wish to do so to prevent accidental deletion.
+(US015 & 021) When the user or admin clicks to delete a video, profile, or category, a modal pops up to confirm they wish to do so to prevent accidental deletion.
 The site provides a number of other feeback mechanisms:
 Forms indicate required fields with warning messages on submit.
 Forms provide validation warnings through colour cues and messages on the form field.
@@ -331,7 +349,7 @@ Interactive site components react to user actions with hover cues (even although
 
 
 
-**5. Pagination**
+**7. Pagination**
 
 The Video Library page (and any search applied) will limit the number of activities visible to 4 in order to reduce the number of vidoes loaded and keep the focus on the content. Any number of videos beyond that will be displayed on following pages accessible via the pagination links at the bottom of the page.
 
@@ -350,14 +368,14 @@ The Video Library page (and any search applied) will limit the number of activit
 
 **2. Admin rights**
 
-The admin should get the additional abilities to:
+In its current state, the Admin (user with username "Admin") has the same functionalities as a registered user, plus the ability to add and delete categories. For future development, the admin should get the additional abilities to:
 - (US022) edit or delete any video on the site in case inappropriate content has been uploaded,
 - (US023) delete categories from the Categories drop-down, with measures for preserving relational integrity for videos no longer associated with a category.
 - Admin should be defined by superuser functionality, rather than by name "Admin"
 
 **3. 404 and 500 error handling**
 
-Pages for 404 and 500 errors need to be inserted for when something goes wrong, allowing user to return to the content with minimal disruption.
+Custom pages for 404 and 500 errors need to be inserted for when something goes wrong, allowing user to return to the content with minimal disruption.
 
 **4. Implement 'like' functionality**
 
@@ -371,6 +389,11 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 **6. Upload videos by link only and display the video in my HTML**
 
 The upload widget in its current form already allows video upload by URL only, but I failed to subsequently display the video in my HTML. JS manipulation of the Cloudinary videoplayer mentioned under 5 will make this possible by allowing me to use the Cloudinary Javascript SDK to create a URL that, if included in my library.html, will show the video that was uploaded. 
+
+**7. **A more refined video search by text to allow better combinations than the current "or" method**
+
+A improved search functionality would also include a dropdown menu next to the search field to allow filter and display videos by category
+
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
