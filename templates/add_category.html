@@ -1,45 +1,30 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h3 class="feature-text-center">Add Category</h3>
-      <div class="row card-panel">
-        <form
-          class="col s12"
-          method="POST"
-          action="{{ url_for('add_category') }}"
-        ></form>
-        <!--category name-->
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="fas fa-folder-open prefix"></i>
-            <input
-              id="category_name"
-              name="category_name"
-              minlength="5"
-              maxlength="50"
-              type="text"
-              class="validate"
-              required
-            />
-            <label for="category_name">Category Name</label>
-          </div>
-          <!--submit button-->
-          <div class="row">
-            <div class="col s12 center-align">
-              <button
-                class="btn-large deep-orange lighten-2 waves-effect"
-                type="submit"
-              >
-                Add Category
-                <i class="fas fa-plus-square right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-12">
+            <h3 class="feature-text-center">Add Category</h3>
+            <div class="row card-panel hoverable">
+                <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
+                    <!--category name-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-folder-open prefix"></i>
+                            <input id="category_name" name="category_name" minlength="5" maxlength="50" type="text"
+                                class="validate" required>
+                            <label for="category_nanme">Category Name</label>
+                        </div>
+                    <!--submit button-->
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button class="btn-large deep-orange lighten-2 waves-effect" type="submit">Add Category
+                                <i class="fas fa-plus-square right"></i>
+                            </button>
+                        </div>
+                    </div>
+            </div>  
+          </div>  
+        </div>  
+    </div>   
 {% endblock %}

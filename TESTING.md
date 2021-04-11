@@ -124,18 +124,17 @@ The same tests as for Add Video were undertaken, with the following additional t
 - The pages are only accessible if logged in as Admin.
 - Categories can be added via the 'Add Category' button on the Manage Categories page which leads the Admin to a single field to insert a new category name. 
 - The delete icon on the Manage Categories page is wired up to a confirm delete modal which also offers the option to cancel.
-- The edit icon 
+- The edit icon leads the Admin to the 'Edit Category' template almost identical to the 'Add Category' on which the category name can be updated.
+
 
 
 **Profile page**
 
-- Add Activity FAB links to the Add Activity page.
-- All activities created by user display uniformly in cards.
-- Activity name, image and creation date all display correctly.
-- Tapping/clicking on card image takes user to correct View Activity page.
-- The edit button links to Edit Activity page.
-- The delete button brings up confirmation modal.
-- If no activities have been added by the user, a message is displayed calling them to add some.
+- Unfinished as yet
+- Username interjected dynamically into profile card.
+- Icons to edit and delete icon in place, but only the latter is functional bringing up a confirmation modal with option to cancel.
+- Username's favourites and uploaded videos show with content to be added at a later stage from   
+
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
