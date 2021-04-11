@@ -329,8 +329,8 @@ and will be addressed at a later stage:
 
 In response to the [W3C - HTML](https://validator.w3.org/) errors shown:
 
-- that the frameborder attribute on the iframe is obsolete, I removed it entirely
-- 
+- that the frameborder attribute on the iframe is obsolete, I removed it entirely,
+- closed a number of < divs > properly
 
 
 
