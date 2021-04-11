@@ -19,39 +19,7 @@ https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-c
 test video is from ???
 
 
-background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    )}
 
-    
-CSS for color-overlay in slider:
-
-.color-overlay {
-
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: .7;
-    position: absolute;
-    z-index: -1;
-}
-*/
-
-
-
-
-
-
-
-
-
-
-@app.route("/all_videos")
-def all_videos():
-    videos = list(mongo.db.videos.find())
-    return render_template("library.html", videos=videos)
 
 
 
@@ -70,7 +38,7 @@ def all_videos():
 
 # Video *Wunderkammer* - A History of Science Video Database
 
-![alt text]( "Responsive sample")
+![alt text](am_i_responsive.png "Responsive sample")
 
 **[Live demo](https://ms3-video-library.herokuapp.com/)**
 

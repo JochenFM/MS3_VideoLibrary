@@ -1,291 +1,305 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 body {
-font-family: 'Londrina Solid', cursive;
-background-color: #FAEDCA; 
-}
-
-
-.nav-wrapper a {
-
+    font-family: 'Londrina Solid', cursive;
+    background-color: #FAEDCA; 
+    }
+    
+    
+    .nav-wrapper a {
+    
+        color: black;
+        padding-left: 15px;
+    }
+    
+    /*text color side nav, does not work yet*/
+    
+    .sidenav.h4 {
+    
+        color: #ff8a65;
+    
+    
+    }
+    
+    
+    
+    /* slider*/
+    
+    .caption h2 {
+    
+        color: black;
+        }
+    
+    .caption mark {
+    
+        padding: 1px;
+        background-color: #FAEDCA;
+    
+    }
+    
+    .caption h3 {
+    
+        color: black;
+    }
+    
+    /* registration form on register.html */
+    
+    .card-panel {
+    
+        background-color: #C1DBB3;
+    }
+    
+    /*card panels across the app*/
+    
+    .card-panel h3{
+    
+        color: #7EBC89;
+    }
+    
+    
+    /* flash messages on register.html does not work as overwritten*/
+    
+    .flashes h4 {
+        line-height: 1.5;
+        background-color: #C1DBB3;
+    }
+    
+    /* input field in registration form register.html */
+    
+    .input-field label {
+         color: black;
+       }
+    
+    
+    /*header featured videos.html*/   
+    
+    .feature-text-center {
+    
+        text-align: center;
+    }
+    
+    
+    .btn {
+    
+        color: #7EBC89;
+    }
+    
+    .collapsible-header {
+        background-color: #C1DBB3;
+    }
+    
+    .collapsible-body {
+        
+        background-color: #FAEDCA;
+    }
+    
+    
+    
+    .category.validate{
+    
+        margin: 8px; 
+    }
+    
+    
+    /* edit interfaces */
+    
+    .edit-interface{
+    
+        margin: 4px;
+       
+    }
+    
+    .edit-interface .fa-trash{
+    
+        color: red;
+    
+        
+    }
+    
+    .edit-interface .fa-edit{
+    
+        color: #7EBC89;
+    }
+    
+    
+    /*edit video card panel*/
+    
+    .row .card-panel.edit {
+    
+        margin-top: 80px;
+    }
+    
+    /* edit and add buttons*/
+    
+    .btn-large {
+    
     color: black;
-    padding-left: 15px;
-}
-
-/*text color side nav, does not work yet*/
-
-.sidenav.h4 {
-
-    color: #ff8a65;
-
-
-}
-
-
-
-/* slider*/
-
-.caption h2 {
-
+    margin: 10px; 
+    }
+    
+    /*footer*/
+    
+    .footer .fab {
+    
+        margin: 10px 8px;
+    }
+    
+    /*sticky footer*/
+    
+    body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        min-height: 100vh;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+      }
+    
+      main {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 auto;
+                flex: 1 0 auto;
+      }
+          
+    
+    .fab { 
+    
+        color: black;
+        font-size: 25px;
+    }
+    
+    
+    /*like button*/
+    
+    
+    .fa-heart {
+        margin-right: 10px;
+        color: black;
+        font-size: 25px;
+    } 
+    
+    .fa-heart:hover {
+    
+        color: red;
+    }
+    
+    /* profile field*/
+    
+    .move {
+    
+        margin-top: 60px;
+    }
+    
+    .edit-panel{
+    
+    background-color: #C1DBB3;
+    
+    
+    }
+    
+    /*search form*/
+    
+    .row.card-panel {
+    
+        margin-bottom: 150px;
+        margin-top: 20px;
+    
+    }
+    
+    .fa-search {
+    
+        color: black;
+    }
+    
+    
+    .fa-redo-alt{
+    
+        color:black;
+    }
+    
+    
+    
+     #search {    
+     color: #7EBC89;
+    
+    }
+    
+    /*modal delete video*/
+    
+    .modal-content {
+    
+        background-color: #ff8a65;
+        
+    }
+    
+    
+    .modal-footer .btn-flat {
+    background-color: #7EBC89;
     color: black;
     }
-
-.caption mark {
-
-    padding: 1px;
-    background-color: #FAEDCA;
-
-}
-
-.caption h3 {
-
-    color: black;
-}
-
-/* registration form on register.html */
-
-.card-panel {
-
-    background-color: #C1DBB3;
-}
-
-/*card panels across the app*/
-
-.card-panel h3{
-
-    color: #7EBC89;
-}
-
-
-/* flash messages on register.html does not work as overwritten*/
-
-.flashes h4 {
-    line-height: 1.5;
-    background-color: #C1DBB3;
-}
-
-/* input field in registration form register.html */
-
-.input-field label {
-     color: black;
-   }
-
-
-/*header featured videos.html*/   
-
-.feature-text-center {
-
-    text-align: center;
-}
-
-
-.btn {
-
-    color: #7EBC89;
-}
-
-.collapsible-header {
-    background-color: #C1DBB3;
-}
-
-.collapsible-body {
     
-    background-color: #FAEDCA;
-}
-
-
-
-.category.validate{
-
-    margin: 8px; 
-}
-
-
-/* edit interfaces */
-
-.edit-interface{
-
-    margin: 4px;
-   
-}
-
-.edit-interface .fa-trash{
-
-    color: red;
-
     
-}
-
-.edit-interface .fa-edit{
-
-    color: #7EBC89;
-}
-
-
-/*edit video card panel*/
-
-.row .card-panel.edit {
-
-    margin-top: 80px;
-}
-
-/* edit and add buttons*/
-
-.btn-large {
-
-color: black;
-margin: 10px; 
-}
-
-/*footer*/
-
-.footer .fab {
-
-    margin: 10px 8px;
-}
-
-/*sticky footer*/
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-      
-
-.fab { 
-
-    color: black;
-    font-size: 25px;
-}
-
-
-/*like button*/
-
-
-.fa-heart {
-    margin-right: 10px;
-    color: black;
-    font-size: 25px;
-} 
-
-.fa-heart:hover {
-
-    color: red;
-}
-
-/* profile field*/
-
-.move {
-
-    margin-top: 60px;
-}
-
-.edit-panel{
-
-background-color: #C1DBB3;
-
-
-}
-
-/*search form*/
-
-.row.card-panel {
-
-    margin-bottom: 150px;
-    margin-top: 20px;
-
-}
-
-.fa-search {
-
-    color: black;
-}
-
-
-.fa-redo-alt{
-
-    color:black;
-}
-
-
-
- #search {    
- color: #7EBC89;
-
-}
-
-/*modal delete video*/
-
-.modal-content {
-
-    background-color: #ff8a65;
     
-}
-
-
-.modal-footer .btn-flat {
-background-color: #7EBC89;
-color: black;
-}
-
-
-
-#delete-button {
-
-background-color: red;
-    color: black;
-}
-
-
-.modal .modal-footer {
-
-    background-color: #FAEDCA;
-}
-
-
-
-
-/* profile card*/
-
-
-.card-panel.profile {
-
-    margin-top: 100px;
-}
-
-
-.card {
-
-    background-color: #C1DBB3;
-}
-
-
-.card-action {
-
-    padding: 10px;
-    text-align: end;
-
-}
-
-/* Pagination*/
-
-
-.pagination {
-    text-align: center;
-    padding: 10px; 
-}
-
-.pagination li {
-
-    margin: 3px;
-
-}
-
-
-.pagination li.active {
-    background-color: #ff8a65;
-}
-
+    #delete-button {
+    
+    background-color: red;
+        color: black;
+    }
+    
+    
+    .modal .modal-footer {
+    
+        background-color: #FAEDCA;
+    }
+    
+    
+    
+    
+    /* profile card*/
+    
+    
+    .card-panel.profile {
+    
+        margin-top: 100px;
+    }
+    
+    
+    .card {
+    
+        background-color: #C1DBB3;
+    }
+    
+    
+    .card-action {
+    
+        padding: 10px;
+        text-align: end;
+    
+    }
+    
+    /* Pagination*/
+    
+    
+    .pagination {
+        text-align: center;
+        padding: 10px; 
+    }
+    
+    .pagination li {
+    
+        margin: 3px;
+    
+    }
+    
+    
+    .pagination li.active {
+        background-color: #ff8a65;
+    }
+    

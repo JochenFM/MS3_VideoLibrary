@@ -130,11 +130,10 @@ The same tests as for Add Video were undertaken, with the following additional t
 
 **Profile page**
 
-- Unfinished as yet
+- Unfinished as yet.
 - Username interjected dynamically into profile card.
 - Icons to edit and delete icon in place, but only the latter is functional bringing up a confirmation modal with option to cancel.
-- Username's favourites and uploaded videos show with content to be added at a later stage from   
-
+- Username's favourite and uploaded videos show with content to be added at a later stage from MongoDB and Cloudinary.
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
