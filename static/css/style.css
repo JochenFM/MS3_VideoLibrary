@@ -34,26 +34,8 @@ background-color: #FAEDCA;
     background-color: #FAEDCA;
 
 }
-/*.slides {
-background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    )}
 
-    
-CSS for color-overlay in slider:
 
-.color-overlay {
-
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: .7;
-    position: absolute;
-    z-index: -1;
-}
-*/
 
 /* registration form on register.html */
 
@@ -103,16 +85,9 @@ CSS for color-overlay in slider:
 
 .collapsible-body {
     
-    background-color: #F2C078;
+    background-color: #FAEDCA;
 }
 
-
-/*add video panel
-
-.card-panel.add {
-
-    margin-top: 300px;
-}*/
 
 
 .category.validate{
@@ -267,7 +242,7 @@ background-color: red;
     background-color: #FAEDCA;
 }
 
-/*modal delete category*/
+
 
 
 /* profile card*/
@@ -311,8 +286,3 @@ background-color: red;
     background-color: #ff8a65;
 }
 
-.toolipped {
-
-    background-color: #FAEDCA;
-
-}

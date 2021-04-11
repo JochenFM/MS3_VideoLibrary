@@ -9,12 +9,29 @@ os.environ.setdefault("MONGO_URI", "mongodb+srv://JochenUser:J0chenUser666@myfir
 os.environ.setdefault("MONGO_DBNAME", "videolibrary")
 
 
+https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css
 
 
 
+background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    )}
 
+    
+CSS for color-overlay in slider:
 
+.color-overlay {
 
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .7;
+    position: absolute;
+    z-index: -1;
+}
+*/
 
 
 
@@ -89,7 +106,7 @@ However, it is not only scholars who can benefit from this project, but also the
 been more involved in a hitherto traditionally closed academic space. The project is developed in that spirit of greater accessibility, and aims to address everyone with an interest in the 
 wonders of the history of science.
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 <span id="ux"></span>
 
 ## UX
@@ -203,7 +220,7 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 
 [Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more contemporary format of digital recordings. Moreover, as is mentioned in the font description, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I felt the general theme was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science do represent. In that spirit, I was also drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil".
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 <span id="database-model"></span>
 
@@ -237,7 +254,7 @@ Also, number of categories was substantially increased in the middle of the proj
 |**Key**|**Type**|**Notes**|
 |:-----|:-----|:-----|
 |_id|ObjectId||
-|category_name|string|The admin's chosen title of the category. Cannot only be changed by Admin|
+|category_name|string|The admin's chosen title of the category. Can only be changed by Admin|
 
 #### Users collection
 
@@ -256,7 +273,7 @@ Initially, I anticipated that users would be able to upload a profile picture of
 
 Similarly, I anticipated that users would be able to 'like' particular videos, which will then be displayed on their respective profile page, but this will have to be implemented at a later stage as well. 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 <span id="features"></span>
 
@@ -355,7 +372,7 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 
 The upload widget in its current form already allows video upload by URL only, but I failed to subsequently display the video in my HTML. JS manipulation of the Cloudinary videoplayer mentioned under 5 will make this possible by allowing me to use the Cloudinary Javascript SDK to create a URL that, if included in my library.html, will show the video that was uploaded. 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 <span id="technologies"></span>
 
@@ -401,7 +418,7 @@ The upload widget in its current form already allows video upload by URL only, b
 - [Google Fonts](https://fonts.google.com/) for the font of this site.
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 <span id="deployment"></span>
 
@@ -490,7 +507,7 @@ echo web: python app.py > Procfile
 11. Under **Manual deploy**, select **master** and click **Deploy Branch**
 12. Once the app has finished building, click **Open app** from the header row of the dashboard
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 
 
@@ -498,9 +515,10 @@ echo web: python app.py > Procfile
 
 ## Testing
 
+
 Full details of testing can be found [here](TESTING.md).
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
 
 <span id="credits"></span>
 
@@ -516,33 +534,33 @@ Good resources to initialize MaterializeCSS components with Javascript are:
 - Traversy Media on [Sidenav](https://www.youtube.com/watch?v=MaP3vO-vEsg&t=843s) and some slider styling.
 
 
-For embedding the Cloudinary upload widget and video player, I followed [Cloudinary's documentation](https://cloudinary.com/documentation/video_player_how_to_embed).
+For embedding the Cloudinary upload widget, I followed [Cloudinary's documentation](https://cloudinary.com/documentation/upload_widget).
 
-Similarly, to get the  working, I followed https://cloudinary.com/documentation/upload_widget 
+Similarly, there is good documentation for implementing the [video player](https://cloudinary.com/documentation/video_player_how_to_embed) 
 
 
 
 A number of Code Institute's tutors were of great help. Many thanks to:
 
-- At the initial stages of this project, Fatima helped me realize that the reason for why the application failed to run was because my env.py file had been deleted/had disappeared.
-- Jo altered me to how/where [Flask looks for images](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files).
+- Fatima who at the initial stages of this project, helped me realize that the reason for why the application failed to run was because my env.py file had been deleted/had disappeared.
+- Jo who altered me to how/where [Flask looks for images](https://stackoverflow.com/questions/28207761/where-does-flask-look-for-image-files).
 - Ed Young for sharing a beautiful and neat code for pagination by [mozillazg](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9) and for pointing out that it works just as fine in
 MaterializeCSS as in Bootstrap. Ed also wrote an exemplary ReadMe file for his Self-Isolution project from which I learned how to create tables in Markdown syntax.
-- Cormac helped with accessing my mongo.db database in the get_suggested_videos function in app.py by correcting an error.
-- Tim Nelson helped me change the collapsible query selector in JS to select *all* collapsibles so they worked properly across the site. He also tried to solve the console errors from the cloudinary video player.
+- Cormac who helped with accessing my mongo.db database in the get_suggested_videos function in app.py by correcting an error.
+- Tim Nelson who shared his code for randmomly selecting items and who helped me change the collapsible query selector in JS to select *all* collapsibles so they worked properly across the site. He also tried to solve the console errors from the cloudinary video player.
 
 
 
-Special thanks also to my fellow students on Slack, especially:
+Special thanks also to my fellow students on Slack, especially to:
 
 - Sean Young who took up where Tim left and pointed out that a web-hosted video players plus iframes actually works without any JS scripts. Sean also 
-kindly helped me with setting up the Cloudinary upload widget, to code the JS callback function to inject the Cloudinary video URL back into the upload form to be submitted to MongoDB. He has an unusual ability to understand and explain code, I find.
+kindly helped me with setting up the Cloudinary upload widget, to code the JS callback function to inject the Cloudinary video URL back into the upload form to be submitted to MongoDB.
 
 - Toto kindly shared his code for the above Flask pagination extension.
 
 Some MS3s were a great inspiration for this project, especially Audrey Lloancy's [Cocktail App](https://sante-cocktail.herokuapp.com/), Sean Young's [Plum Recipes](https://sante-cocktail.herokuapp.com/).
 
-Thanks also to my mentor [Adegbenga Adeye](https://github.com/deye9) for encouraging me in my idea to code a video library.
+Thanks also to my mentor [Adegbenga Adeye](https://github.com/deye9) for encouraging me to try and code a video library.
 
 
 ### Image Credits
@@ -565,4 +583,4 @@ Default profile picture:
 
 This site was developed for educational purposes only and for fun.
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
