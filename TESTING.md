@@ -116,15 +116,16 @@ The same tests as for Add Video were undertaken, with the following additional t
 
 - The page is only accessible if logged in as "Admin".
 - All categories from the MongoDB categories collection are shown in cards.
-- The edit/delete icons allow the Admin to either proceed to the edit category form, or delete a category through via s confirm delete modal.
+- The edit/delete icons allow the Admin to either proceed to the edit category form, or delete a category via a confirm delete modal.
 
 
 **Add/Edit Category pages**
 
-- The pages are only accessible if logged in as admin.
+- The pages are only accessible if logged in as Admin.
 - Categories can be added via the 'Add Category' button on the Manage Categories page which leads the Admin to a single field to insert a new category name. 
-- The delete 
-- Form validation requires the admin to upload a category image (as this is used for activities without an uploaded image).
+- The delete icon on the Manage Categories page is wired up to a confirm delete modal which also offers the option to cancel.
+- The edit icon 
+
 
 **Profile page**
 
