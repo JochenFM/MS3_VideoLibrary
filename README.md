@@ -15,6 +15,10 @@ https://css-tricks.com/design-considerations-text-images/
 
 https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide
 
+
+test video is from ???
+
+
 background: 
     linear-gradient(
       rgba(0, 0, 0, 0.5),
@@ -90,6 +94,8 @@ def all_videos():
 - <a href="#testing">Testing</a>
 - <a href="#deployment">Deployment</a>
 - <a href="#credits">Credits</a>
+---
+
 
 <span id="context"></span>
 
@@ -561,6 +567,8 @@ For embedding the Cloudinary upload widget, I followed [Cloudinary's documentati
 
 Similarly, there is good documentation for implementing the [video player](https://cloudinary.com/documentation/video_player_how_to_embed) 
 
+
+### Acknowledgments
 
 
 A number of Code Institute's tutors were of great help. Many thanks to:

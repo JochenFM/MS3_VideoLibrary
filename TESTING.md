@@ -4,21 +4,94 @@ Back to [README](README.md)
 
 ## Index
 
-- <a href="#user-stories">User stories - how are they met?</a>
-- <a href="#testing-manual">Manual</a>
-- <a href="#testing-auto">Automated</a>
+- <a href="#testing-manual">Manual Testing</a>
+- <a href="#testing-auto">Automated Testing</a>
 - <a href="#testing-responsive">Responsiveness</a>
 - <a href="#testing-resolved">Resolved issues</a>
 - <a href="#testing-unresolved">Unresolved issues</a>
 
 ---
 
+<span id="testing-manual"></span>
+
+## Manual testing
+
+The following tests have been carried out without issue:
+
+**Navigation bar**
+
+On screen widths greater than 991px:
+The correct menu options appear depending on the user's session status:
+  - **Not logged in**: Home, Log In, Register 
+  - **Logged in**: Home, Profile, New Video, Video Library, Log Out
+  - **Logged in as "admin"**: Home, Profile, New Video, Video Library, Manage Categories, Log Out
+- Tapping/clicking each link takes the user to the relevant page, or logs the user out.
+- Clicking on Navbar brandlogo takes user back to index page.
+
+
+Mobile:
+ 
+- The available menu options are replaced by a hamburger icon.
+- All available menu options appear in a Sidenav when the hamburgwer icon is tapped/clicked. 
+- Video *Wunderkammer* brand logo in Navbar reduced to *Wunderkammer* only on medium sized devices and down to avoid text overflow on next line.
+
+
+**Footer**
+
+- The footer 'sticks' on the bottom of the screen with only baisc content.
+- Each social media link opens the relevant external page in a new window.
+
+
+**Home page**
+
+- All links in the navbar direct to the correct pages.
+- Three slider images with two sets of header on each introduce to the main purpose and functionality of the app.
+- "Featured Videos" shows a random selection of four videos.
+
+
+**Log In page**
+
+- Entering a username or password not matching the form validation highlights the issue to the user via red color first and, upon clicking/tapping Login button, a tooltip "Please match the requested format"
+- Entering either an incorrect username or password triggers a Flash message "Incorrect Username and/or Password".
+- When the 'Log In' button is tapped/clicked with valid details, the user is redirected to their Profile page and a Flash message including their username indicates they have successfully logged in.
+- The 'Register' link below the login fields takes the user to the Register page.
+
+
+**Register page**
+
+
+- Entering a username or password not matching the form validation highlights the issue to the user via red color first and, upon clicking/tapping Register button, a tooltip "Please match the requested format"
+- Submitting a username (upper or lowercase) which has already been registered reloads the page and displays a Flash message "Username already exists"
+- When the 'Register' button is tapped/clicked with valid details, the user is redirected to their Profile page and a Flash message indicates "Registration successful"
+- On registering, the new user's username and password are added to the Users collection on MongoDB.
+- The 'Log In' link below the Register fields takes the user to the Log In page.
+
+**Video Library page**
+
+Search functionality:
+
+- After entering a term in the search field and either tapping/clicking the search icon or pressing Enter, the correct results are displayed as long as number of results is in excess of pagination PER_PAGE limit.
+- Tapping/clicking the cancel icon reloads the page with no query applied.
+- The section heading updates to reflect the search term used.
+- If no results are found, a Flash message appears "No results found".
+
+Video Containers & Collapsibles:
+
+-
+Pagination:
+
+- The number of visible videos is limited to 4 per page.
 
 
 
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 
-Lighthouse was used to test the performance of the application on all pages on mobile and desktop.
+<span id="testing-auto"></span>
+
+## Automated testing
+
+[Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) - Lighthouse was used to test the performance of the application on all pages on mobile and desktop.
 
 The following reports were generated:
 
@@ -199,4 +272,29 @@ In iframe allow class, "autoplay" needs to be deleted, otherwise videos start pl
                     <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
                         <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
 
+
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+
+## Issues and bugs
+
+<span id="testing-resolved"></span>
+
+### Resolved
+
+
+
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+<span id="testing-unresolved"></span>
+
+
+### Unresolved
+
+**Pagination link not finding type of $search videos searched**
+
+This error occurs when a search was applied showing a number of results below the `PER_PAGE` pagination limit. 
 

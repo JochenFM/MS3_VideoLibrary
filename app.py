@@ -251,11 +251,6 @@ def delete_profile(video, username):
     return redirect(url_for("register"))
 
 
-# get selection of videos to display as featured videos in videos.html
-
-# def get_featured_videos(cocktail_id, comp_field, count):
-
-
 # to tell app where and how to run the application
 
 
