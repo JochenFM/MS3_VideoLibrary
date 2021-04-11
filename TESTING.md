@@ -318,6 +318,28 @@ and will be addressed at a later stage:
 "Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 
+
+
+
+[W3C - CSS](https://jigsaw.w3.org/css-validator/) returned:
+
+![CSS Validator](css_validation.png)
+
+
+
+In response to the [W3C - HTML](https://validator.w3.org/) errors shown:
+
+- that the frameborder attribute on the iframe is obsolete, I removed it entirely
+- 
+
+
+
+
+Validation by URL input now returns:
+
+
+
+
 In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
 <a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
                         <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
