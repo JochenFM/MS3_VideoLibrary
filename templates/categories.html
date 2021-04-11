@@ -1,46 +1,61 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h3 class="feature-text-center">Manage Categories</h3>
 
 <div class="row">
-    {% for category in categories %}
-    <div class="col s12 m6 l3">
-        <div class="card edit-panel center-align">
-            <div class="card-content">
-                <span class="card-title">{{ category.category_name }}</span>
-            </div>
-            <div class="card-action">
-                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="edit-interface center-align">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a href="#delete_category_{{category._id}}" class="edit-interface center-align modal-trigger">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-        </div>
+  {% for category in categories %}
+  <div class="col s12 m6 l3">
+    <div class="card edit-panel center-align">
+      <div class="card-content">
+        <span class="card-title">{{ category.category_name }}</span>
+      </div>
+      <div class="card-action">
+        <a
+          href="{{ url_for('edit_category', category_id=category._id) }}"
+          class="edit-interface center-align"
+        >
+          <i class="fas fa-edit"></i>
+        </a>
+        <a
+          href="#delete_category_{{category._id}}"
+          class="edit-interface center-align modal-trigger"
+        >
+          <i class="fas fa-trash"></i>
+        </a>
+      </div>
     </div>
-    
-<!-- Modal Structure-->
-    <div id="delete_category_{{category._id}}" class="modal">
-        <div class="modal-content">
-            <h4>Delete this category?</h4>
-            <p>Are you sure you want to delete this category? This cannot be undone.</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="modal-close waves-effect btn-flat">Cancel</a>
-            <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn-flat" id="delete-button">Delete</a>
-        </div>
+  </div>
+
+  <!-- Modal Structure-->
+  <div id="delete_category_{{category._id}}" class="modal">
+    <div class="modal-content">
+      <h4>Delete this category?</h4>
+      <p>
+        Are you sure you want to delete this category? This cannot be undone.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-close waves-effect btn-flat">Cancel</a>
+      <a
+        href="{{ url_for('delete_category', category_id=category._id) }}"
+        class="btn-flat"
+        id="delete-button"
+        >Delete</a
+      >
+    </div>
+  </div>
+
+  {% endfor %}
+  <div class="row">
+    <div class="col s12 center-align">
+      <a
+        href="{{ url_for('add_category') }}"
+        class="btn-large deep-orange lighten-2 waves-effect"
+        >Add Category
+        <i class="fas fa-plus-square right"></i>
+      </a>
     </div>
 
-    {% endfor %}
-    <div class="row">
-        <div class="col s12 center-align">
-            <a href="{{ url_for('add_category') }}" class="btn-large deep-orange lighten-2 waves-effect">Add Category
-                <i class="fas fa-plus-square right"></i>
-            </a>
-        </div>
-
-
-        {% endblock %}
+    {% endblock %}
+  </div>
+</div>

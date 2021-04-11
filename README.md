@@ -602,7 +602,7 @@ Special thanks also to my fellow students on Slack, especially to:
 - Sean Young who took up where Tim left and pointed out that a web-hosted video players plus iframes actually works without any JS scripts. Sean also 
 kindly helped me with setting up the Cloudinary upload widget, to code the JS callback function to inject the Cloudinary video URL back into the upload form to be submitted to MongoDB.
 
-- Toto kindly shared his code for the above Flask pagination extension.
+- Toto kindly shared his code for the above-mentioned Flask pagination extension.
 
 Some MS3s were a great inspiration for this project, especially Audrey Lloancy's [Cocktail App](https://sante-cocktail.herokuapp.com/), Sean Young's [Plum Recipes](https://sante-cocktail.herokuapp.com/).
 

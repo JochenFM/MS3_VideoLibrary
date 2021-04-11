@@ -108,11 +108,33 @@ The same tests as for Add Video were undertaken, with the following additional t
 - The input fields are prepopulated with the video's existing values where available.
 - The 'Save Changes' button:
   - Changes the videos's values in the vieos MongoDB collection.
-  - Displays a Toast confirming activity has been successfully added.
-- If activity name chosen already exists in database (upper or lowercase):
-  - Redirects to the relevant Edit Activity page.
-  - Displays a Toast alerting that name already exists.
+  - Displays a Flash message confirming activity has been successfully added.
+  - Redirects user to video library page.
 
+
+**Manage Categories page**
+
+- The page is only accessible if logged in as "Admin".
+- All categories from the MongoDB categories collection are shown in cards.
+- The edit/delete icons allow the Admin to either proceed to the edit category form, or delete a category through via s confirm delete modal.
+
+
+**Add/Edit Category pages**
+
+- The pages are only accessible if logged in as admin.
+- Categories can be added via the 'Add Category' button on the Manage Categories page which leads the Admin to a single field to insert a new category name. 
+- The delete 
+- Form validation requires the admin to upload a category image (as this is used for activities without an uploaded image).
+
+**Profile page**
+
+- Add Activity FAB links to the Add Activity page.
+- All activities created by user display uniformly in cards.
+- Activity name, image and creation date all display correctly.
+- Tapping/clicking on card image takes user to correct View Activity page.
+- The edit button links to Edit Activity page.
+- The delete button brings up confirmation modal.
+- If no activities have been added by the user, a message is displayed calling them to add some.
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
