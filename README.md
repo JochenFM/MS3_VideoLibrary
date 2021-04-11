@@ -383,6 +383,7 @@ In its current state, the Admin (user with username "Admin") has the same functi
 
 Custom pages for 404 and 500 errors need to be inserted for when something goes wrong, allowing user to return to the content with minimal disruption.
 
+
 **4. Implement 'like' functionality**
 
 To allow registered users to favour videos by wiring up the already existing heart icon on the video collapsible to MongoDB and back to the user's profile so that users can memorize videos they like and build a individual small video library in their profile.
@@ -398,7 +399,21 @@ The upload widget in its current form already allows video upload by URL only, b
 
 **7. **A more refined video search by text to allow better combinations than the current "or" method**
 
-A improved search functionality would also include a dropdown menu next to the search field to allow filter and display videos by category
+A improved search functionality would also include a dropdown menu next to the search field to allow filter and display videos by category.
+
+**8. More interactive and defensive programming features such as**
+
+If video title already exists in database (upper or lowercase):
+  -  Displays a Flash message alerting that video already exists.
+  -  Redirect to Add Video page.
+
+If categories are deleted, videos categorized with them need to be reassigned in some way.
+
+If a logged-out user tries to edit a video (or tries to open url with brute force using /edit_video/video_id), they need to be redirected to Log In page with Flash message indicating that Login is required first.
+
+Or, if a logged-in user tries to edit another user's video by brute force, they need to be redirected to the Video Library page with Flash message alerting "This video was added by another user and cannot be edited by you!"
+
+
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>

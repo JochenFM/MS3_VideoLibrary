@@ -77,10 +77,41 @@ Search functionality:
 
 Video Containers & Collapsibles:
 
--
+- All test videos in the database are displayed, each with the title, author, abstract, venue, and date as inserted by the user. 
+- All videos can be watched with sound on/off, either on full, small screen, or picture in picture mode. They can also be downloaded.
+- Videos are displayed with the oldest at the top (sorting the video_id not yet implemented).
+- If the user is logged in and has added a video, the edit interface is displayed within the collapsible title field comprising edit, delete, and 'like' icons. The like functionality is inactive for now, but the edit and delete icons lead the user respectively to the edit video page or to a modal with further options of cancel or delete video.
+- Like icon has hover effect on moused over.
+
 Pagination:
 
 - The number of visible videos is limited to 4 per page.
+
+
+**Add Video page**
+
+- The large 'Upload Video button at the top of the form is wired to the Cloudinary upload widget which upon tapping/clicking the button pops up for the user to upload a video.
+- The widget is customized to currently allow three different upload methods: via my files, web adress (public URL), or google drive. The first option can be performed either by drag and dropping the video file into the upload widget, or by browsing their files.
+- Currently, the video needs to be uploaded before all other fields are being filled in, otherwise the form will be submitted without video.
+- Upon tapping/clicking 'Done' on the widget, a unique URL for the video on Cloudinary is added to the video link field on the upload form, and the user can continue filling in the remaining fields of Title, Author/Presenter, Video Abstract, Venue, Date, and Video Category.
+- The 'Choose category' input field is populated with the document from the Categories collection on MongoDB. Changes to that list, which currently stands at 14 categories, by the Admin or creator of this site are reflected in the dropdown.
+- Input field validation and character limitations function as expected, indicating issues with input.
+- The 'Add Video' button:
+  - Adds the video to the video collection.
+  - Redirects to the user to the video library page, showing the new video at the end of the video collapsibles.
+  - Displays a Flash message confirming video has been successfully added.
+
+
+**Edit Video page**
+
+The same tests as for Add Video were undertaken, with the following additional tests:
+- The input fields are prepopulated with the video's existing values where available.
+- The 'Save Changes' button:
+  - Changes the videos's values in the vieos MongoDB collection.
+  - Displays a Toast confirming activity has been successfully added.
+- If activity name chosen already exists in database (upper or lowercase):
+  - Redirects to the relevant Edit Activity page.
+  - Displays a Toast alerting that name already exists.
 
 
 
