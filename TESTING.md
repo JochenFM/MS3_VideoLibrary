@@ -330,8 +330,9 @@ and will be addressed at a later stage:
 In response to the [W3C - HTML](https://validator.w3.org/) errors shown:
 
 - that the frameborder attribute on the iframe is obsolete, I removed it entirely,
-- closed a number of < divs > properly.
+- that I had a number of stray end tags, closed a number of < divs > properly.
 
+I was unable to solve the "duplicate ID" error, however, referring to the modal structures across the templates, as I needed both btn-flat classes but styled differently. As these are Materialize Css classes, I could not remove them without messing up the button structure, so the only solution I saw was to use an id selector on one of them.
 
 Validation by URL input now returns:
 
@@ -363,7 +364,7 @@ link up on the output of Flask Paginate.
 
 
 The site is supported by [Materialize](https://materializecss.com/) and has been thoroughly tested at all stages of development using [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools).
-MaterializeCSS may limit design choices and customization at times, but this was an acceptable compromise given the advantages they provide, such as their fluid responsive grid system which was used throughout this site, including the container class and a number of [Helpers](https://materializecss.com/helpers.html), such as classes for text-align and hiding/showing content.
+MaterializeCSS may limit design choices and customization at times, but this was an acceptable compromise given the advantages provided, such as a fluid responsive grid system which was used throughout this site, including the container class and a number of [Helpers](https://materializecss.com/helpers.html), such as classes for text-align and hiding/showing content.
 
 
 Examples:
@@ -436,7 +437,14 @@ Solution: The upload widget should take a callback function as an argument. Once
 
 
 
+**Paginate linting error**
 
+Alerted to in Gitpod:
+```console
+Possible unbalanced tuple unpacking with sequence defined at line 233 of flask_paginate: left side has 3 label(s), right side has 2 value(s)pylint(unbalanced-tuple-unpacking)
+```
+
+- Solution: running `app.py` through Flake8 does not show this to be an error.
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
@@ -449,4 +457,8 @@ Solution: The upload widget should take a callback function as an argument. Once
 **Pagination link not finding type of $search videos searched**
 
 This error occurs when a search was applied showing a number of results below the `PER_PAGE` pagination limit. 
+Ed Young has a solution in his TESTING.md but it did not work for my code.
 
+**Editing a video from the videos.html site, when option of cancel is chosen, leads user not back to video.html, but library.html**
+
+I would need to write another url_for
