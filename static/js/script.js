@@ -78,7 +78,7 @@ if (videoUploadBtn) {
 }
 
 
-//category select validation from CI's TIm Nelson
+//category select validation from CI's Tim Nelson
 
 validateMaterializeSelect();
 function validateMaterializeSelect() {

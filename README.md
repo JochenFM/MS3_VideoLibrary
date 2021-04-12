@@ -562,12 +562,13 @@ A number of Code Institute's tutors were of great help. Many thanks to:
 MaterializeCSS as in Bootstrap. Ed also wrote an exemplary ReadMe file for his Self-Isolution project from which I learned how to create tables in Markdown syntax.
 - Cormac who helped with accessing my mongo.db database in the get_suggested_videos function in app.py by correcting an error.
 - Tim Nelson who shared his code for randmomly selecting items and who helped me change the collapsible query selector in JS to select *all* collapsibles so they worked properly across the site. He also tried to solve the console errors from the cloudinary video player.
+- Alan who was very patient with me in trying to solve a JS error message in the console which we failed to resolve in spite of quite a number, and radical, attempts.
 
 
 
 Special thanks also to my fellow students on Slack, especially to:
 
-- Sean Young who took up where Tim left and pointed out that a web-hosted video players plus iframes actually works without any JS scripts. Sean also 
+- Sean Young who took up where Tim left and pointed out that a web-hosted video players plus iframes actually works without any JS scripts. Sean was a huge encourager from the early stages of this project when I had heard of Cloudinary only by name, and was in doubt whether I can pull off a video library. He also 
 kindly helped me with setting up the Cloudinary upload widget, to code the JS callback function to inject the Cloudinary video URL back into the upload form to be submitted to MongoDB.
 
 - Toto kindly shared his code for the above-mentioned Flask pagination extension.

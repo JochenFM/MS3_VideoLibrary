@@ -391,10 +391,15 @@ Tested on:
 Tested with Chrome DevTools using profiles for:
 
 
+- Galaxy S5
+- Pixel 2
+- iPhone 5 SE
+- iPhone 6/7/8
+- iPhone X
+- iPad Pro
 
-... and also using the responsive profiles of:
+I also used the responsive profiles of:
 
-- Mobile S (320px)
 - Mobile M (375px)
 - Mobile L (425px)
 - Tablet (768px)
@@ -403,14 +408,13 @@ Tested with Chrome DevTools using profiles for:
 
 Real world testing on:
 
-- iPad
+- iPad 
 - iPhone 11 Pro
-- MSI XPS 7590
+- MSI NOtebook MS-16GG
 - Huawei 
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
-
 
 
 
@@ -420,11 +424,22 @@ Real world testing on:
 
 ### Resolved
 
+**Materialize select dropdown does not function properly, especially form validation**
+
+A known bug with Materialize by which a custom CSS style of display: none is applied on all < select > elements meaning they either appear as normal < input > field, or with the wrong styling. 
+Solution: Copy and paste custom JS code for form validation from Tim Nelson for CI's Task Manager Mini Project lesson "Materialize Form Validation"
+
+**As MongoDB is not really suitable to store video files, I needed to find a way to store videos somewhere else while inputting the video URL to a form to  be submitted to MongoDB together with the other video metadata such as author, date, and venue.**
+
+
+Solution: The upload widget should take a callback function as an argument. Once the video file is uploaded, the function is called with an object as one of its parameters that includes the file's uploaded URL. This is injected into the HTML form for uploading a video via getElementbyId. See my JS code, line 63-66, in combination with line 81 in add_video.html.
 
 
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
 
 <span id="testing-unresolved"></span>
 
