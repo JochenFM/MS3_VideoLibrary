@@ -30,11 +30,10 @@
 {% if videos|length > 0 %}
 <div class="row">
     {% for video in videos %}
-    
     <div class="col s12 m6 l3">
         <div class="video-container responsive-video hoverable">
             <iframe title = "Your Video" src=" {{ video.video_link }} " width="640" height="480"
-                allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen>
+                allow="fullscreen; encrypted-media; picture-in-picture"  frameborder="0">
             </iframe>
         </div>
         <ul class="collapsible hoverable">

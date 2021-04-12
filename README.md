@@ -593,6 +593,11 @@ Default profile picture:
 - Corey Schafer's Python Flask Tutorial: Full-Featured Web App Part 7 - [User Account and Profile Picture](https://youtu.be/803Ei2Sq-Zs) (in the description below the video).
 
 
+Placeholder video clip:
+
+- Big Buck Bunny (2008), taken from [Blender](https://www.blender.org/about/projects/) (free and open source).
+
+
 ### Disclaimer
 
 This site was developed for educational purposes only and for fun.
