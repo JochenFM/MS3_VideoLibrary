@@ -90,7 +90,7 @@ Pagination:
 
 **Add Video page**
 
-- The large 'Upload Video button at the top of the form is wired to the Cloudinary upload widget which upon tapping/clicking the button pops up for the user to upload a video.
+- The large 'Upload Video' button at the top of the form is wired to the Cloudinary upload widget which upon tapping/clicking the button pops up for the user to upload a video.
 - The widget is customized to currently allow three different upload methods: via my files, web adress (public URL), or google drive. The first option can be performed either by drag and dropping the video file into the upload widget, or by browsing their files.
 - Currently, the video needs to be uploaded before all other fields are being filled in, otherwise the form will be submitted without video.
 - Upon tapping/clicking 'Done' on the widget, a unique URL for the video on Cloudinary is added to the video link field on the upload form, and the user can continue filling in the remaining fields of Title, Author/Presenter, Video Abstract, Venue, Date, and Video Category.
@@ -330,7 +330,7 @@ and will be addressed at a later stage:
 In response to the [W3C - HTML](https://validator.w3.org/) errors shown:
 
 - that the frameborder attribute on the iframe is obsolete, I removed it entirely,
-- closed a number of < divs > properly
+- closed a number of < divs > properly.
 
 
 Validation by URL input now returns:
@@ -342,22 +342,77 @@ Validation by URL input now returns:
 - most warnings refer to "Don't use adjoining classes".
 - Others read "Don't use IDs in selectors". Selecting via IDs, however, 
 has only been used for styles which will not be reused and the specificity was needed.
-- A few had to do with "Disallow qualified headings" for which I do not see any other solution.
+- A few had to do with "Disallow qualified headings" for which I do not see any other solution than those in place.
 - In one instance it was about "Disallow overqualified elements". This was a list element for which the qualification is necessary to both override Materialize and 
 link up on the output of Flask Paginate.
 
 
+[JS Hint](https://jshint.com/) returned:
 
-In iframe allow class, "autoplay" needs to be deleted, otherwise videos start playing with every reload/visit of page.
-<a href="{{ url_for('edit_video', video_id=video._id) }}" class="edit-interface align-item-right">
-                        <i class="fas fa-edit tooltipped" data-position="bottom" data-tooltip="Edit"></i></a>
-                    <a href="#delete_video_{{video._id}}" class="edit-interface modal-trigger center-align">
-                        <i class="fas fa-trash tooltipped" data-position="right" data-tooltip="Delete"></i></a>
+![JS hint](hint_js.png) 
 
 
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+
+<span id="testing-responsive"></span>
+
+## Responsiveness
+
+
+
+The site is supported by [Materialize](https://materializecss.com/) and has been thoroughly tested at all stages of development using [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools).
+MaterializeCSS may limit design choices and customization at times, but this was an acceptable compromise given the advantages they provide, such as their fluid responsive grid system which was used throughout this site, including the container class and a number of [Helpers](https://materializecss.com/helpers.html), such as classes for text-align and hiding/showing content.
+
+
+Examples:
+
+For the brand logo in the Navbar, for instance, I had to make sure to prevent the 'Video *Wunderkammer*' to breaking on to next line on small screen sizes. After studying the options provided by CSS, such as white-space/nowrap,
+I applied the MaterializeCSS class "hide-on-med-and-down" for 'Video' text part, and even although the *Wunderkammer* is still not place entirely in the middle vis-à-vis the hamburger menu on small screens, it is by far the best solution I was able to find.
+Similarly, I added 'hide-on-small-only' to all h4s in the code for the slider in videos.html to avoid over-cluttering with text on small screen.
+Additionally, MaterializeCSS provides a number of responsive classes, such as 'responsive-img' and 'responsive-video' which were both used on videos.html, library.html, and profile.html.
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
+### Browsers
+
+Tested on:
+
+- Chrome
+- Edge
+- Firefox
+- Safari (iOS)
+
+
+### Screen sizes
+
+Tested with Chrome DevTools using profiles for:
+
+
+
+... and also using the responsive profiles of:
+
+- Mobile S (320px)
+- Mobile M (375px)
+- Mobile L (425px)
+- Tablet (768px)
+- Laptop (1024px)
+- Laptop L (1440px)
+
+Real world testing on:
+
+- iPad
+- iPhone 11 Pro
+- MSI XPS 7590
+- Huawei 
+
+
+<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+
+
+
 
 ## Issues and bugs
 
