@@ -1,4 +1,4 @@
-span id="top"></span>
+<span id="top"></span>
 
 Back to [README](README.md)
 
@@ -136,7 +136,7 @@ The same tests as for Add Video were undertaken, with the following additional t
 - Username's favourite and uploaded videos show with content to be added at a later stage from MongoDB and Cloudinary.
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
 
 <span id="testing-auto"></span>
@@ -149,11 +149,11 @@ The following reports were generated:
 
 **Videos.html:**
 
+---
+
 *Performance: 53-72* 
 
 - I get a wild range of results here
-
----
 
 *Accessibility: 95*
 
@@ -166,7 +166,7 @@ following fix for:
 "Links do not have a discernible name"
 
 - This refers to social link icons and not quite sure what to make of it.
----
+
 *Best Practices: 80*
 
 No immediate fix for:
@@ -177,7 +177,6 @@ No immediate fix for:
 following failure to solve the JS error message in the console (referring to code by Tim's Mini Project) despite all my attempts and that of tutor Alan.
 
 
----
 
 *SEO: 100*
 
@@ -191,9 +190,11 @@ following fix for:
 
 - I added them.
 
----
+
 
 **Profile.html**
+
+---
 
 *Performance: 95*
 
@@ -207,30 +208,27 @@ following fix for:
 
 - As I use the MaterializeCSS class="circle responsive-img", I skipped that.
 
----
+
 
 *Accessibility: 95*
 
----
 
 
 *Best Practices: 87* 
 
 - See console errors mentioned above.
 
----
 
 
 SEO: 100
 
----
-
 
 **Add_Video.html**
 
+---
+
 *Performance: 92*
 
----
 
 *Accessibility: 84*
 
@@ -244,16 +242,13 @@ No immediate fix for:
 
 
 
----
-
-
 *Best Practices: 87* 
 
 
 
 - See console errors mentioned above.
 
----
+
 
 *SEO: 95*
 
@@ -265,15 +260,16 @@ Following fix for:
 
 "Document doesn't use legible font sizes" persists, even although I changed font-color from white to black.
 
----
 
 **Edit_Video.html**
+
+---
 
 *Performance: 96*
 
 - following removal of unused CSS and JS.
 
----
+
 
 *Accessibility: 84*
 
@@ -285,13 +281,12 @@ Following fix for:
 - That refers to the categories drop-down for which a label for tag is already in place and adding another one does not make sense, especially as the category field is populated with 
 data from mongoDB.
 
----
 
 *Best Practices: 87*
 
 - See console errors mentioned above.
 
----
+
 
 *SEO: 98*
 
@@ -299,11 +294,11 @@ data from mongoDB.
 
 - I have a full stop under my category drop down which is not meant to be there, but I do not know where it comes from.
 
----
 
 
 **Library.html**
 
+---
 
 *Performance: 90*
 
@@ -313,7 +308,7 @@ No immediate fix for:
 
 - see above
 
----
+
 
 *Accessibility: 97*
 
@@ -330,13 +325,12 @@ No immediate fix for:
 
 - As above, this concerns social links, but here also search and reset buttons. I added tooltips to them for better accessibility, but I do not know whether Lihgthouse rewards that.
 
----
 
 *Best Practices: 87*
 
  - see console errors mentioned above
 
----
+
 
 *SEO: 91*
 
@@ -352,77 +346,83 @@ No immiedate fix for:
 - This refers to two < a > tags from the {{pagination.links}} flask extension which I do not seem to be able to change
 
 
----
 
 **Logout.html, Login.html, Register.html**
 
-*Performance: 98*
 
 ---
+
+*Performance: 98*
+
+
 
 *Accesibility: 96*
 
 "Links do not have a discernible name"
 
----
+
 
 
 *Best Practices: 87* 
 
 - see concole error mentioned above.
 
----
+
 
 *SEO: 100*
 
----
+
 
 **Categories.html**
 
+---
+
 *Performance: 93*
 
----
+
 
 *Accessibility: 93*
 
 "Links do not have a discernible name"
 
----
+
 
 *Best Practices: 80*
 
----
+
 
 *SEO: 100*
 
----
+
 
 **Add_Category.html**
 
+---
+
 *Performance: 93*
 
----
 
 *Accessibility: 93*
 
 "Links do not have a discernible name"
 
----
 
 *Best Practices: 87*
 
----
+
 
 *SEO: 100*
 
----
+
 
 
 **Edit_Category.html**
 
+---
+
 *Performance: 98*
 
----
+
 
 *Accessibility: 81*
 
@@ -440,28 +440,8 @@ data from mongoDB.
 
 - see console errors mentioned above
 
----
 
 *SEO: 100*
-
----
-
-
-
-A few opportunities to improve Performance and Best Practices on all pages remain 
-and will be addressed at a later stage:
-
-* Performance of ...:  
-
-"Eliminate render-blocking resources"
-
-"Serve images in next-gen formats"
-
-"Image elements do not have explicit width and height"
-
-* Best Practices in both pages:
-
-"Browser errors were logged to the console" which concerns an issue with _link rel="manifest" href="/site.webmanifest"_ which I was unable to resolve.
 
 
 
@@ -499,7 +479,7 @@ link up on the output of Flask Paginate.
 
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
 <span id="testing-responsive"></span>
 
@@ -560,7 +540,7 @@ Real world testing on:
 - Huawei P Smartphone  
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
 
 
@@ -592,7 +572,7 @@ Possible unbalanced tuple unpacking with sequence defined at line 233 of flask_p
 - Solution: running `app.py` through Flake8 does not show this to be an error.
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
 
 <span id="testing-unresolved"></span>
 
@@ -607,3 +587,12 @@ Ed Young has a solution in his TESTING.md but it did not work for my code.
 **Editing a video from the videos.html site, when option of cancel is chosen, leads user not back to video.html, but library.html**
 
 I would need to write another url_for
+
+
+
+
+https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css
+
+https://css-tricks.com/design-considerations-text-images/
+
+https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide

@@ -1,44 +1,11 @@
-
-THis is the env.py file, just in case it gets lost again:
-import os
-
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "T&eYic9UGY95F9|~AMyKlJ(5DliADY")
-os.environ.setdefault("MONGO_URI", "mongodb+srv://JochenUser:J0chenUser666@myfirstcluster.ex33f.mongodb.net/videolibrary?retryWrites=true&w=majority")
-os.environ.setdefault("MONGO_DBNAME", "videolibrary")
-
-
-https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css
-
-https://css-tricks.com/design-considerations-text-images/
-
-https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide
-
-
-test video is from ???
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+
+
 
 # Video *Wunderkammer* - A History of Science Video Database
 
 ![alt text](am_i_responsive.png "Responsive sample")
+
 
 **[Live demo](https://ms3-video-library.herokuapp.com/)**
 
@@ -82,7 +49,8 @@ However, it is not only scholars who can benefit from this project, but also the
 been more involved in a hitherto traditionally closed academic space. The project is developed in that spirit of greater accessibility, and aims to address everyone with an interest in the 
 wonders of the history of science.
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
+
 <span id="ux"></span>
 
 ## UX
@@ -196,7 +164,7 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 
 [Londrina Solid](https://fonts.google.com/specimen/Londrina+Solid#about) is a solid font which gives a sense of modern typeset to bridge the rather historical content with the more contemporary format of digital recordings. Moreover, as is mentioned in the font description, Londrina for the creator represents "urban confusion". While I do not subscribe to confusion, I felt the general theme was in line with the overall theme of *Wunderkammer*, or cabinets of wonders, that these scholarly presentations about the history of science do represent. In that spirit, I was also drawn to typeface's context of creation "in the streets of Sao Paulo, Brazil".
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index: :arrow_double_up:</a></div>
 
 <span id="database-model"></span>
 
@@ -249,7 +217,8 @@ Initially, I anticipated that users would be able to upload a profile picture of
 
 Similarly, I anticipated that users would be able to 'like' particular videos, which will then be displayed on their respective profile page, but this will have to be implemented at a later stage as well. 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index: :arrow_double_up:</a></div>
+
 
 <span id="features"></span>
 
@@ -365,7 +334,7 @@ To replace the current iframes with a [Cloudinary self-hosted video player](http
 
 The upload widget in its current form already allows video upload by URL only, but I failed to subsequently display the video in my HTML. JS manipulation of the Cloudinary videoplayer mentioned under 5 will make this possible by allowing me to use the Cloudinary Javascript SDK to create a URL that, if included in my library.html, will show the video that was uploaded. 
 
-**7. **A more refined video search by text to allow better combinations than the current "or" method**
+**7. A more refined video search by text to allow better combinations than the current "or" method**
 
 A improved search functionality would also include a dropdown menu next to the search field to allow filter and display videos by category.
 
@@ -384,7 +353,7 @@ Or, if a logged-in user tries to edit another user's video by brute force, they 
 
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index: :arrow_double_up:</a></div>
 
 <span id="technologies"></span>
 
@@ -430,7 +399,7 @@ Or, if a logged-in user tries to edit another user's video by brute force, they 
 - [Google Fonts](https://fonts.google.com/) for the font of this site.
 
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index: :arrow_double_up:</a></div>
 
 <span id="deployment"></span>
 
@@ -519,7 +488,7 @@ echo web: python app.py > Procfile
 11. Under **Manual deploy**, select **master** and click **Deploy Branch**
 12. Once the app has finished building, click **Open app** from the header row of the dashboard
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index: :arrow_double_up:</a></div>
 
 
 
@@ -603,4 +572,4 @@ Placeholder video clip:
 
 This site was developed for educational purposes only and for fun.
 
-<div align="right"><a style="text-align:right" href="#top">Go to index</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to  :arrow_double_up:</a></div>
