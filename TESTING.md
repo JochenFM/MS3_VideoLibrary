@@ -554,7 +554,7 @@ Real world testing on:
 **Materialize select dropdown does not function properly, especially form validation**
 
 A known bug with Materialize by which a custom CSS style of display: none is applied on all < select > elements meaning they either appear as normal < input > field, or with the wrong styling. 
-Solution: Copy and paste custom JS code for form validation from Tim Nelson for CI's Task Manager Mini Project lesson "Materialize Form Validation"
+Solution: Copy and paste custom JS code for form validation from Tim Nelson for CI's Task Manager Mini Project lesson "Materialize Form Validation." The code seems to work OK, but throws an error in the console - I managed to solve one, but another occured. 
 
 **As MongoDB is not really suitable to store video files, I needed to find a way to store videos somewhere else while inputting the video URL to a form to  be submitted to MongoDB together with the other video metadata such as author, date, and venue.**
 
