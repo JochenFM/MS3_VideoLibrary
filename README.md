@@ -4,7 +4,7 @@
 
 # Video *Wunderkammer* - A History of Science Video Database
 
-![alt text](am_i_responsive.png "Responsive sample")
+![alt text](static/images/am_i_responsive.png "Responsive sample")
 
 
 **[Live demo](https://ms3-video-library.herokuapp.com/)**
@@ -572,4 +572,4 @@ Placeholder video clip:
 
 This site was developed for educational purposes only and for fun.
 
-<div align="right"><a style="text-align:right" href="#top">Go to  :arrow_double_up:</a></div>
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>

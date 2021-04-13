@@ -4,14 +4,11 @@ document.addEventListener("DOMContentLoaded", function(){
     M.Tooltip.init(tip, {});
 });
 
-
 // modals for delete icon library.html/videos.html and profile.html 
 document.addEventListener("DOMContentLoaded", function(){
     const trash = document.querySelectorAll('.modal');
     M.Modal.init(trash, {});
 });
-
-
 
 //sidenav
 const sideNav = document.querySelector('.sidenav');
@@ -55,7 +52,6 @@ M.Collapsible.init(collapsibles);
 
 //shows cloudinary upload widget, customized
 
-
 const myWidget = cloudinary.createUploadWidget({
     cloudName: 'wunderkammer', 
     uploadPreset: 'hmnjq4lg',
@@ -68,7 +64,7 @@ const myWidget = cloudinary.createUploadWidget({
     }
 );
 
-
+//wires upload button up to widget
 const videoUploadBtn = document.getElementById("video-upload-btn");
 if (videoUploadBtn) {
     videoUploadBtn.addEventListener("click", function () {
@@ -76,7 +72,6 @@ if (videoUploadBtn) {
     }, false
     );
 }
-
 
 //category select validation from CI's Tim Nelson
 
@@ -86,7 +81,7 @@ function validateMaterializeSelect() {
     let classInvalid = "border-bottom: 1px solid #f44336; box-shadow: 0 1px 0 0 #f44336;";
     let selectValidate = document.querySelector("select.validate");
     let selectWrapperInput = document.querySelector(".select-wrapper input.select-dropdown");
-    if (selectValidate.hasAttribute("required")) {
+    if (selectValidate != null && selectValidate.hasAttribute('required')) {
         selectValidate.style.cssText = "display: block; height: 0; padding: 0; width: 0; position: absolute;";
     }
     selectWrapperInput.addEventListener("focusin", (e) => {

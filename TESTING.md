@@ -46,7 +46,7 @@ Mobile:
 
 - All links in the navbar direct to the correct pages.
 - Three slider images with two sets of header on each introduce to the main purpose and functionality of the app.
-- "Featured Videos" shows a random selection of four videos.
+- "Featured Videos" shows a random selection of four videos. For practical purposes, videos currently uploaded are test videos only.
 
 
 **Log In page**
@@ -449,7 +449,7 @@ data from mongoDB.
 
 [W3C - CSS](https://jigsaw.w3.org/css-validator/) returned:
 
-![CSS Validator](css_validation.png)
+![CSS Validator](static/images/css_validation.png)
 
 
 
@@ -474,7 +474,8 @@ link up on the output of Flask Paginate.
 
 [JS Hint](https://jshint.com/) returned:
 
-![JS hint](hint_js.png) 
+
+![JS hint](static/images/hint_js.png) 
 
 
 
@@ -562,6 +563,11 @@ Solution: The upload widget should take a callback function as an argument. Once
 
 
 
+**Testing the Flask pagination extension failed as long as I had increased the PER_PAGE parameter to more videos than I had uploaded and was not aware that {{pagination.links}} does not kick in until that relationship is reversed, so the links did not show in my HTML**
+
+Solution: Descrease PER_PAGE to a number below the entirety of uploaded videos - only then did the links show in HTML
+
+
 **Paginate linting error**
 
 Alerted to in Gitpod:
@@ -570,6 +576,20 @@ Possible unbalanced tuple unpacking with sequence defined at line 233 of flask_p
 ```
 
 - Solution: running `app.py` through Flake8 does not show this to be an error.
+
+
+**Collapsibles on the for loop were not initialized except the first one which was hard coded in HTML
+
+You're not technically finding all collapsibles, and iterating over them to initialize them.
+﻿
+
+Try perhaps something using .querySelectorAll()
+﻿
+﻿Something like:
+﻿const collapsibles = document.querySelectorAll('.collapsible');
+﻿M.Collapsible.init(collapsibles);
+
+
 
 
 <div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
@@ -584,15 +604,21 @@ Possible unbalanced tuple unpacking with sequence defined at line 233 of flask_p
 This error occurs when a search was applied showing a number of results below the `PER_PAGE` pagination limit. 
 Ed Young has a solution in his TESTING.md but it did not work for my code.
 
-**Editing a video from the videos.html site, when option of cancel is chosen, leads user not back to video.html, but library.html**
+**Editing a video from the videos.html site, when option of cancel is chosen, leads user not back to videos.html, but library.html. Similarly, when edit option is chosen and completed, user is referred back to edit_video.html.**
 
-I would need to write another url_for
+This is a routing error which would occur if a logged in user sees one of his videos in the 'featured videos' section on videos.html and chooses to delete or edit her/his video from there directly. I will probably have to insert a if clauses to the edit/delete function saying that if user in session and operating on videos.html, then render_template to videos.html.
+
+**In terms of styling, the text-over-images in the slider its current state is still only a second-best solution even although markedly improved from how it was before. On smaller screens, there is a bit of text overflow which I failed to resolve.**  
+
+I have gone through a number of options, such as [overlays](
+https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css), text-over-image [hacks](
+https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide), and related [css-tricks](https://css-tricks.com/design-considerations-text-images/), but so far they have proven either incompatible with MaterializeCSS preconfigurations, or stylistically unappealing.   
+
+
+**Loading time too long for videos**
+
+**IDs can only appear once per HTML page**
 
 
 
-
-https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css
-
-https://css-tricks.com/design-considerations-text-images/
-
-https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide
+<div align="right"><a style="text-align:right" href="#top">Go to index :arrow_double_up:</a></div>
