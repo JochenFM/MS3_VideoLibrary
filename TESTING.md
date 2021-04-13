@@ -578,16 +578,9 @@ Possible unbalanced tuple unpacking with sequence defined at line 233 of flask_p
 - Solution: running `app.py` through Flake8 does not show this to be an error.
 
 
-**Collapsibles on the for loop were not initialized except the first one which was hard coded in HTML
+**Collapsibles on the for loop were not initialized except the first one which was hard coded in HTML**
 
-You're not technically finding all collapsibles, and iterating over them to initialize them.
-﻿
-
-Try perhaps something using .querySelectorAll()
-﻿
-﻿Something like:
-﻿const collapsibles = document.querySelectorAll('.collapsible');
-﻿M.Collapsible.init(collapsibles);
+In order to find all collapsibles and iterate over them, I defined a variable in JS with querySelectorAll over 'collapsibles', before I implemented the custom MaterializeCSS intitialization. 
 
 
 
@@ -614,10 +607,6 @@ I have gone through a number of options, such as [overlays](
 https://stackoverflow.com/questions/30113116/overlaying-an-image-with-text-in-materialize-css), text-over-image [hacks](
 https://www.slideteam.net/blog/11-hacks-to-make-text-over-images-more-readable-craft-a-stunning-slide), and related [css-tricks](https://css-tricks.com/design-considerations-text-images/), but so far they have proven either incompatible with MaterializeCSS preconfigurations, or stylistically unappealing.   
 
-
-**Loading time too long for videos**
-
-**IDs can only appear once per HTML page**
 
 
 

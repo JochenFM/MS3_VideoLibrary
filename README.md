@@ -171,8 +171,13 @@ To add to the physicality of all cards, video coallapsibles and containers, the 
 ### Database model
 
 MongoDB's non-relational database structure makes sense for this type of site as there are only a few relationships between the various collections. My database model looks as follows: ![dataschema](wireframes/ms3_video_dataschema.png)
+
 As can be seen, I originally planned with five collections - users, videos, liking, categories, and profile images - to order the relations between users and videos. My actual implementation deviates from this model in that the site due to time constraints operates with only three collections: users, categories, and videos. Profile images, that users should be able to upload, as well as the liking option for videos will have to be implemented at a later stage.    
-Also, number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envision it being captured in the video recordings.
+The schema also contains a number of logical and syntactical mistakes which I became only aware as I went along: 
+- Categories collection must be identified by category_id as an ObjectId in first line of the table, as rectified in description below.
+- As my mentor pointed out, usernames can change (even although this is not implemented in current state), so relationship should be made between user_id and created_by rather than between username and created_by.
+
+Number of categories was substantially increased in the middle of the project to capture the broad scope of the history of science and technology as I envision it being captured in the video recordings.
 
  
 
@@ -544,7 +549,7 @@ kindly helped me with setting up the Cloudinary upload widget, to code the JS ca
 
 Some MS3s were a great inspiration for this project, especially Audrey Lloancy's [Cocktail App](https://sante-cocktail.herokuapp.com/), Sean Young's [Plum Recipes](https://sante-cocktail.herokuapp.com/).
 
-Thanks also to my mentor [Adegbenga Adeye](https://github.com/deye9) for encouraging me to try and code a video library.
+Thanks also to my mentor [Adegbenga Adeye](https://github.com/deye9) for encouraging me to try and code a video library, and for pointing out some crucial errors prior to submitting.
 
 
 ### Image Credits
